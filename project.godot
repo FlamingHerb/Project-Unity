@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Project Unity"
+run/main_scene="res://scene/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
 
 [rendering]
 
