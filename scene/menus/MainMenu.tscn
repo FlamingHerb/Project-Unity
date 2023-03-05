@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cowd8lww2sy4u"]
+[gd_scene load_steps=8 format=3 uid="uid://cowd8lww2sy4u"]
 
 [ext_resource type="Texture2D" uid="uid://wi4qmpmkigos" path="res://assets/graphics/TitleScreen.png" id="1_mgcf3"]
 [ext_resource type="Script" path="res://scene/menus/MainMenu.gd" id="1_rynt0"]
+[ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/Settings.tscn" id="3_pluqi"]
+[ext_resource type="PackedScene" uid="uid://dc4dp6mlsimxo" path="res://scene/menus/NewGame.tscn" id="4_63w7t"]
+[ext_resource type="PackedScene" uid="uid://y50tqx50niub" path="res://scene/menus/LoadGame.tscn" id="4_n6pvk"]
+[ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/Help.tscn" id="6_0sc3y"]
+[ext_resource type="PackedScene" uid="uid://biratu1kw11v1" path="res://scene/menus/About.tscn" id="7_exvcy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,61 +23,72 @@ offset_right = 40.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_mgcf3")
 
-[node name="ButtonGroup" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -338.0
-offset_right = 183.0
-grow_vertical = 0
-alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 512.0
+offset_right = 644.0
+offset_bottom = 622.0
 
-[node name="NewGame" type="Button" parent="ButtonGroup"]
+[node name="Top Group" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NewGame" type="Button" parent="VBoxContainer/Top Group"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "New Game"
-flat = true
-alignment = 0
 
-[node name="LoadGame" type="Button" parent="ButtonGroup"]
+[node name="LoadGame" type="Button" parent="VBoxContainer/Top Group"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Load Game"
-flat = true
-alignment = 0
 
-[node name="Settings" type="Button" parent="ButtonGroup"]
+[node name="Settings" type="Button" parent="VBoxContainer/Top Group"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings"
-flat = true
-alignment = 0
 
-[node name="Help" type="Button" parent="ButtonGroup"]
+[node name="Bottom Group" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Help" type="Button" parent="VBoxContainer/Bottom Group"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Help"
-flat = true
-alignment = 0
 
-[node name="About" type="Button" parent="ButtonGroup"]
+[node name="About" type="Button" parent="VBoxContainer/Bottom Group"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "About"
-flat = true
-alignment = 0
 
-[node name="Exit" type="Button" parent="ButtonGroup"]
+[node name="Exit" type="Button" parent="VBoxContainer/Bottom Group"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Exit"
-flat = true
-alignment = 0
 
-[connection signal="pressed" from="ButtonGroup/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="ButtonGroup/LoadGame" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="ButtonGroup/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="ButtonGroup/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="ButtonGroup/About" to="." method="_on_about_pressed"]
-[connection signal="pressed" from="ButtonGroup/Exit" to="." method="_on_exit_pressed"]
+[node name="NewGame" parent="." instance=ExtResource("4_63w7t")]
+visible = false
+layout_mode = 1
+
+[node name="LoadGame" parent="." instance=ExtResource("4_n6pvk")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." instance=ExtResource("3_pluqi")]
+visible = false
+layout_mode = 1
+
+[node name="Help" parent="." instance=ExtResource("6_0sc3y")]
+visible = false
+layout_mode = 1
+
+[node name="About" parent="." instance=ExtResource("7_exvcy")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/Top Group/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Top Group/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Top Group/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bottom Group/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bottom Group/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bottom Group/Exit" to="." method="_on_exit_pressed"]

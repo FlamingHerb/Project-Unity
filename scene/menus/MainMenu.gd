@@ -15,23 +15,23 @@ func _process(delta):
 #===============================================================================
 
 func _on_new_game_pressed():
-	pass # Replace with function body.
+	$NewGame.show()
 
 
 func _on_load_game_pressed():
-	pass # Replace with function body.
+	$LoadGame.show()
 
 
 func _on_settings_pressed():
-	pass # Replace with function body.
+	$Settings.show()
 
 
 func _on_help_pressed():
-	pass # Replace with function body.
+	$Help.show()
 
 
 func _on_about_pressed():
-	pass # Replace with function body.
+	$About.show()
 
 
 func _on_exit_pressed():
