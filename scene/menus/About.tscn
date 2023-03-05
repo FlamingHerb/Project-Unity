@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://biratu1kw11v1"]
+[gd_scene load_steps=3 format=3 uid="uid://biratu1kw11v1"]
 
 [ext_resource type="Script" path="res://Scene/Menus/About.gd" id="1_aw5ll"]
+[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_x82oj"]
 
 [node name="About" type="Control"]
 layout_mode = 3
@@ -10,6 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aw5ll")
+
+[node name="Blur" parent="." instance=ExtResource("2_x82oj")]
+layout_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

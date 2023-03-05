@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cyetk5qyhct2n"]
+[gd_scene load_steps=3 format=3 uid="uid://dc4dp6mlsimxo"]
+
+[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_0vhu7"]
+[ext_resource type="Script" path="res://Scene/Menus/NewGame.gd" id="1_p674n"]
 
 [node name="NewGame" type="Control"]
 layout_mode = 3
@@ -7,6 +10,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p674n")
+
+[node name="Blur" parent="." instance=ExtResource("1_0vhu7")]
+layout_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -55,3 +62,5 @@ offset_bottom = 191.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

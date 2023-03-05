@@ -13,8 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_t7bgo")
 
 [node name="Blur" parent="." instance=ExtResource("2_bnp81")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

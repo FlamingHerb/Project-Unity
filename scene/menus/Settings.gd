@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_back_button_pressed():
-	pass # Replace with function body.
+	hide()
