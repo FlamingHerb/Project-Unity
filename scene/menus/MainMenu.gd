@@ -17,7 +17,6 @@ func _process(delta):
 func _on_new_game_pressed():
 	$NewGame.show()
 
-
 func _on_load_game_pressed():
 	$LoadGame.show()
 

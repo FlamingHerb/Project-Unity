@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_back_button_pressed():
 	hide()
+
+
+func _on_inventory_pressed():
+	pass # Replace with function body.

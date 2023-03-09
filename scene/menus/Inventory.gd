@@ -10,10 +10,5 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_back_button_pressed():
-	$Sprite2D.hide()
-	hide()
-
-
-func _on_inventory_pressed():
-	$Sprite2D.show()
+func _on_load_game_pressed():
+	$Inventory_Content.show()
