@@ -221,7 +221,7 @@ theme_override_constants/h_separation = 84
 theme_override_constants/v_separation = 20
 columns = 2
 
-[connection signal="pressed" from="BottomButtons/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BottomButtons/BackButton" to="." method="_on_backbutton_pressed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/MasterSoundSlider" to="." method="_on_master_sound_slider_value_changed"]
 [connection signal="toggled" from="DisplayGroup/WindowModeBoxes/WindowBox" to="." method="_on_window_box_toggled"]
 [connection signal="toggled" from="DisplayGroup/WindowModeBoxes/FullscreenBox" to="." method="_on_fullscreen_box_toggled"]

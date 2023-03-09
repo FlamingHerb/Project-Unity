@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1xaxrqk7a7rg"]
 
 [ext_resource type="Script" path="res://scene/menus/Help.gd" id="1_gjoyt"]
-[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_5jjuo"]
+[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://Scene/shaders/blur.tscn" id="2_5jjuo"]
 
 [node name="Help" type="Control"]
 layout_mode = 3

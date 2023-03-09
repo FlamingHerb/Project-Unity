@@ -11,10 +11,6 @@ func _process(delta):
 	pass
 
 
-func _on_back_button_pressed():
-	hide()
-
-
 #==============================================================================
 # ** Master Volume
 #------------------------------------------------------------------------------
@@ -64,3 +60,7 @@ func _on_vsync_button_toggled(button_pressed):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+
+func _on_backbutton_pressed():
+	hide()
