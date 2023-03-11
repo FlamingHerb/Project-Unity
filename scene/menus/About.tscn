@@ -63,4 +63,11 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
 
+[node name="AboutContent" type="RichTextLabel" parent="."]
+offset_left = 492.0
+offset_top = 310.0
+offset_right = 1100.0
+offset_bottom = 608.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus semper quam, vitae consequat risus sodales non. Sed eu purus auctor, bibendum elit non, suscipit felis. Aenean eget dui quis libero dapibus vestibulum. Nam ac risus tincidunt, ullamcorper velit ac, efficitur justo. Morbi malesuada neque sit amet nulla rutrum lacinia. Nulla facilisi. Duis et mi at turpis bibendum pulvinar. Quisque auctor felis in sapien congue, id vestibulum arcu convallis. Vivamus at velit nisl. Integer gravida nulla eget turpis luctus, eu volutpat eros lobortis. Maecenas finibus lectus at magna ultrices malesuada. Duis mollis, arcu eu euismod auctor, mi dui aliquet felis, vel fermentum est mi at nisl. Nulla facilisi. Sed vel libero quis metus hendrerit mattis. Curabitur posuere quam eu turpis fringilla congue."
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,16 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://1r54o3uo04vm"]
+[gd_scene load_steps=8 format=3 uid="uid://1r54o3uo04vm"]
 
 [ext_resource type="Texture2D" uid="uid://wi4qmpmkigos" path="res://assets/graphics/TitleScreen.png" id="1_mgcf3"]
 [ext_resource type="Script" path="res://scene/menus/MainMenu.gd" id="1_rynt0"]
 [ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/Settings.tscn" id="3_pluqi"]
 [ext_resource type="PackedScene" uid="uid://dc4dp6mlsimxo" path="res://scene/menus/NewGame.tscn" id="4_63w7t"]
 [ext_resource type="PackedScene" uid="uid://y50tqx50niub" path="res://scene/menus/LoadGame.tscn" id="4_n6pvk"]
-[ext_resource type="Texture2D" uid="uid://c2ph5akg0lg7q" path="res://assets/graphics/Inventory.png" id="5_cybgv"]
 [ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/Help.tscn" id="6_0sc3y"]
 [ext_resource type="PackedScene" uid="uid://biratu1kw11v1" path="res://scene/menus/About.tscn" id="7_exvcy"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6qlsk"]
-load_path = "res://.godot/imported/Help.png-0da90293a7da71fb3b60fbbb6a2e66f4.ctex"
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -74,20 +70,6 @@ text = "Exit"
 visible = false
 layout_mode = 1
 
-[node name="Inventory" type="Button" parent="NewGame"]
-layout_mode = 0
-offset_left = 715.0
-offset_top = 534.0
-offset_right = 895.0
-offset_bottom = 592.0
-text = "Inventory"
-
-[node name="Sprite2D" type="Sprite2D" parent="NewGame"]
-visible = false
-position = Vector2(797, 425)
-scale = Vector2(1.30469, 1.15679)
-texture = ExtResource("5_cybgv")
-
 [node name="LoadGame" parent="." instance=ExtResource("4_n6pvk")]
 visible = false
 layout_mode = 1
@@ -100,29 +82,9 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="Help_Content" type="RichTextLabel" parent="Help"]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 321.0
-offset_right = 919.0
-offset_bottom = 562.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Help"]
-position = Vector2(1060, 403.25)
-scale = Vector2(0.419315, 0.467248)
-texture = SubResource("CompressedTexture2D_6qlsk")
-
 [node name="About" parent="." instance=ExtResource("7_exvcy")]
 visible = false
 layout_mode = 1
-
-[node name="About_Content" type="RichTextLabel" parent="About"]
-layout_mode = 0
-offset_left = 492.0
-offset_top = 310.0
-offset_right = 1100.0
-offset_bottom = 608.0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus semper quam, vitae consequat risus sodales non. Sed eu purus auctor, bibendum elit non, suscipit felis. Aenean eget dui quis libero dapibus vestibulum. Nam ac risus tincidunt, ullamcorper velit ac, efficitur justo. Morbi malesuada neque sit amet nulla rutrum lacinia. Nulla facilisi. Duis et mi at turpis bibendum pulvinar. Quisque auctor felis in sapien congue, id vestibulum arcu convallis. Vivamus at velit nisl. Integer gravida nulla eget turpis luctus, eu volutpat eros lobortis. Maecenas finibus lectus at magna ultrices malesuada. Duis mollis, arcu eu euismod auctor, mi dui aliquet felis, vel fermentum est mi at nisl. Nulla facilisi. Sed vel libero quis metus hendrerit mattis. Curabitur posuere quam eu turpis fringilla congue."
 
 [connection signal="pressed" from="VBoxContainer/Top Group/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Top Group/LoadGame" to="." method="_on_load_game_pressed"]
@@ -130,4 +92,3 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibu
 [connection signal="pressed" from="VBoxContainer/Bottom Group/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bottom Group/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bottom Group/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="NewGame/Inventory" to="NewGame" method="_on_inventory_pressed"]
