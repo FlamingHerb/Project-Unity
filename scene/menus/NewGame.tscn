@@ -65,6 +65,7 @@ grow_vertical = 2
 text = "Back"
 
 [node name="Inventory" type="Button" parent="."]
+layout_mode = 0
 offset_left = 715.0
 offset_top = 534.0
 offset_right = 895.0
