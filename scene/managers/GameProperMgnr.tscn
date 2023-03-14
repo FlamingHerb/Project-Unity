@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd2qfsb67vthk"]
+
+[ext_resource type="Script" path="res://scene/managers/GameProperMgnr.gd" id="1_lmrdp"]
+[ext_resource type="PackedScene" uid="uid://bpwi77dqdbj5f" path="res://scene/menus/PauseMenu.tscn" id="2_apdul"]
+
+[node name="GameProperMngr" type="Node"]
+script = ExtResource("1_lmrdp")
+
+[node name="PauseButton" type="Button" parent="."]
+offset_right = 55.0
+offset_bottom = 31.0
+text = "Pause"
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_apdul")]
+visible = false
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

@@ -67,6 +67,7 @@ grow_vertical = 2
 text = "Back"
 
 [node name="Help_Content" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 321.0
 offset_right = 919.0

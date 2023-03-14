@@ -17,3 +17,7 @@ func _on_back_button_pressed():
 
 func _on_inventory_pressed():
 	$Sprite2D.show()
+
+
+func _on_new_game_button_pressed():
+	get_tree().change_scene_to_file("res://scene/managers/GameProperMgnr.tscn")
