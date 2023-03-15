@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpyex7m4n5bln"]
+[gd_scene load_steps=3 format=3 uid="uid://yitienbql1uy"]
 
-[ext_resource type="Script" path="res://GamePauseUI.gd" id="1_a7mlr"]
+[ext_resource type="Script" path="res://scene/gui/GamePauseUI.gd" id="1_4orwv"]
 [ext_resource type="PackedScene" uid="uid://bpwi77dqdbj5f" path="res://scene/menus/PauseMenu.tscn" id="2_x0g5k"]
 
 [node name="GamePauseUI" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_a7mlr")
+script = ExtResource("1_4orwv")
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 visible = false
