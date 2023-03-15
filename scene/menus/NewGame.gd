@@ -20,4 +20,6 @@ func _on_inventory_pressed():
 
 
 func _on_new_game_button_pressed():
-	get_tree().change_scene_to_file("res://scene/managers/GameProperMgnr.tscn")
+	SceneManager.goto_scene("res://scene/levels/levelexample1.tscn")
+	GamePauseUI.toggle_ui(true)
+	#GamePauseUi.get_node("PauseCanvasLayer").show() # This has to be the most shittiest way to do stuff oml
