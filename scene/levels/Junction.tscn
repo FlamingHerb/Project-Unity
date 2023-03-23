@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyao240wa3o1y"]
+
+[ext_resource type="Script" path="res://scene/levels/levelexample2.gd" id="1_oqb64"]
+[ext_resource type="Texture2D" uid="uid://clga6nlwq6x10" path="res://assets/graphics/background/OpenRoom(WithoutKey).jpg" id="2_8jf0j"]
+
+[node name="LevelExample" type="Node"]
+script = ExtResource("1_oqb64")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.833, 0.833)
+texture = ExtResource("2_8jf0j")
+centered = false
+
+[node name="OpenDoor" type="Area2D" parent="."]
+
+[node name="OpenDoorCollision" type="CollisionPolygon2D" parent="OpenDoor"]
+position = Vector2(64, 88)
+polygon = PackedVector2Array(0, 0, 156, 12, 171, 439, 8, 488)
+
+[node name="ClosedDoor" type="Area2D" parent="."]
+
+[node name="ClosedDoorCollision" type="CollisionPolygon2D" parent="ClosedDoor"]
+position = Vector2(739, 115)
+polygon = PackedVector2Array(-11, -5, 544, -6, 531, 454, -10, 426)
+
+[connection signal="input_event" from="OpenDoor" to="." method="_on_open_door_input_event"]
+[connection signal="input_event" from="ClosedDoor" to="." method="_on_closed_door_input_event"]
