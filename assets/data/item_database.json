@@ -1,38 +1,7 @@
-[
-    {
-      "id": 0,
-      "name": "Key (debug)",
+{
+    "debug_key": {
       "short_name": "debug_key",
+      "name": "Key (debug)",
       "description": "A key lying in a table."
-    },
-    {
-      "id": 1,
-      "name": null,
-      "short_name": null,
-      "description": null
-    },
-    {
-      "id": 2,
-      "name": null,
-      "short_name": null,
-      "description": null
-    },
-    {
-      "id": 3,
-      "name": null,
-      "short_name": null,
-      "description": null
-    },
-    {
-      "id": 4,
-      "name": null,
-      "short_name": null,
-      "description": null
-    },
-    {
-      "id": 5,
-      "name": null,
-      "short_name": null,
-      "description": null
     }
-  ]
+  }

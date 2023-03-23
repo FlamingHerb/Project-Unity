@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpwi77dqdbj5f"]
+[gd_scene load_steps=4 format=3 uid="uid://bpwi77dqdbj5f"]
 
 [ext_resource type="Script" path="res://Scene/Menus/PauseMenu.gd" id="1_t7bgo"]
-[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://Scene/shaders/blur.tscn" id="2_bnp81"]
+[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_bnp81"]
+[ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/Settings.tscn" id="3_njooi"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -79,5 +80,26 @@ grow_vertical = 2
 text = "Quit
 "
 
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -15.5
+offset_right = 35.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="OtherMenuModals" type="Node" parent="."]
+
+[node name="Settings" parent="OtherMenuModals" instance=ExtResource("3_njooi")]
+visible = false
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_pressed"]
