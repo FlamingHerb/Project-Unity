@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 DialogueScreen="*res://scene/gui/DialogueScreen.tscn"
 GamePauseUI="*res://scene/gui/GamePauseUI.tscn"
 SceneManager="*res://scene/managers/SceneManager.gd"
+Inventory="*res://scene/managers/Inventory.gd"
 
 [display]
 
