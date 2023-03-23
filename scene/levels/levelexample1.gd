@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	pass # Replace with function body.
+	#SceneManager.goto_scene()
+	pass
