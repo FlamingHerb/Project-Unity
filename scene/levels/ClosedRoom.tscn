@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk82ftjpyilwv"]
+[gd_scene load_steps=4 format=3 uid="uid://dk82ftjpyilwv"]
 
 [ext_resource type="Script" path="res://scene/levels/ClosedRoom.gd" id="1_ialip"]
 [ext_resource type="Texture2D" uid="uid://datwldsfo5i5t" path="res://assets/graphics/background/ClosedRoom.jpg" id="2_v0vxu"]
+[ext_resource type="PackedScene" uid="uid://vqr8unnrusa7" path="res://scene/gui/DialogueScreen.tscn" id="3_pkts7"]
 
 [node name="ClosedRoom" type="Node"]
 script = ExtResource("1_ialip")
@@ -15,5 +16,7 @@ texture = ExtResource("2_v0vxu")
 
 [node name="ClosedDoorCollision" type="CollisionPolygon2D" parent="ClosedDoor"]
 polygon = PackedVector2Array(108, 145, 123, 676, 623, 623, 628, 515, 649, 515, 651, 526, 715, 565, 743, 563, 740, 154)
+
+[node name="DialogueHUD" parent="." instance=ExtResource("3_pkts7")]
 
 [connection signal="input_event" from="ClosedDoor" to="." method="_on_closed_door_input_event"]

@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://vqr8unnrusa7"]
+[gd_scene load_steps=3 format=3 uid="uid://vqr8unnrusa7"]
+
+[ext_resource type="Script" path="res://scene/gui/DialogueScreen.gd" id="1_nq3g2"]
+[ext_resource type="PackedScene" uid="uid://3ohklq8vgulp" path="res://scene/gui/TextLog.tscn" id="2_k3vc0"]
 
 [node name="DialogueHUD" type="Control"]
 layout_mode = 3
@@ -8,3 +11,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_nq3g2")
+
+[node name="TextLog" parent="." instance=ExtResource("2_k3vc0")]
+layout_mode = 1
+
+[node name="TextLogButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 764.0
+offset_right = 897.0
+offset_bottom = 799.0
+text = "TEXT LOG"
+
+[connection signal="pressed" from="TextLogButton" to="TextLog" method="_on_text_log_button_pressed"]
