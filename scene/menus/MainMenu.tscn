@@ -68,14 +68,7 @@ text = "Exit"
 
 [node name="NewGame" parent="." instance=ExtResource("3_os162")]
 visible = false
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 403.0
-offset_top = 569.0
-offset_right = 403.0
-offset_bottom = 622.0
+layout_mode = 1
 
 [node name="LoadGame" parent="." instance=ExtResource("4_n6pvk")]
 visible = false
