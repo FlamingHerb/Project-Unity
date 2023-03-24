@@ -11,17 +11,17 @@ config_version=5
 [application]
 
 config/name="Project Unity"
-run/main_scene="res://scene/menus/MainMenu.tscn"
+run/main_scene="res://scene/menus/mainmenu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-DialogueScreen="*res://scene/gui/DialogueScreen.tscn"
-GamePauseUI="*res://scene/gui/GamePauseUI.tscn"
-SceneManager="*res://scene/managers/SceneManager.gd"
-Inventory="*res://scene/managers/Inventory.gd"
-GlobalDatabase="*res://scene/managers/GlobalDatabase.gd"
+DialogueScreen="*res://scene/gui/dialoguescreen.tscn"
+GamePauseUI="*res://scene/gui/gamepauseui.tscn"
+SceneManager="*res://scene/managers/scenemanager.gd"
+Inventory="*res://scene/managers/inventory.gd"
+GlobalDatabase="*res://scene/managers/globaldatabase.gd"
 
 [display]
 

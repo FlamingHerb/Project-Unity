@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://smav7ilugg5n"]
 
-[ext_resource type="Shader" path="res://scene/menus/Blur.gdshader" id="1_280p3"]
+[ext_resource type="Shader" path="res://scene/menus/blur.gdshader" id="1_280p3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_leon5"]
 shader = ExtResource("1_280p3")

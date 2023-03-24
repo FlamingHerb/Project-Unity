@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://biratu1kw11v1"]
 
-[ext_resource type="Script" path="res://Scene/Menus/About.gd" id="1_aw5ll"]
+[ext_resource type="Script" path="res://Scene/Menus/about.gd" id="1_aw5ll"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_x82oj"]
 
 [node name="About" type="Control"]

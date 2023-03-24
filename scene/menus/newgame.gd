@@ -20,6 +20,6 @@ func _on_inventory_pressed():
 
 
 func _on_new_game_button_pressed():
-	SceneManager.goto_scene("res://scene/levels/Junction.tscn")
+	SceneManager.goto_scene("res://scene/levels/junction.tscn")
 	GamePauseUI.toggle_ui(true)
 	#GamePauseUi.get_node("PauseCanvasLayer").show() # This has to be the most shittiest way to do stuff oml

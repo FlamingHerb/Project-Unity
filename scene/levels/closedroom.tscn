@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk82ftjpyilwv"]
 
-[ext_resource type="Script" path="res://scene/levels/ClosedRoom.gd" id="1_ialip"]
-[ext_resource type="Texture2D" uid="uid://datwldsfo5i5t" path="res://assets/graphics/background/ClosedRoom.jpg" id="2_v0vxu"]
+[ext_resource type="Script" path="res://scene/levels/closedroom.gd" id="1_ialip"]
+[ext_resource type="Texture2D" uid="uid://datwldsfo5i5t" path="res://assets/graphics/background/closedroom.jpg" id="2_v0vxu"]
 
 [node name="ClosedRoom" type="Node"]
 script = ExtResource("1_ialip")

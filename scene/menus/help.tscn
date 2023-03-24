@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://1xaxrqk7a7rg"]
 
-[ext_resource type="Script" path="res://scene/menus/Help.gd" id="1_gjoyt"]
+[ext_resource type="Script" path="res://scene/menus/help.gd" id="1_gjoyt"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_5jjuo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qs15q"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://y50tqx50niub"]
 
-[ext_resource type="Script" path="res://scene/menus/LoadGame.gd" id="1_8lg7u"]
+[ext_resource type="Script" path="res://scene/menus/loadgame.gd" id="1_8lg7u"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_efclp"]
 
 [node name="LoadGame" type="Control"]

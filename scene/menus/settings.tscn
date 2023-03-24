@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ormgbvgat7ix"]
 
-[ext_resource type="Script" path="res://Scene/Menus/Settings.gd" id="1_xrsgm"]
+[ext_resource type="Script" path="res://Scene/Menus/settings.gd" id="1_xrsgm"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_807t0"]
-[ext_resource type="ButtonGroup" uid="uid://bileq27pqclby" path="res://scene/menus/Settings/WindowMode.tres" id="3_ac5y8"]
+[ext_resource type="ButtonGroup" uid="uid://bileq27pqclby" path="res://scene/menus/Settings/windowmode.tres" id="3_ac5y8"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3

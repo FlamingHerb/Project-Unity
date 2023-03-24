@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dc4dp6mlsimxo"]
 
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_0vhu7"]
-[ext_resource type="Script" path="res://Scene/Menus/NewGame.gd" id="1_p674n"]
+[ext_resource type="Script" path="res://Scene/Menus/newgame.gd" id="1_p674n"]
 
 [node name="NewGame" type="Control"]
 layout_mode = 3

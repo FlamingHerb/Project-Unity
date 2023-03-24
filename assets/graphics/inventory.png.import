@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clga6nlwq6x10"
-path="res://.godot/imported/OpenRoom(WithoutKey).jpg-96feefcca5126c92113c7398a589747e.ctex"
+uid="uid://c2ph5akg0lg7q"
+path="res://.godot/imported/inventory.png-20d1c505492b6f358a6f61cd1035cdb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/OpenRoom(WithoutKey).jpg"
-dest_files=["res://.godot/imported/OpenRoom(WithoutKey).jpg-96feefcca5126c92113c7398a589747e.ctex"]
+source_file="res://assets/graphics/inventory.png"
+dest_files=["res://.godot/imported/inventory.png-20d1c505492b6f358a6f61cd1035cdb5.ctex"]
 
 [params]
 

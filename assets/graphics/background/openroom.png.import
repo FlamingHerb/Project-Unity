@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datwldsfo5i5t"
-path="res://.godot/imported/ClosedRoom.jpg-160dac7f9b0dea8e400b9205b2baf6a8.ctex"
+uid="uid://d3mqqfv14yfum"
+path="res://.godot/imported/openroom.png-3d9f6bb3b1e439826a6f3445f6eaac19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/ClosedRoom.jpg"
-dest_files=["res://.godot/imported/ClosedRoom.jpg-160dac7f9b0dea8e400b9205b2baf6a8.ctex"]
+source_file="res://assets/graphics/background/openroom.png"
+dest_files=["res://.godot/imported/openroom.png-3d9f6bb3b1e439826a6f3445f6eaac19.ctex"]
 
 [params]
 

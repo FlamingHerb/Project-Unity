@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deurn74t2qrfh"
-path="res://.godot/imported/Hallway.jpg-3ed191d4e78b808405789035578b39a5.ctex"
+uid="uid://clga6nlwq6x10"
+path="res://.godot/imported/openroom(withoutkey).jpg-24e1ac67831d4c1270b9fb4e9eb61607.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/Hallway.jpg"
-dest_files=["res://.godot/imported/Hallway.jpg-3ed191d4e78b808405789035578b39a5.ctex"]
+source_file="res://assets/graphics/background/openroom(withoutkey).jpg"
+dest_files=["res://.godot/imported/openroom(withoutkey).jpg-24e1ac67831d4c1270b9fb4e9eb61607.ctex"]
 
 [params]
 
