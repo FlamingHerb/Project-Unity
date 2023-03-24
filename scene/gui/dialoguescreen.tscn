@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://vqr8unnrusa7"]
+[gd_scene load_steps=3 format=3 uid="uid://vqr8unnrusa7"]
+
+[ext_resource type="Script" path="res://scene/gui/dialoguescreen.gd" id="1_r3yfn"]
+[ext_resource type="PackedScene" uid="uid://3ohklq8vgulp" path="res://scene/gui/textlog.tscn" id="1_u72on"]
 
 [node name="DialogueHUD" type="Control"]
 layout_mode = 3
@@ -8,3 +11,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_r3yfn")
+
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextLogButton" type="Button" parent="DialogueLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_bottom = 36.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "Text Log"
+
+[node name="TextLog" parent="DialogueLayer" instance=ExtResource("1_u72on")]
+visible = false
+
+[connection signal="pressed" from="DialogueLayer/TextLogButton" to="." method="_on_text_log_button_pressed"]
