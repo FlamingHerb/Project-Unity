@@ -69,6 +69,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fa24p")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextLogCanvasLayer/MarginContainer/MarginContainer"]
 layout_mode = 2
+text = "Doctor: \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus semper quam, vitae consequat risus sodales non.\"
+
+Nurse: \"Sed eu purus auctor, bibendum elit non, suscipit felis. Aenean eget dui quis libero dapibus vestibulum. Nam ac risus tincidunt, ullamcorper velit ac, efficitur justo. Morbi malesuada neque sit amet nulla rutrum lacinia. Nulla facilisi. Duis et mi at turpis bibendum pulvinar. Quisque auctor felis in sapien congue, id vestibulum arcu convallis. Vivamus at velit nisl. Integer gravida nulla eget turpis luctus, eu volutpat eros lobortis. Maecenas finibus lectus at magna ultrices malesuada. Duis mollis, arcu eu euismod auctor, mi dui aliquet felis, vel fermentum est mi at nisl. Nulla facilisi. Sed vel libero quis metus hendrerit mattis. Curabitur posuere quam eu turpis fringilla congue.\""
 
 [node name="Close" type="Button" parent="TextLogCanvasLayer"]
 offset_left = 792.0
