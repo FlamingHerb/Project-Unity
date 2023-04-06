@@ -10,7 +10,7 @@ extends Control
 #	rich_text_label.bbcode_text = story_log
 	
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func lik_ready():
 #	# Character dialogue
 #	update_story_log("The mystery begins...\n")
 #	update_story_log("You find yourself standing in front of a grand mansion on a stormy night.")
