@@ -13,11 +13,11 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_r3yfn")
 
-[node name="TextLog" type="CanvasLayer" parent="."]
+[node name="TextLogLayer" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
-[node name="TextLogButton" type="Button" parent="TextLog"]
+[node name="TextLogButton" type="Button" parent="TextLogLayer"]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "Text Log"
 
-[node name="TextLog" parent="TextLog" instance=ExtResource("1_u72on")]
+[node name="TextLog" parent="TextLogLayer" instance=ExtResource("1_u72on")]
 visible = false
 
 [node name="DialogueBox" type="CanvasLayer" parent="."]
@@ -40,4 +40,4 @@ offset_bottom = 40.0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="pressed" from="TextLog/TextLogButton" to="." method="_on_text_log_button_pressed"]
+[connection signal="pressed" from="TextLogLayer/TextLogButton" to="." method="_on_text_log_button_pressed"]

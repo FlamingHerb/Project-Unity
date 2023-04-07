@@ -29,9 +29,9 @@ func _process(delta):
 
 func toggle_ui(value):
 	if value:
-		$DialogueLayer.show()
+		$TextLogLayer.show()
 	else:
-		$DialogueLayer.hide()
+		$TextLogLayer.hide()
 
 func _on_text_log_button_pressed():
-	$DialogueLayer/TextLog/TextLogCanvasLayer.show()
+	$TextLogLayer/TextLog/TextLogCanvasLayer.show()
