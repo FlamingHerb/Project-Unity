@@ -25,6 +25,8 @@ func lik_ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if $DialogueBox.is_visible():
+		self.mouse_filter = Control.MOUSE_FILTER_STOP;
 	pass
 
 func toggle_ui(value):
