@@ -34,4 +34,7 @@ func toggle_ui(value):
 		$TextLogLayer.hide()
 
 func _on_text_log_button_pressed():
-	$TextLogLayer/TextLog/TextLogCanvasLayer.show()
+	$TextLogLayer/TextLog.show()
+
+func _on_text_log_close_button_pressed():
+	$TextLogLayer/TextLog.hide()
