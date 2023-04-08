@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyao240wa3o1y"]
+[gd_scene load_steps=5 format=3 uid="uid://cyao240wa3o1y"]
 
 [ext_resource type="Script" path="res://scene/levels/levelexample2.gd" id="1_oqb64"]
 [ext_resource type="Texture2D" uid="uid://clga6nlwq6x10" path="res://assets/graphics/background/openroom(withoutkey).jpg" id="2_8jf0j"]
 [ext_resource type="Texture2D" uid="uid://d3mqqfv14yfum" path="res://assets/graphics/background/openroom.png" id="3_d7oal"]
+
+[sub_resource type="GDScript" id="GDScript_p4p2w"]
+resource_name = "keyitem"
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if \"debug_key\" in Inventory.current_items: # Checks if item is already in person.
+		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="LevelExample" type="Node"]
 script = ExtResource("1_oqb64")
@@ -30,6 +46,7 @@ offset_right = 630.0
 offset_bottom = 931.0
 scale = Vector2(0.833, 0.833)
 texture_normal = ExtResource("3_d7oal")
+script = SubResource("GDScript_p4p2w")
 
 [connection signal="input_event" from="OpenDoor" to="." method="_on_open_door_input_event"]
 [connection signal="input_event" from="ClosedDoor" to="." method="_on_closed_door_input_event"]
