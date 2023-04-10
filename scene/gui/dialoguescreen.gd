@@ -20,12 +20,12 @@ func _process(delta):
 func toggle_ui(value):
 	if value:
 		dialogue_layer.show()
-		dialogue_box.show()
-		dialogue_characters.show()
+		#dialogue_box.show()
+		#dialogue_characters.show()
 	else:
 		dialogue_layer.hide()
-		dialogue_box.hide()
-		dialogue_characters.hide()
+		#dialogue_box.hide()
+		#dialogue_characters.hide()
 
 func _on_text_log_button_pressed():
 	textlog.show()
@@ -44,9 +44,9 @@ func _on_text_log_close_button_pressed():
 
 func _dialogue_visibility_checker():
 	if dialogue_box.is_visible():
-		self.mouse_filter = Control.MOUSE_FILTER_STOP;
+		dialogue_box.mouse_filter = Control.MOUSE_FILTER_STOP;
 	else:
-		self.mouse_filter = Control.MOUSE_FILTER_PASS;
+		dialogue_box.mouse_filter = Control.MOUSE_FILTER_PASS;
 
 ## Dialogue Related Functions
 ## END
