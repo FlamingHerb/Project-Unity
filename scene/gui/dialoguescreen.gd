@@ -6,6 +6,8 @@ extends Control
 
 @onready var dialogue_layer = $DialogueLayer
 @onready var textlog = $DialogueLayer/TextLog
+@onready var dialogue_box = $DialogueLayer/DialogueBox
+@onready var dialogue_characters = $DialogueLayer/DialogueCharacters
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,8 +20,12 @@ func _process(delta):
 func toggle_ui(value):
 	if value:
 		dialogue_layer.show()
+		dialogue_box.show()
+		dialogue_characters.show()
 	else:
 		dialogue_layer.hide()
+		dialogue_box.hide()
+		dialogue_characters.hide()
 
 func _on_text_log_button_pressed():
 	textlog.show()
@@ -37,7 +43,7 @@ func _on_text_log_close_button_pressed():
 
 
 func _dialogue_visibility_checker():
-	if $DialogueLayer/DialogueBox.is_visible():
+	if dialogue_box.is_visible():
 		self.mouse_filter = Control.MOUSE_FILTER_STOP;
 	else:
 		self.mouse_filter = Control.MOUSE_FILTER_PASS;

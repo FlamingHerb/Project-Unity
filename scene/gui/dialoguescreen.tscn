@@ -59,13 +59,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
@@ -80,6 +79,7 @@ anchor_bottom = 1.0
 offset_top = -818.0
 offset_right = 500.0
 grow_vertical = 0
+mouse_filter = 0
 texture = ExtResource("2_nq1me")
 
 [node name="CenterSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
@@ -94,6 +94,7 @@ offset_top = -818.0
 offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 0
 texture = ExtResource("2_nq1me")
 
 [node name="RightSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
@@ -108,13 +109,16 @@ offset_left = -500.0
 offset_top = -818.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 0
 texture = ExtResource("2_nq1me")
 
 [node name="DialogueBox" type="Control" parent="DialogueLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1600.0
+offset_bottom = 900.0
+mouse_filter = 1
 
 [node name="PlaceHolderBackground" type="ColorRect" parent="DialogueLayer/DialogueBox"]
 layout_mode = 1
@@ -123,15 +127,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = 608.0
-offset_right = 1580.0
-offset_bottom = 860.0
+offset_left = -800.0
+offset_top = -252.0
+offset_right = 800.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.588235)
 
 [node name="DialogueActorName" type="RichTextLabel" parent="DialogueLayer/DialogueBox"]
+layout_mode = 0
 offset_left = 395.0
 offset_top = 661.0
 offset_right = 941.0
@@ -144,6 +148,7 @@ theme_override_font_sizes/mono_font_size = 30
 text = "Sample "
 
 [node name="DialogueText" type="RichTextLabel" parent="DialogueLayer/DialogueBox"]
+layout_mode = 0
 offset_left = 356.0
 offset_top = 703.0
 offset_right = 1245.0
@@ -157,6 +162,7 @@ text = "Sample Text "
 scroll_active = false
 
 [node name="ColorRect" type="ColorRect" parent="DialogueLayer/DialogueBox"]
+layout_mode = 0
 offset_left = 1215.51
 offset_top = 841.0
 offset_right = 1245.44
@@ -227,6 +233,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vqdbj")
 
 [node name="TextLogText" type="RichTextLabel" parent="DialogueLayer/TextLog/MarginContainer/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="TextLogCloseButton" type="Button" parent="DialogueLayer/TextLog"]
 layout_mode = 1

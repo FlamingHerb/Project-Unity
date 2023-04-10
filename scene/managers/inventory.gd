@@ -8,9 +8,7 @@ func _ready():
 
 
 func add_item(item_id):
-	print(GlobalDatabase.item_database[item_id])
 	current_items[item_id] = GlobalDatabase.item_database[item_id]
-	print("Current items: ", current_items)
 	
 func check_item(item_id):
 	if current_items and current_items.has(item_id):
