@@ -103,6 +103,12 @@ text = "Close"
 [node name="DialogueBox" type="CanvasLayer" parent="."]
 visible = false
 
+[node name="Control" type="Control" parent="DialogueBox"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="PlaceHolderBackground" type="ColorRect" parent="DialogueBox"]
 anchors_preset = 7
 anchor_left = 0.5
