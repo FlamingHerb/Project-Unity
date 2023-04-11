@@ -4,7 +4,7 @@
         "speaker": "standin",
         "emotion": "neutral",
 				"position": "left",
-        "text": "In eu exercitation excepteur in elit qui sit do veniam sint aute mollit dolore.",
+        "text": "Oh my oh my God.",
         "commands": [
             "001",
             "example command"
@@ -15,7 +15,7 @@
     "speaker": "standin",
     "emotion": "neutral",
     "position": "left",
-    "text": "Ea laborum anim dolore anim officia sit fugiat enim fugiat.",
+    "text": "Yesanghaesseo na.",
     "commands": [
         "002",
         "example command"
@@ -27,7 +27,7 @@
     "speaker": "standin",
     "emotion": "neutral",
     "position": "left",
-    "text": "Ea laborum anim dolore anim officia sit fugiat enim fugiat.",
+    "text": "I was really hoping.",
     "commands": [
         "end",
         "example command"

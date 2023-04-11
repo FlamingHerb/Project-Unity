@@ -36,6 +36,9 @@ func _process(_delta):
 		State.READING:
 			pass
 		State.FINISHED:
+			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"): #originall ui_accept
+				_process_dialogue(dialogue_next_id)
+				dialogue_next_indicator.hide()
 			pass
 	pass
 
@@ -65,18 +68,32 @@ func _on_text_log_close_button_pressed():
 ## Dialogue Related Functions
 ## START
 
+# Clears data for the next sequence of events.
+func _clear_data():
+	json_databank = null
+	dialogue_next_id = null
+	
+	dialogue_box.hide()
+	dialogue_characters.hide()
+	_dialogue_visibility_checker()
+
+	change_state(State.READY)
+
 # Loads the appropriate JSON Dialogue databank for the following scene.
 # Rememeber that ID 000 will consequently be—and always—the first dialogue when loading.
 func init_dialogue(path):
 	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
 	dialogue_box.show()
 	dialogue_characters.show()
-
 	_dialogue_visibility_checker()
 	_process_dialogue("000")
 
 # Processes current dialogue by the game.
 func _process_dialogue(dialogue_id):
+	if dialogue_next_id == "end":
+		_clear_data()
+		return
+
 	dialogue_tween = get_tree().create_tween()
 	var current_dialogue_data = json_databank[dialogue_id]
 	dialogue_box_text.visible_ratio = 0
