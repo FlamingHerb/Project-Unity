@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/menus/settings.gd" id="1_xrsgm"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_807t0"]
-[ext_resource type="ButtonGroup" uid="uid://bileq27pqclby" path="res://scene/menus/Settings/windowmode.tres" id="3_ac5y8"]
+[ext_resource type="ButtonGroup" uid="uid://bileq27pqclby" path="res://scene/menus/settings/windowmode.tres" id="3_ac5y8"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -221,6 +221,9 @@ theme_override_constants/h_separation = 84
 theme_override_constants/v_separation = 20
 columns = 2
 
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="pressed" from="BottomButtons/RestoreDefaultButton" to="." method="_on_restore_default_button_pressed"]
 [connection signal="pressed" from="BottomButtons/BackButton" to="." method="_on_backbutton_pressed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/MasterSoundSlider" to="." method="_on_master_sound_slider_value_changed"]
 [connection signal="toggled" from="DisplayGroup/WindowModeBoxes/WindowBox" to="." method="_on_window_box_toggled"]
