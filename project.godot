@@ -28,6 +28,8 @@ GamePauseUI="*res://scene/gui/gamepauseui.tscn"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/size/initial_position_type=2
+window/size/initial_screen=1
 window/stretch/mode="canvas_items"
 
 [input]

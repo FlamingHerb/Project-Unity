@@ -4,21 +4,39 @@ extends Control
 ##
 ## Pretty much self-explanatory. Divided into two parts. The text log and the dialogue system. Also the responses are also there.
 
+enum State {
+	READY,
+	READING,
+	FINISHED
+}
+
 @onready var dialogue_layer = $DialogueLayer
 @onready var textlog = $DialogueLayer/TextLog
 @onready var dialogue_box = $DialogueLayer/DialogueBox
 @onready var dialogue_box_text = $DialogueLayer/DialogueBox/DialogueText
 @onready var dialogue_box_speaker = $DialogueLayer/DialogueBox/DialogueActorName
+@onready var dialogue_next_indicator = $DialogueLayer/DialogueBox/NextIndicator
 @onready var dialogue_characters = $DialogueLayer/DialogueCharacters
-#@onready var dialogue_tween = get_tree().create_tween()
+@onready var dialogue_tween
 
+var current_state = State.READY
 var dialogue_json_path = "res://assets/data/dialogue/"
 var json_databank
+var dialogue_next_id
+
+func _ready():
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	_dialogue_visibility_checker() # TODO: Super distressing, please fix!
+func _process(_delta):
+	match current_state:
+		State.READY:
+			pass
+		State.READING:
+			pass
+		State.FINISHED:
+			pass
 	pass
 
 ## Text Log Related Functions
@@ -53,25 +71,51 @@ func init_dialogue(path):
 	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
 	dialogue_box.show()
 	dialogue_characters.show()
+
+	_dialogue_visibility_checker()
 	_process_dialogue("000")
 
 # Processes current dialogue by the game.
 func _process_dialogue(dialogue_id):
-	var dialogue_tween = get_tree().create_tween()
+	dialogue_tween = get_tree().create_tween()
 	var current_dialogue_data = json_databank[dialogue_id]
 	dialogue_box_text.visible_ratio = 0
 
 	dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
 	dialogue_box_text.bbcode_text = current_dialogue_data["text"]
 
-	dialogue_tween.tween_property($DialogueLayer/DialogueBox/DialogueText, "visible_ratio", 1, 1)
+	dialogue_next_id = current_dialogue_data["commands"][0] # TODO: Redo this with interpreter.
+
+	change_state(State.READING)
+	dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
+	dialogue_tween.tween_callback(_finish_dialogue)
+
 	
+	#await dialogue_tween.finished # Kind of bland, but we take those anyway.
+	#_finish_dialogue()
+	
+func _finish_dialogue():
+	change_state(State.FINISHED)
+	dialogue_next_indicator.show()
+	pass
 
 func _dialogue_visibility_checker():
 	if dialogue_box.is_visible():
 		dialogue_box.mouse_filter = Control.MOUSE_FILTER_STOP;
 	else:
 		dialogue_box.mouse_filter = Control.MOUSE_FILTER_PASS;
+
+# Changes state
+func change_state(next_state):
+	current_state = next_state
+	match current_state:
+		State.READY:
+			print("Waiting for next dialogue.")
+		State.READING:
+			print("Reading current dialogue.")
+		State.FINISHED:
+			print("Finished reading dialogue. Awaiting input.")
+
 
 ## Dialogue Related Functions
 ## END
@@ -80,3 +124,4 @@ func _dialogue_visibility_checker():
 func read_from_JSON(path):
 	var file = FileAccess.open(path, FileAccess.READ) #Will close in here anyway.
 	return JSON.parse_string(file.get_as_text())
+
