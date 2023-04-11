@@ -42,6 +42,40 @@ func _save_settings():
 	# Save it to a file (overwrite if already exists).
 	config.save("user://settings.cfg")
 
+# Saves settings.
+func _load_settings():
+	# Create new ConfigFile object.
+	var config = ConfigFile.new()
+
+	# Load data from a file.
+	var err = config.load("user://settings.cfg")
+
+	# FIXME: Default settings if ever no load.
+	if err != OK:
+		return
+
+	master_volume.value = config.get_value("Music", "master_volume")
+	bgm_volume.value = config.get_value("Music", "bgm_volume")
+	se_volume.value = config.get_value("Music", "se_volume")
+	amb_volume.value = config.get_value("Music", "amb_volume")
+	text_speed.value = config.get_value("Text", "text_speed")
+	auto_speed.value = config.get_value("Text", "auto_speed")
+
+	if config.get_value("Window", "window_mode") == "fullscreen":
+		fullscreen_mode.button_pressed = true
+	else:
+		window_mode.button_pressed = true
+
+	match config.get_value("Window", "screen_res"):
+		Vector2i(1280, 720):
+			resolution.selected = 0
+		Vector2i(1600, 900):
+			resolution.selected = 1
+		Vector2i(1920, 1080):
+			resolution.selected = 2
+
+	vsync.button_pressed = config.get_value("Window", "vsync")
+
 #==============================================================================
 # ** Master Volume
 #------------------------------------------------------------------------------
@@ -102,8 +136,10 @@ func _on_restore_default_button_pressed():
 
 
 func _on_draw():
-	print("Settings drawn.")
+	print("Settings drawn and loaded.")
+	_load_settings()
 
 
 func _on_hidden():
-	print("Settings hidden.")
+	print("Settings hidden and saved.")
+	_save_settings()
