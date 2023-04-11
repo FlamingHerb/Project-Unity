@@ -52,14 +52,20 @@ func _on_text_log_close_button_pressed():
 func init_dialogue(path):
 	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
 	dialogue_box.show()
+	dialogue_characters.show()
 	_process_dialogue("000")
 
 # Processes current dialogue by the game.
 func _process_dialogue(dialogue_id):
+	var dialogue_tween = get_tree().create_tween()
 	var current_dialogue_data = json_databank[dialogue_id]
+	dialogue_box_text.visible_ratio = 0
+
 	dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
 	dialogue_box_text.bbcode_text = current_dialogue_data["text"]
-	pass
+
+	dialogue_tween.tween_property($DialogueLayer/DialogueBox/DialogueText, "visible_ratio", 1, 1)
+	
 
 func _dialogue_visibility_checker():
 	if dialogue_box.is_visible():
