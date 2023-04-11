@@ -8,5 +8,5 @@ func _ready():
 	print(item_database)
 
 func read_from_JSON(path):
-	var file = FileAccess.open("res://assets/data/item_database.json", FileAccess.READ)
+	var file = FileAccess.open(path, FileAccess.READ)
 	return JSON.parse_string(file.get_as_text())

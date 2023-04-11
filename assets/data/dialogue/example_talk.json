@@ -1,0 +1,13 @@
+{
+	"000":  {
+        "type": "basic",
+        "speaker": "standin",
+        "emotion": "neutral",
+				"position": "left",
+        "text": "In eu exercitation excepteur in elit qui sit do veniam sint aute mollit dolore.",
+        "commands": [
+            "end",
+            "example command"
+        ]
+    }
+}

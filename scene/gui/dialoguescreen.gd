@@ -7,7 +7,14 @@ extends Control
 @onready var dialogue_layer = $DialogueLayer
 @onready var textlog = $DialogueLayer/TextLog
 @onready var dialogue_box = $DialogueLayer/DialogueBox
+@onready var dialogue_box_text = $DialogueLayer/DialogueBox/DialogueText
+@onready var dialogue_box_speaker = $DialogueLayer/DialogueBox/DialogueActorName
 @onready var dialogue_characters = $DialogueLayer/DialogueCharacters
+#@onready var dialogue_tween = get_tree().create_tween()
+
+var dialogue_json_path = "res://assets/data/dialogue/"
+var json_databank
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,7 +47,19 @@ func _on_text_log_close_button_pressed():
 ## Dialogue Related Functions
 ## START
 
+# Loads the appropriate JSON Dialogue databank for the following scene.
+# Rememeber that ID 000 will consequently be—and always—the first dialogue when loading.
+func init_dialogue(path):
+	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
+	dialogue_box.show()
+	_process_dialogue("000")
 
+# Processes current dialogue by the game.
+func _process_dialogue(dialogue_id):
+	var current_dialogue_data = json_databank[dialogue_id]
+	dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
+	dialogue_box_text.bbcode_text = current_dialogue_data["text"]
+	pass
 
 func _dialogue_visibility_checker():
 	if dialogue_box.is_visible():
@@ -50,3 +69,8 @@ func _dialogue_visibility_checker():
 
 ## Dialogue Related Functions
 ## END
+
+# Reads JSON file.
+func read_from_JSON(path):
+	var file = FileAccess.open(path, FileAccess.READ) #Will close in here anyway.
+	return JSON.parse_string(file.get_as_text())

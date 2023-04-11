@@ -55,6 +55,14 @@ scale = Vector2(0.833, 0.833)
 texture_normal = ExtResource("3_d7oal")
 script = SubResource("GDScript_p4p2w")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 371.0
+offset_top = 235.0
+offset_right = 611.0
+offset_bottom = 341.0
+text = "Initiate Dialogue Jibber Jabber"
+
 [connection signal="input_event" from="OpenDoor" to="." method="_on_open_door_input_event"]
 [connection signal="input_event" from="ClosedDoor" to="." method="_on_closed_door_input_event"]
 [connection signal="pressed" from="Key" to="." method="_on_key_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
