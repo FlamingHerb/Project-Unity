@@ -26,4 +26,4 @@ func _on_open_door_input_event(_viewport, event, _shape_idx):
 func _on_key_pressed():
 	Inventory.add_item("debug_key")
 	DialogueScreen.init_dialogue("example_talk")
-	#$Key.queue_free()
+	$Key.queue_free()

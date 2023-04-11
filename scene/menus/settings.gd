@@ -77,6 +77,17 @@ func _load_settings():
 	vsync.button_pressed = config.get_value("Window", "vsync")
 
 # Reverts to default settings
+func _default_settings():
+	master_volume.value = 0.5
+	bgm_volume.value = 0.5
+	se_volume.value = 0.5
+	amb_volume.value = 0.5
+	text_speed.value = 0.5
+	auto_speed.value = 0.5
+
+	window_mode.button_pressed = true
+	resolution.selected = 1
+	vsync.button_pressed = false
 
 #==============================================================================
 # ** Master Volume
@@ -135,7 +146,7 @@ func _on_backbutton_pressed():
 
 
 func _on_restore_default_button_pressed():
-	_save_settings()
+	_default_settings()
 
 
 func _on_draw():

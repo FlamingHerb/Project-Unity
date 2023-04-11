@@ -62,6 +62,7 @@ grow_vertical = 2
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
 visible = false
