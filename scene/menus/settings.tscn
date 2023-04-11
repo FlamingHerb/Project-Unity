@@ -223,6 +223,7 @@ columns = 2
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="BottomButtons/RestoreDefaultButton" to="." method="_on_restore_default_button_pressed"]
 [connection signal="pressed" from="BottomButtons/BackButton" to="." method="_on_backbutton_pressed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/MasterSoundSlider" to="." method="_on_master_sound_slider_value_changed"]

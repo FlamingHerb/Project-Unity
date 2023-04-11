@@ -33,16 +33,16 @@ func _save_settings():
 	config.set_value("Text", "text_speed", text_speed.value)
 	config.set_value("Text", "auto_speed", auto_speed.value)
 	if window_mode.button_pressed == true:
-		config.set_value("Window", "window_mode", "fullscreen")
-	else:
 		config.set_value("Window", "window_mode", "window")
+	else:
+		config.set_value("Window", "window_mode", "fullscreen")
 	config.set_value("Window", "screen_res", DisplayServer.window_get_size())
 	config.set_value("Window", "vsync", vsync.button_pressed)
 
 	# Save it to a file (overwrite if already exists).
 	config.save("user://settings.cfg")
 
-# Saves settings.
+# Loads settings.
 func _load_settings():
 	# Create new ConfigFile object.
 	var config = ConfigFile.new()
@@ -75,6 +75,8 @@ func _load_settings():
 			resolution.selected = 2
 
 	vsync.button_pressed = config.get_value("Window", "vsync")
+
+# Reverts to default settings
 
 #==============================================================================
 # ** Master Volume
@@ -128,6 +130,7 @@ func _on_vsync_button_toggled(button_pressed):
 
 
 func _on_backbutton_pressed():
+	_save_settings()
 	hide()
 
 
@@ -136,10 +139,14 @@ func _on_restore_default_button_pressed():
 
 
 func _on_draw():
-	print("Settings drawn and loaded.")
-	_load_settings()
+	pass
 
 
 func _on_hidden():
-	print("Settings hidden and saved.")
-	_save_settings()
+	pass
+
+
+func _on_visibility_changed():
+	if self.is_visible():
+		print("Settings drawn and loaded.")
+		_load_settings()
