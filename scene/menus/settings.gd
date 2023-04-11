@@ -50,8 +50,10 @@ func _load_settings():
 	# Load data from a file.
 	var err = config.load("user://settings.cfg")
 
-	# FIXME: Default settings if ever no load.
+	# Creates new default settings, saves it, and then balls from it. Classic.
 	if err != OK:
+		_default_settings()
+		_save_settings()
 		return
 
 	master_volume.value = config.get_value("Music", "master_volume")
