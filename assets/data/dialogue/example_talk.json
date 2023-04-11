@@ -1,14 +1,14 @@
 {
 	"000":  {
-        "type": "basic",
-        "speaker": "standin",
-        "emotion": "neutral",
-				"position": "left",
-        "text": "Oh my oh my God.",
-        "commands": [
-            "001",
-            "example command"
-        ]
+    "type": "basic",
+    "speaker": "standin",
+    "emotion": "neutral",
+    "position": "left",
+    "text": "Oh my oh my God.",
+    "commands": [
+        "001",
+        "example command"
+    ]
   },
   "001":  {
     "type": "basic",

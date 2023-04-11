@@ -34,12 +34,14 @@ func _process(_delta):
 		State.READY:
 			pass
 		State.READING:
-			pass
+			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"): #originall ui_accept
+				dialogue_tween.stop()
+				dialogue_box_text.visible_ratio = 1
+				_finish_dialogue()
 		State.FINISHED:
 			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"): #originall ui_accept
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
-			pass
 	pass
 
 ## Text Log Related Functions
@@ -105,6 +107,7 @@ func _process_dialogue(dialogue_id):
 
 	change_state(State.READING)
 	dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
+	
 	dialogue_tween.tween_callback(_finish_dialogue)
 
 	
