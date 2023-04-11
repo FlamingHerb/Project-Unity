@@ -1,5 +1,6 @@
 extends Control
 
+## TODO: CLEAN SHIT DUDE HOLY CRAP THIS THING SUCKS LMAO
 ## The Dialogue System of the game.
 ##
 ## Pretty much self-explanatory. Divided into two parts. The text log and the dialogue system. Also the responses are also there.
@@ -12,6 +13,7 @@ enum State {
 
 @onready var dialogue_layer = $DialogueLayer
 @onready var textlog = $DialogueLayer/TextLog
+@onready var textlog_text = $DialogueLayer/TextLog/MarginContainer/MarginContainer/TextLogText #FIXME: WHY
 @onready var dialogue_box = $DialogueLayer/DialogueBox
 @onready var dialogue_box_text = $DialogueLayer/DialogueBox/DialogueText
 @onready var dialogue_box_speaker = $DialogueLayer/DialogueBox/DialogueActorName
@@ -46,6 +48,10 @@ func _process(_delta):
 
 ## Text Log Related Functions
 ## START
+
+func _update_textlog(actor, line):
+	textlog_text.append_text(actor + ": " + line + "\n")
+	pass
 
 func toggle_ui(value):
 	if value:
@@ -102,12 +108,13 @@ func _process_dialogue(dialogue_id):
 
 	dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
 	dialogue_box_text.bbcode_text = current_dialogue_data["text"]
+	_update_textlog(current_dialogue_data["speaker"], current_dialogue_data["text"])
 
 	dialogue_next_id = current_dialogue_data["commands"][0] # TODO: Redo this with interpreter.
 
 	change_state(State.READING)
 	dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
-	
+
 	dialogue_tween.tween_callback(_finish_dialogue)
 
 	
