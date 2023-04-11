@@ -36,12 +36,12 @@ func _process(_delta):
 		State.READY:
 			pass
 		State.READING:
-			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"): #originall ui_accept
+			if Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks.
 				dialogue_tween.stop()
 				dialogue_box_text.visible_ratio = 1
 				_finish_dialogue()
 		State.FINISHED:
-			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"): #originall ui_accept
+			if Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks.
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
 	pass
@@ -84,6 +84,7 @@ func _clear_data():
 	dialogue_box.hide()
 	dialogue_characters.hide()
 	_dialogue_visibility_checker()
+	_clear_dialogue_box()
 
 	change_state(State.READY)
 
@@ -106,7 +107,8 @@ func _process_dialogue(dialogue_id):
 	var current_dialogue_data = json_databank[dialogue_id]
 	dialogue_box_text.visible_ratio = 0
 
-	dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
+	if current_dialogue_data["speaker"] != "none":
+		dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
 	dialogue_box_text.bbcode_text = current_dialogue_data["text"]
 	_update_textlog(current_dialogue_data["speaker"], current_dialogue_data["text"])
 
@@ -125,6 +127,10 @@ func _finish_dialogue():
 	change_state(State.FINISHED)
 	dialogue_next_indicator.show()
 	pass
+
+func _clear_dialogue_box():
+	dialogue_box_speaker.bbcode_text = " "
+	dialogue_box_text.bbcode_text = " "
 
 func _dialogue_visibility_checker():
 	if dialogue_box.is_visible():

@@ -52,6 +52,7 @@ offset_top = 746.0
 offset_right = 630.0
 offset_bottom = 936.0
 scale = Vector2(0.833, 0.833)
+focus_mode = 0
 texture_normal = ExtResource("3_d7oal")
 script = SubResource("GDScript_p4p2w")
 
