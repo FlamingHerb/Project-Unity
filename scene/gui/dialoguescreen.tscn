@@ -250,5 +250,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Close"
 
+[connection signal="gui_input" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_gui_input"]
 [connection signal="pressed" from="DialogueLayer/TextLogButton" to="." method="_on_text_log_button_pressed"]
 [connection signal="pressed" from="DialogueLayer/TextLog/TextLogCloseButton" to="." method="_on_text_log_close_button_pressed"]

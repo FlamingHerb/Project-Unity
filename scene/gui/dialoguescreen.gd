@@ -25,6 +25,7 @@ var current_state = State.READY
 var dialogue_json_path = "res://assets/data/dialogue/"
 var json_databank
 var dialogue_next_id
+var dialogue_gui_input = false
 
 func _ready():
 	pass
@@ -36,12 +37,14 @@ func _process(_delta):
 		State.READY:
 			pass
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks.
+			if dialogue_gui_input: # Originally Input.is_action_just_pressed("ui_accept") #FIXME: Find roundabout way to fix mouse clicks. 
+				dialogue_gui_input = false
 				dialogue_tween.stop()
 				dialogue_box_text.visible_ratio = 1
 				_finish_dialogue()
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks.
+			if dialogue_gui_input: # Originally Input.is_action_just_pressed("ui_accept") #FIXME: Find roundabout way to fix mouse clicks.
+				dialogue_gui_input = false
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
 	pass
@@ -158,3 +161,6 @@ func read_from_JSON(path):
 	var file = FileAccess.open(path, FileAccess.READ) #Will close in here anyway.
 	return JSON.parse_string(file.get_as_text())
 
+func _on_dialogue_box_gui_input(event:InputEvent):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		dialogue_gui_input = true
