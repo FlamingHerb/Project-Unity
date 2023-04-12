@@ -27,3 +27,16 @@ func _on_key_pressed():
 	Inventory.add_item("debug_key")
 	DialogueScreen.init_dialogue("example_talk")
 	$Key.queue_free()
+
+func _on_open_door_mouse_entered():
+	$OpenDoor/Line2D/AnimationPlayer.play("glow")
+
+func _on_open_door_mouse_exited():
+	$OpenDoor/Line2D/AnimationPlayer.stop()
+
+func _on_closed_door_mouse_exited():
+	$ClosedDoor/Line2D/AnimationPlayer.stop()
+
+func _on_closed_door_mouse_entered():
+	$ClosedDoor/Line2D/AnimationPlayer.play("glow")
+	
