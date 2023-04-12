@@ -25,6 +25,7 @@ theme_override_font_sizes/font_size = 40
 text = "Pause"
 
 [node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("2_x0g5k")]
+process_mode = 2
 visible = false
 
 [connection signal="pressed" from="PauseCanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

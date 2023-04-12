@@ -17,4 +17,5 @@ func toggle_ui(value):
 		$PauseCanvasLayer.hide()
 
 func _on_pause_button_pressed():
+	get_tree().paused = true
 	$PauseCanvasLayer/PauseMenu.show()
