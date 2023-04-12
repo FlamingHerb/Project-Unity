@@ -19,3 +19,7 @@ func toggle_ui(value):
 func _on_pause_button_pressed():
 	get_tree().paused = true
 	$PauseCanvasLayer/PauseMenu.show()
+
+
+func _on_inventory_button_pressed():
+	pass # Replace with function body.
