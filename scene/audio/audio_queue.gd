@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-@export var count = 1
+@export var count = 2
 
 var _next = 0
 var _audio_stream_players : Array = []

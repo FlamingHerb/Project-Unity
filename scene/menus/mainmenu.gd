@@ -16,27 +16,21 @@ func _process(_delta):
 
 func _on_new_game_pressed():
 	$NewGame.show()
-	$"/root/AudioManager".play_click()
 
 func _on_load_game_pressed():
 	$LoadGame.show()
-	$"/root/AudioManager".play_click()
 
 func _on_settings_pressed():
 	$Settings.show()
-	$"/root/AudioManager".play_click()
 
 func _on_help_pressed():
 	$Help.show()
-	$"/root/AudioManager".play_click()
 
 func _on_about_pressed():
 	$About.show()
-	$"/root/AudioManager".play_click()
 
 func _on_exit_pressed():
 	get_tree().quit()
-	$"/root/AudioManager".play_click()
 
 #===============================================================================
 # END: BUTTONS

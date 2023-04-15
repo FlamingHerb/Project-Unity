@@ -4,3 +4,4 @@
 
 [node name="AudioQueue" type="Node"]
 script = ExtResource("1_u53vj")
+count = 1
