@@ -109,6 +109,7 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[connection signal="button_up" from="GridContainer/NewGame" to="." method="play_sound"]
 [connection signal="pressed" from="GridContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="GridContainer/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="GridContainer/Settings" to="." method="_on_settings_pressed"]

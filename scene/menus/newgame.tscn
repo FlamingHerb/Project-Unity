@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc4dp6mlsimxo"]
+[gd_scene load_steps=5 format=3 uid="uid://dc4dp6mlsimxo"]
 
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_0vhu7"]
 [ext_resource type="Script" path="res://scene/menus/newgame.gd" id="1_p674n"]
+[ext_resource type="PackedScene" uid="uid://dtoh476onbsr6" path="res://scene/audio/audio_queue.tscn" id="3_b5k14"]
+[ext_resource type="AudioStream" uid="uid://0nv8odv6ww01" path="res://assets/audio/sfx/ui_click.mp3" id="4_fiw5i"]
 
 [node name="NewGame" type="Control"]
 layout_mode = 3
@@ -77,6 +79,12 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Profile 1"
+
+[node name="AudioQueue" parent="." instance=ExtResource("3_b5k14")]
+count = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioQueue"]
+stream = ExtResource("4_fiw5i")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]

@@ -1,8 +1,10 @@
-extends Control
+extends Node
 
+@onready var _soundQueuesByName = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_soundQueuesByName["ClickAudioQueue"] = get_node("ClickAudioQueue")
 	pass # Replace with function body.
 
 
@@ -10,10 +12,5 @@ func _ready():
 func _process(_delta):
 	pass
 
-
-func _on_back_button_pressed():
-	hide()
-
-
-func _on_inventory_pressed():
-	pass # Replace with function body.
+func play_click():
+	_soundQueuesByName["ClickAudioQueue"].play_sound()
