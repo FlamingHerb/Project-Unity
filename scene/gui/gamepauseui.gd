@@ -22,4 +22,5 @@ func _on_pause_button_pressed():
 
 
 func _on_inventory_button_pressed():
-	pass # Replace with function body.
+	get_tree().paused = true
+	$PauseCanvasLayer/InventoryMenu.show()

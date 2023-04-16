@@ -9,6 +9,7 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="InventoryMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_utsql")
@@ -18,6 +19,8 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_right = 1922.0
+offset_bottom = 1082.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -49,11 +52,6 @@ offset_bottom = 1033.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/panel = SubResource("StyleBoxFlat_b1420")
-item_count = 4
-item_0/text = "1"
-item_1/text = "2"
-item_2/text = "3"
-item_3/text = "4"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -93,3 +91,7 @@ theme_override_font_sizes/font_size = 28
 text = "An item that you have obtained from the Major himself. An item that you have obtained from the Major himself. An item that you have obtained from the Major himself. 
 "
 autowrap_mode = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

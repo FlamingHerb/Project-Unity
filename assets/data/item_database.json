@@ -1,7 +1,14 @@
 {
-    "debug_key": {
-      "short_name": "debug_key",
-      "name": "Key (debug)",
-      "description": "A key lying in a table."
-    }
+  "Key": {
+    "image": "key",
+    "description": "A key lying in a table."
+  },
+  "Drill": {
+    "image": "drill",
+    "description": "A drill lying in the floor."
+  },
+  "Vase": {
+    "image": "vase",
+    "description": "A vase lying in a table."
   }
+}

@@ -24,7 +24,9 @@ func _on_open_door_input_event(_viewport, event, _shape_idx):
 		SceneManager.goto_scene("res://scene/levels/hallway.tscn")
 
 func _on_key_pressed():
-	Inventory.add_item("debug_key")
+	Inventory.add_item("Key")
+	Inventory.add_item("Drill")
+	Inventory.add_item("Vase")
 	DialogueScreen.init_dialogue("example_talk")
 	$Key.queue_free()
 
