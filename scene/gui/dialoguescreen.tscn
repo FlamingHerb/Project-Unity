@@ -62,8 +62,10 @@ grow_vertical = 2
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -112,6 +114,7 @@ mouse_filter = 0
 texture = ExtResource("2_nq1me")
 
 [node name="DialogueBox" type="Control" parent="DialogueLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
