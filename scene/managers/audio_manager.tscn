@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://do25dprvxeobf"]
+[gd_scene load_steps=6 format=3 uid="uid://do25dprvxeobf"]
 
 [ext_resource type="Script" path="res://scene/managers/audio_manager.gd" id="1_ehdqm"]
 [ext_resource type="PackedScene" uid="uid://dtoh476onbsr6" path="res://scene/audio/audio_queue.tscn" id="2_nl2rp"]
 [ext_resource type="AudioStream" uid="uid://0nv8odv6ww01" path="res://assets/audio/sfx/ui_click.mp3" id="3_cc6ie"]
 [ext_resource type="AudioStream" uid="uid://w8fjs4nhr8wu" path="res://assets/audio/sfx/ui_hover.mp3" id="4_af7xa"]
+[ext_resource type="AudioStream" uid="uid://511x6frki8p0" path="res://assets/audio/music/main_menu.mp3" id="5_khmxh"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ehdqm")
@@ -17,3 +18,8 @@ bus = &"SFX"
 [node name="UiHover" type="AudioStreamPlayer" parent="BtnAudioQueue"]
 stream = ExtResource("4_af7xa")
 bus = &"SFX"
+
+[node name="MusicAudioQueue" parent="." instance=ExtResource("2_nl2rp")]
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="MusicAudioQueue"]
+stream = ExtResource("5_khmxh")

@@ -19,7 +19,7 @@ func _ready() -> void:
 				_audio_stream_players.append(duplicate)
 
 # TO FIX: Doesn't show
-'''
+
 func _get_configuration_warning() -> String:
 	var warning := ""
 	if get_child_count() == 0:
@@ -27,11 +27,17 @@ func _get_configuration_warning() -> String:
 	if not get_child(0) is AudioStreamPlayer:
 		warning = "Expected first child to be an AudioStreamPlayer"
 	return warning
-'''
+
 
 func play_sound() -> void:
 	if !_audio_stream_players[_next].playing:
 		_audio_stream_players[_next].play()
+		_next += 1
+		_next %= count
+
+func stop_sound() -> void:
+	if _audio_stream_players[_next].playing:
+		_audio_stream_players[_next].stop()
 		_next += 1
 		_next %= count
 

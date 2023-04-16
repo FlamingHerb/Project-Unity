@@ -15,4 +15,5 @@ func _on_new_game_button_pressed():
 	SceneManager.goto_scene("res://scene/levels/junction.tscn")
 	GamePauseUI.toggle_ui(true)
 	DialogueScreen.toggle_ui(true)
+	AudioManager.stop_music()
 	#GamePauseUi.get_node("PauseCanvasLayer").show() # This has to be the most shittiest way to do stuff oml
