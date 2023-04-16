@@ -20,8 +20,8 @@ script = ExtResource("1_rynt0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 3840.0
-offset_bottom = 2400.0
+offset_right = 4571.0
+offset_bottom = 2571.0
 scale = Vector2(0.42, 0.42)
 texture = ExtResource("2_0aybv")
 

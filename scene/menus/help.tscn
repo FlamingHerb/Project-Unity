@@ -74,7 +74,7 @@ offset_right = 919.0
 offset_bottom = 562.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1060, 403.25)
+position = Vector2(960, 544)
 scale = Vector2(0.419315, 0.467248)
 texture = SubResource("CompressedTexture2D_qs15q")
 

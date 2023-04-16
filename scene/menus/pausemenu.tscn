@@ -104,10 +104,10 @@ mouse_filter = 1
 
 [node name="MainMenuButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 752.0
-offset_top = 504.0
-offset_right = 848.0
-offset_bottom = 535.0
+offset_left = 917.0
+offset_top = 648.891
+offset_right = 1013.0
+offset_bottom = 679.891
 text = "Main Menu"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
