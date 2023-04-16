@@ -1,0 +1,23 @@
+{
+    "000":  {
+    "type": "basic",
+    "speaker": "none",
+    "emotion": "neutral",
+    "position": "left",
+    "text": "Door is locked.",
+    "commands": [
+        "end",
+        "example command"
+    ]
+    },
+    "detective_item_key":  {
+        "type": "basic",
+        "speaker": "none",
+        "emotion": "neutral",
+        "position": "left",
+        "text": "Obtained the item [KEY].",
+        "commands": [
+            "end"
+        ]
+    }
+}

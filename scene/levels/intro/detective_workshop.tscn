@@ -22,6 +22,7 @@ func _process(delta):
 
 func _on_pressed():
 	Inventory.add_item(\"Key\")
+	DialogueScreen.init_dialogue(\"item_get\", \"detective_item_key\")
 	queue_free()
 "
 
