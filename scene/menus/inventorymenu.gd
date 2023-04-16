@@ -35,3 +35,9 @@ func _on_visibility_changed():
 	if self.is_visible():
 		the_item_list.clear()
 		_add_items_to_item_list()
+
+
+func _on_hidden():
+	item_name.text = ""
+	item_picture.texture = null
+	item_description.text = ""
