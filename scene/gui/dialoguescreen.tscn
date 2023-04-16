@@ -62,14 +62,12 @@ grow_vertical = 2
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1600.0
-offset_bottom = 900.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="LeftSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
 visible = false
@@ -114,11 +112,10 @@ mouse_filter = 0
 texture = ExtResource("2_nq1me")
 
 [node name="DialogueBox" type="Control" parent="DialogueLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1600.0
-offset_bottom = 900.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 1
 
 [node name="PlaceHolderBackground" type="ColorRect" parent="DialogueLayer/DialogueBox"]
@@ -137,10 +134,10 @@ color = Color(0, 0, 0, 0.588235)
 
 [node name="DialogueActorName" type="RichTextLabel" parent="DialogueLayer/DialogueBox"]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 661.0
-offset_right = 941.0
-offset_bottom = 703.0
+offset_left = 550.0
+offset_top = 870.929
+offset_right = 1096.0
+offset_bottom = 912.929
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
@@ -149,10 +146,10 @@ theme_override_font_sizes/mono_font_size = 30
 
 [node name="DialogueText" type="RichTextLabel" parent="DialogueLayer/DialogueBox"]
 layout_mode = 0
-offset_left = 356.0
-offset_top = 703.0
-offset_right = 1245.0
-offset_bottom = 841.0
+offset_left = 550.0
+offset_top = 912.929
+offset_right = 1439.0
+offset_bottom = 1050.93
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
@@ -190,13 +187,11 @@ text = "Text Log"
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Blur" parent="DialogueLayer/TextLog" instance=ExtResource("2_6goha")]
 layout_mode = 1
-offset_right = 1560.0
-offset_bottom = 860.0
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogueLayer/TextLog"]
 layout_mode = 1
@@ -205,10 +200,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 350.0
-offset_top = 219.0
-offset_right = 1950.0
-offset_bottom = 1113.0
+offset_left = -410.0
+offset_top = -242.131
+offset_right = 1190.0
+offset_bottom = 651.869
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -237,15 +232,11 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="TextLogCloseButton" type="Button" parent="DialogueLayer/TextLog"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 743.0
-offset_top = 600.5
-offset_right = 753.0
-offset_bottom = 631.5
+layout_mode = 2
+offset_left = 874.522
+offset_top = 648.0
+offset_right = 1005.52
+offset_bottom = 719.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Close"
