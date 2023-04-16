@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://doscc68ks0f2y"]
+
+[ext_resource type="Texture2D" uid="uid://6u1whdh03gs2" path="res://assets/graphics/background/PRO_bedroom.png" id="1_7db1y"]
+
+[node name="DetectiveBedroom" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7db1y")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=9 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
@@ -25,6 +25,43 @@ func _on_pressed():
 	queue_free()
 "
 
+[sub_resource type="Animation" id="Animation_l26jv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sa7cs"]
+resource_name = "glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1l2m"]
+_data = {
+"RESET": SubResource("Animation_l26jv"),
+"glow": SubResource("Animation_sa7cs")
+}
+
 [node name="DetectiveWorkshop" type="Node"]
 script = ExtResource("1_qgogg")
 
@@ -47,4 +84,23 @@ offset_bottom = 596.0
 texture_normal = ExtResource("3_a8you")
 script = SubResource("GDScript_dlhvd")
 
+[node name="BedroomDoor" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionPolygon2D" parent="BedroomDoor"]
+position = Vector2(1528, 228)
+polygon = PackedVector2Array(-74, -185, 419, -156, 333, 276, 268, 345, 186, 744, -163, 631)
+
+[node name="Line2D" type="Line2D" parent="BedroomDoor"]
+points = PackedVector2Array(1452, 44, 1952, 72, 1849, 515, 1798, 575, 1711, 979, 1366, 859, 1452, 44)
+width = 5.0
+default_color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BedroomDoor/Line2D"]
+libraries = {
+"": SubResource("AnimationLibrary_f1l2m")
+}
+
 [connection signal="pressed" from="Key" to="Key" method="_on_pressed"]
+[connection signal="input_event" from="BedroomDoor" to="." method="_on_open_door_input_event"]
+[connection signal="mouse_entered" from="BedroomDoor" to="." method="_on_open_door_mouse_entered"]
+[connection signal="mouse_exited" from="BedroomDoor" to="." method="_on_open_door_mouse_exited"]
