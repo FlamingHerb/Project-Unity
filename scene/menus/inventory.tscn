@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://de7k8onp0awqt"]
+
+[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_7q3i7"]
+[ext_resource type="Texture2D" uid="uid://4xcn8i3tjasq" path="res://assets/graphics/menu_background/inventory_menu_background.png" id="1_a3p24"]
+[ext_resource type="Script" path="res://scene/menus/inventorymenu.gd" id="1_utsql"]
+[ext_resource type="Texture2D" uid="uid://b27fhe6bd3paf" path="res://assets/graphics/items/empty.png" id="4_5bvnl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1420"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="InventoryMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_utsql")
+
+[node name="Blur" parent="." instance=ExtResource("1_7q3i7")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1922.0
+offset_bottom = 1082.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 746.919
+offset_top = -39.5304
+offset_right = 1734.92
+offset_bottom = 1153.47
+texture = ExtResource("1_a3p24")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 43.6052
+offset_top = 43.6132
+offset_right = 206.605
+offset_bottom = 106.613
+theme_override_font_sizes/font_size = 40
+text = "Go Back"
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 957.0
+offset_top = 115.0
+offset_right = 1480.0
+offset_bottom = 1033.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/panel = SubResource("StyleBoxFlat_b1420")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 92.7582
+offset_top = 461.412
+offset_right = 776.758
+offset_bottom = 629.412
+
+[node name="ItemPicture" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 248.283
+offset_right = 776.0
+offset_bottom = 626.283
+size_flags_vertical = 3
+texture = ExtResource("4_5bvnl")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 629.412
+offset_right = 776.0
+offset_bottom = 687.412
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="ItemDescription" type="Label" parent="."]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 687.412
+offset_right = 776.0
+offset_bottom = 855.412
+theme_override_font_sizes/font_size = 28
+autowrap_mode = 3
+
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

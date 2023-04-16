@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_back_button_pressed():
@@ -15,7 +15,7 @@ func _on_back_button_pressed():
 
 
 func _on_new_game_button_pressed():
-	SceneManager.goto_scene("res://scene/levels/junction.tscn")
+	SceneManager.goto_level_scene("intro/detective_workshop.tscn")
 	GamePauseUI.toggle_ui(true)
 	DialogueScreen.toggle_ui(true)
 	#GamePauseUi.get_node("PauseCanvasLayer").show() # This has to be the most shittiest way to do stuff oml

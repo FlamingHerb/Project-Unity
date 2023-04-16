@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/menus/settings.gd" id="1_xrsgm"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_807t0"]
-[ext_resource type="ButtonGroup" uid="uid://bileq27pqclby" path="res://scene/menus/Settings/windowmode.tres" id="3_ac5y8"]
+[ext_resource type="ButtonGroup" uid="uid://bileq27pqclby" path="res://scene/menus/settings/windowmode.tres" id="3_ac5y8"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -93,7 +93,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.5
 
 [node name="BGMLabel" type="Label" parent="MusicAndDisplayGroup"]
 layout_mode = 2
@@ -105,6 +105,9 @@ text = "Music"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="SELabel" type="Label" parent="MusicAndDisplayGroup"]
 layout_mode = 2
@@ -116,6 +119,9 @@ text = "Sound Effects"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="SELabel2" type="Label" parent="MusicAndDisplayGroup"]
 layout_mode = 2
@@ -127,6 +133,9 @@ text = "Ambience"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="TextSpeedLabel" type="Label" parent="MusicAndDisplayGroup"]
 layout_mode = 2
@@ -137,6 +146,9 @@ text = "Text Speed"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="AutoSpeedLabel" type="Label" parent="MusicAndDisplayGroup"]
 layout_mode = 2
@@ -147,6 +159,9 @@ text = "Auto Speed"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="DisplayGroup" type="GridContainer" parent="."]
 layout_mode = 0
@@ -192,7 +207,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 alignment = 1
 item_count = 3
-selected = 0
+selected = 1
 popup/item_0/text = "1280x720"
 popup/item_0/id = 0
 popup/item_1/text = "1600x900"
@@ -221,6 +236,10 @@ theme_override_constants/h_separation = 84
 theme_override_constants/v_separation = 20
 columns = 2
 
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="BottomButtons/RestoreDefaultButton" to="." method="_on_restore_default_button_pressed"]
 [connection signal="pressed" from="BottomButtons/BackButton" to="." method="_on_backbutton_pressed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/MasterSoundSlider" to="." method="_on_master_sound_slider_value_changed"]
 [connection signal="toggled" from="DisplayGroup/WindowModeBoxes/WindowBox" to="." method="_on_window_box_toggled"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://yitienbql1uy"]
+[gd_scene load_steps=4 format=3 uid="uid://yitienbql1uy"]
 
 [ext_resource type="Script" path="res://scene/gui/gamepauseui.gd" id="1_4orwv"]
 [ext_resource type="PackedScene" uid="uid://bpwi77dqdbj5f" path="res://scene/menus/pausemenu.tscn" id="2_x0g5k"]
+[ext_resource type="PackedScene" uid="uid://de7k8onp0awqt" path="res://scene/menus/inventory.tscn" id="3_1pygl"]
 
 [node name="GamePauseUI" type="Control"]
 layout_mode = 3
@@ -24,7 +25,20 @@ offset_bottom = 87.0
 theme_override_font_sizes/font_size = 40
 text = "Pause"
 
+[node name="InventoryButton" type="Button" parent="PauseCanvasLayer"]
+offset_left = 155.0
+offset_top = 24.0
+offset_right = 347.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 40
+text = "Inventory"
+
 [node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("2_x0g5k")]
+process_mode = 2
+visible = false
+
+[node name="InventoryMenu" parent="PauseCanvasLayer" instance=ExtResource("3_1pygl")]
 visible = false
 
 [connection signal="pressed" from="PauseCanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseCanvasLayer/InventoryButton" to="." method="_on_inventory_button_pressed"]

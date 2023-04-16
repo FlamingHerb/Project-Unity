@@ -1,36 +1,124 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyao240wa3o1y"]
+[gd_scene load_steps=8 format=3 uid="uid://cyao240wa3o1y"]
 
 [ext_resource type="Script" path="res://scene/levels/levelexample2.gd" id="1_oqb64"]
 [ext_resource type="Texture2D" uid="uid://clga6nlwq6x10" path="res://assets/graphics/background/openroom(withoutkey).jpg" id="2_8jf0j"]
 [ext_resource type="Texture2D" uid="uid://d3mqqfv14yfum" path="res://assets/graphics/background/openroom.png" id="3_d7oal"]
 
+[sub_resource type="Animation" id="Animation_l26jv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sa7cs"]
+resource_name = "glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1l2m"]
+_data = {
+"RESET": SubResource("Animation_l26jv"),
+"glow": SubResource("Animation_sa7cs")
+}
+
+[sub_resource type="GDScript" id="GDScript_p4p2w"]
+resource_name = "keyitem"
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if \"Key\" in Inventory.current_items: # Checks if item is already in person.
+		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [node name="LevelExample" type="Node"]
 script = ExtResource("1_oqb64")
 
-[node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(0.833, 0.833)
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.52588e-05
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.835, 0.835)
 texture = ExtResource("2_8jf0j")
-centered = false
 
 [node name="OpenDoor" type="Area2D" parent="."]
 
 [node name="OpenDoorCollision" type="CollisionPolygon2D" parent="OpenDoor"]
-position = Vector2(64, 88)
+position = Vector2(98, 137)
 polygon = PackedVector2Array(0, 0, 156, 12, 171, 439, 8, 488)
+
+[node name="Line2D" type="Line2D" parent="OpenDoor"]
+points = PackedVector2Array(59, 88, 221, 101, 234, 528, 72, 575, 63, 85)
+width = 5.0
+default_color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OpenDoor/Line2D"]
+libraries = {
+"": SubResource("AnimationLibrary_f1l2m")
+}
 
 [node name="ClosedDoor" type="Area2D" parent="."]
 
 [node name="ClosedDoorCollision" type="CollisionPolygon2D" parent="ClosedDoor"]
-position = Vector2(739, 115)
+position = Vector2(916, 170)
 polygon = PackedVector2Array(-11, -5, 544, -6, 531, 454, -10, 426)
 
+[node name="Line2D" type="Line2D" parent="ClosedDoor"]
+points = PackedVector2Array(729, 106, 1288, 110, 1269, 571, 727, 541, 730, 105)
+width = 5.0
+default_color = Color(1, 1, 1, 0)
+antialiased = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ClosedDoor/Line2D"]
+libraries = {
+"": SubResource("AnimationLibrary_f1l2m")
+}
+
 [node name="Key" type="TextureButton" parent="."]
-offset_top = 741.0
-offset_right = 630.0
-offset_bottom = 931.0
+offset_left = 47.0
+offset_top = 876.0
+offset_right = 677.0
+offset_bottom = 1066.0
 scale = Vector2(0.833, 0.833)
+focus_mode = 0
 texture_normal = ExtResource("3_d7oal")
+script = SubResource("GDScript_p4p2w")
 
 [connection signal="input_event" from="OpenDoor" to="." method="_on_open_door_input_event"]
+[connection signal="mouse_entered" from="OpenDoor" to="." method="_on_open_door_mouse_entered"]
+[connection signal="mouse_exited" from="OpenDoor" to="." method="_on_open_door_mouse_exited"]
 [connection signal="input_event" from="ClosedDoor" to="." method="_on_closed_door_input_event"]
+[connection signal="mouse_entered" from="ClosedDoor" to="." method="_on_closed_door_mouse_entered"]
+[connection signal="mouse_exited" from="ClosedDoor" to="." method="_on_closed_door_mouse_exited"]
 [connection signal="pressed" from="Key" to="." method="_on_key_pressed"]

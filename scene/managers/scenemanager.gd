@@ -1,6 +1,6 @@
 extends Node
 
-
+var level_path = "res://scene/levels/"
 var current_scene = null
 
 func _ready():
@@ -18,6 +18,18 @@ func goto_scene(path):
 	# we can be sure that no code from the current scene is running:
 
 	call_deferred("_deferred_goto_scene", path)
+
+func goto_level_scene(path):
+	# This function will usually be called from a signal callback,
+	# or some other function in the current scene.
+	# Deleting the current scene at this point is
+	# a bad idea, because it may still be executing code.
+	# This will result in a crash or unexpected behavior.
+
+	# The solution is to defer the load to a later time, when
+	# we can be sure that no code from the current scene is running:
+	var path_of_level = level_path + path
+	call_deferred("_deferred_goto_scene", path_of_level)
 
 
 func _deferred_goto_scene(path):

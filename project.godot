@@ -13,20 +13,24 @@ config_version=5
 config/name="Project Unity"
 run/main_scene="res://scene/menus/mainmenu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
-DialogueScreen="*res://scene/gui/dialoguescreen.tscn"
-GamePauseUI="*res://scene/gui/gamepauseui.tscn"
 SceneManager="*res://scene/managers/scenemanager.gd"
 Inventory="*res://scene/managers/inventory.gd"
 GlobalDatabase="*res://scene/managers/globaldatabase.gd"
+DialogueScreen="*res://scene/gui/dialoguescreen.tscn"
+GamePauseUI="*res://scene/gui/gamepauseui.tscn"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=900
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/initial_position_type=2
+window/size/initial_screen=1
 window/stretch/mode="canvas_items"
 
 [input]
@@ -39,5 +43,5 @@ MOUSE_BUTTON_LEFT={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_2d=1

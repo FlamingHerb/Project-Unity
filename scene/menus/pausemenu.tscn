@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_t7bgo")
 
 [node name="Blur" parent="." instance=ExtResource("2_bnp81")]
@@ -99,7 +100,17 @@ text = "Settings"
 
 [node name="Settings" parent="OtherMenuModals" instance=ExtResource("3_njooi")]
 visible = false
+mouse_filter = 1
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 648.891
+offset_right = 1013.0
+offset_bottom = 679.891
+text = "Main Menu"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

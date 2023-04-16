@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func toggle_ui(value):
@@ -17,4 +17,10 @@ func toggle_ui(value):
 		$PauseCanvasLayer.hide()
 
 func _on_pause_button_pressed():
+	get_tree().paused = true
 	$PauseCanvasLayer/PauseMenu.show()
+
+
+func _on_inventory_button_pressed():
+	get_tree().paused = true
+	$PauseCanvasLayer/InventoryMenu.show()
