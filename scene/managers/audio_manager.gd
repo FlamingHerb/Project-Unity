@@ -10,31 +10,49 @@ var is_ready = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Buttons SFX
+	for child in $BtnAudioQueue.get_children():
+		child.bus = &"SFX"
+	for child in $MusicAudioQueue.get_children():
+		child.bus = &"Music"
+	for child in $SFXAudioQueue.get_children():
+		child.bus = &"SFX"
+	
+	# Load Audio Assets
 	ui_click.stream = load("res://assets/audio/sfx/ui_click.mp3")
 	ui_hover.stream = load("res://assets/audio/sfx/ui_hover.mp3")
-	ui_click.bus = &"SFX"
-	ui_hover.bus = &"SFX"
-	_soundQueuesByName["BtnAudioQueue"] = get_node("BtnAudioQueue") # not used
-	#_get_configuration_warnings()
+	$MusicAudioQueue/MusicStream.stream = load("res://assets/audio/music/main_menu.mp3")
+	$SFXAudioQueue/OpenedDoor.stream = load("res://assets/audio/sfx/opened_door.mp3")
+	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/locked_door.mp3")
+	$SFXAudioQueue/DoorKey.stream = load("res://assets/audio/sfx/door_key.mp3")
+	
+	# Other SFX
+#	_soundQueuesByName["SFXAudioQueue"] = get_node("SFXAudioQueue")
+#	$SFXAudioQueue/SFXStream.bus = &"SFX"
+	
 	# Music Queue
-	$MusicAudioQueue/MusicStream.bus = &"Music"
-	_soundQueuesByName["MusicAudioQueue"] = get_node("MusicAudioQueue")
+#	_soundQueuesByName["MusicAudioQueue"] = get_node("MusicAudioQueue")
+#	$MusicAudioQueue/MusicStream.bus = &"Music"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-'''
-func play_ui():
-	_soundQueuesByName["BtnAudioQueue"].play_sound()
-'''
+func play_locked_door():
+	$SFXAudioQueue/LockedDoor.play()
+
+func play_opened_door():
+	$SFXAudioQueue/OpenedDoor.play()
+
+func play_door_key():
+	$SFXAudioQueue/DoorKey.play()
 
 func play_music():
-	_soundQueuesByName["MusicAudioQueue"].play_sound()
+	$MusicAudioQueue/MusicStream.play()
+#	_soundQueuesByName["MusicAudioQueue"].play_sound()
 
 func stop_music():
-	_soundQueuesByName["MusicAudioQueue"].stop_sound()
+	$MusicAudioQueue/MusicStream.stop()
+#	_soundQueuesByName["MusicAudioQueue"].stop_sound()
 
 func _enter_tree() -> void:
 	# This is the earliest time we can connect to the SceneTree node_added signal in _enter_tree() to catch all the nodes

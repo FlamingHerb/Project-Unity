@@ -19,7 +19,6 @@ func _ready() -> void:
 				_audio_stream_players.append(duplicate)
 
 # TO FIX: Doesn't show
-
 func _get_configuration_warning() -> String:
 	var warning := ""
 	if get_child_count() == 0:
