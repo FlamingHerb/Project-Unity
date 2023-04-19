@@ -62,10 +62,8 @@ grow_vertical = 2
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -187,6 +185,49 @@ autoplay = "IDLE"
 libraries = {
 "": SubResource("AnimationLibrary_ouy7y")
 }
+
+[node name="DialogueResponses" type="Control" parent="DialogueLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -503.0
+offset_top = -419.5
+offset_right = 503.0
+offset_bottom = 299.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DialogueLayer/DialogueResponses"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="ResponseList" type="ItemList" parent="DialogueLayer/DialogueResponses"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/icon_margin = 0
+theme_override_font_sizes/font_size = 32
+auto_height = true
+item_count = 2
+same_column_width = true
+fixed_column_width = 1006
+icon_mode = 0
+item_0/text = "1"
+item_1/text = "2"
 
 [node name="TextLogButton" type="Button" parent="DialogueLayer"]
 anchors_preset = 1
