@@ -69,10 +69,13 @@ func _load_settings():
 	match config.get_value("Window", "screen_res"):
 		Vector2i(1280, 720):
 			resolution.selected = 0
+			DisplayServer.window_set_size(Vector2i(1280, 720))
 		Vector2i(1600, 900):
 			resolution.selected = 1
+			DisplayServer.window_set_size(Vector2i(1600, 900))
 		Vector2i(1920, 1080):
 			resolution.selected = 2
+			DisplayServer.window_set_size(Vector2i(1920, 1080))
 
 	vsync.button_pressed = config.get_value("Window", "vsync")
 
