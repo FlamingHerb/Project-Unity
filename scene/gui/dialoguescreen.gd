@@ -20,6 +20,7 @@ enum State {
 @onready var dialogue_next_indicator = $DialogueLayer/DialogueBox/NextIndicator
 @onready var dialogue_characters = $DialogueLayer/DialogueCharacters
 @onready var dialogue_responses = $DialogueLayer/DialogueResponses
+@onready var dialogue_responses_list = $DialogueLayer/DialogueResponses/DialogueWindow/ResponseList
 @onready var dialogue_tween
 
 var current_state = State.READY
@@ -41,13 +42,13 @@ func _process(_delta):
 		State.READY:
 			pass
 		State.READING:
-			if dialogue_gui_input: #FIXME: Find roundabout way to fix mouse clicks. 
+			if dialogue_gui_input or Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks. 
 				dialogue_gui_input = false
 				dialogue_tween.stop()
 				dialogue_box_text.visible_ratio = 1
 				_finish_dialogue()
 		State.FINISHED:
-			if dialogue_gui_input: #FIXME: Find roundabout way to fix mouse clicks.
+			if dialogue_gui_input or Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks.
 				dialogue_gui_input = false
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
@@ -61,6 +62,7 @@ func _update_textlog(actor, line):
 func toggle_ui(value):
 	if value:
 		dialogue_layer.show()
+	else:
 		dialogue_layer.hide()
 
 func _on_text_log_button_pressed():
@@ -87,9 +89,6 @@ func _clear_data():
 	dialogue_characters.hide()
 	dialogue_responses.hide()
 
-	# Checks for visibility
-	_dialogue_visibility_checker()
-
 	# Clear all items regardless if they were called
 	_clear_dialogue_box()
 	_clear_responses()
@@ -100,7 +99,6 @@ func _clear_data():
 # Rememeber that ID 000 will consequently be—and always—the first dialogue when loading.
 func init_dialogue(path, dialogue_key:String = "000"):
 	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
-	_dialogue_visibility_checker()
 	_process_dialogue(dialogue_key)
 
 # Processes current dialogue by the game.
@@ -110,13 +108,13 @@ func _process_dialogue(dialogue_id):
 		return
 
 	# Gets data first
-	dialogue_tween = get_tree().create_tween()
 	var current_dialogue_data = json_databank[dialogue_id]
 
 	#=====================================================
 	# START - IF THE FOLLOWING IS A DIALOGUE
 	#=====================================================
 	if current_dialogue_data["type"] == "basic":
+		dialogue_tween = get_tree().create_tween()
 		# Shows dialogue JUST IN CASE.
 		dialogue_box.show()
 		dialogue_characters.show()
@@ -167,13 +165,7 @@ func _clear_dialogue_box():
 	dialogue_box_text.bbcode_text = " "
 
 func _clear_responses():
-	dialogue_responses.clear()
-
-func _dialogue_visibility_checker():
-	if dialogue_box.is_visible():
-		dialogue_box.mouse_filter = Control.MOUSE_FILTER_STOP;
-	else:
-		dialogue_box.mouse_filter = Control.MOUSE_FILTER_PASS;
+	dialogue_responses_list.clear()
 
 # Changes state
 func change_state(next_state):
@@ -196,5 +188,19 @@ func read_from_JSON(path):
 	return JSON.parse_string(file.get_as_text())
 
 func _on_dialogue_box_gui_input(event:InputEvent):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		dialogue_gui_input = true
+
+
+func _on_dialogue_box_visibility_changed():
+	if dialogue_box.is_visible():
+		dialogue_box.mouse_filter = Control.MOUSE_FILTER_STOP;
+	else:
+		dialogue_box.mouse_filter = Control.MOUSE_FILTER_PASS;
+
+
+func _on_dialogue_responses_visibility_changed():
+	if dialogue_responses.is_visible():
+		dialogue_responses.mouse_filter = Control.MOUSE_FILTER_STOP;
+	else:
+		dialogue_responses.mouse_filter = Control.MOUSE_FILTER_PASS;
