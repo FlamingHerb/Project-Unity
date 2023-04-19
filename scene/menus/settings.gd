@@ -83,10 +83,10 @@ func _load_settings():
 
 # Reverts to default settings
 func _default_settings():
-	master_volume.value = 0.5
-	bgm_volume.value = 0.5
-	se_volume.value = 0.5
-	amb_volume.value = 0.5
+	master_volume.value = 0.75
+	bgm_volume.value = 0.75
+	se_volume.value = 0.75
+	amb_volume.value = 0.75
 	text_speed.value = 1
 	auto_speed.value = 1
 
