@@ -32,7 +32,7 @@ func _save_settings():
 	config.set_value("Text", "text_speed", text_speed.value)
 	config.set_value("Text", "auto_speed", auto_speed.value)
 	config.set_value("Window", "window_mode", window_mode.button_pressed)
-	config.set_value("Window", "screen_res", DisplayServer.window_get_size())
+	config.set_value("Window", "screen_res", resolution.selected)
 	config.set_value("Window", "vsync", vsync.button_pressed)
 
 	# Save it to a file (overwrite if already exists).
@@ -69,13 +69,13 @@ func _load_settings():
 	window_mode.button_pressed = config.get_value("Window", "window_mode")
 
 	match config.get_value("Window", "screen_res"):
-		Vector2i(1280, 720):
+		0:
 			resolution.selected = 0
 			DisplayServer.window_set_size(Vector2i(1280, 720))
-		Vector2i(1600, 900):
+		1:
 			resolution.selected = 1
 			DisplayServer.window_set_size(Vector2i(1600, 900))
-		Vector2i(1920, 1080):
+		2:
 			resolution.selected = 2
 			DisplayServer.window_set_size(Vector2i(1920, 1080))
 
