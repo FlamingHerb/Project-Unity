@@ -6,8 +6,7 @@ extends Control
 @onready var amb_volume = $MusicAndDisplayGroup/AmbienceSlider
 @onready var text_speed = $MusicAndDisplayGroup/TextSpeedSlider
 @onready var auto_speed = $MusicAndDisplayGroup/AutoSpeedSlider
-@onready var window_mode = $DisplayGroup/WindowModeBoxes/WindowBox
-@onready var fullscreen_mode = $DisplayGroup/WindowModeBoxes/FullscreenBox
+@onready var window_mode = $DisplayGroup/WindowOption
 @onready var resolution = $DisplayGroup/ResOptions
 @onready var vsync = $DisplayGroup/VSync
 
@@ -64,9 +63,7 @@ func _load_settings():
 	auto_speed.value = config.get_value("Text", "auto_speed")
 
 	if config.get_value("Window", "window_mode") == "fullscreen":
-		fullscreen_mode.button_pressed = true
-	else:
-		window_mode.button_pressed = true
+		pass
 
 	match config.get_value("Window", "screen_res"):
 		Vector2i(1280, 720):
@@ -126,15 +123,6 @@ func _on_se_slider_value_changed(value):
 #------------------------------------------------------------------------------
 #	TODO: Rework code
 #==============================================================================
-
-func _on_window_box_toggled(_button_pressed):
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	$DisplayGroup/ResOptions.disabled = false
-
-
-func _on_fullscreen_box_toggled(_button_pressed):
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	$DisplayGroup/ResOptions.disabled = true
 
 
 #==============================================================================
