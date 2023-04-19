@@ -149,12 +149,32 @@ func _process_dialogue(dialogue_id):
 	#=====================================================
 	# Gets data first for responses (CRUCIAL!)
 	if current_dialogue_data["type"] == "response":
+		# Changes state to ready JUST IN CASE
+		change_state(State.READY)
+
 		# Visibility checks
 		dialogue_box.hide()
 		dialogue_characters.hide()
+
+		# ALWAYS CLEAR RESPONSES
+		_clear_responses()
+	
+		var current_responses = current_dialogue_data["responses"]
+		print(current_responses)
+		for i in current_responses:
+			dialogue_responses_list.add_item(current_responses[i]["text"])
+		
+		# Shows dialogue box.
 		dialogue_responses.show()
 
-		var current_dialogue_responses = current_dialogue_data["responses"]
+		# Waits for input
+		var selected_index = str(await dialogue_responses_list.item_activated)
+
+		# Processing next state (different from dialogue due to circumstances)
+		dialogue_next_id = current_responses[selected_index]["commands"][0]
+		print(dialogue_next_id)
+		_process_dialogue(dialogue_next_id)
+
 
 func _finish_dialogue():
 	change_state(State.FINISHED)
@@ -198,9 +218,12 @@ func _on_dialogue_box_visibility_changed():
 	else:
 		dialogue_box.mouse_filter = Control.MOUSE_FILTER_PASS;
 
-
 func _on_dialogue_responses_visibility_changed():
 	if dialogue_responses.is_visible():
 		dialogue_responses.mouse_filter = Control.MOUSE_FILTER_STOP;
 	else:
 		dialogue_responses.mouse_filter = Control.MOUSE_FILTER_PASS;
+
+# Crucial
+func _on_response_list_item_activated(_index):
+	dialogue_responses.hide()

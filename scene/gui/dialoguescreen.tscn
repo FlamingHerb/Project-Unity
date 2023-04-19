@@ -236,11 +236,12 @@ offset_top = -44.631
 offset_bottom = 21.369
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme_override_constants/icon_margin = 0
 theme_override_font_sizes/font_size = 32
 auto_height = true
 same_column_width = true
-fixed_column_width = 1006
+fixed_column_width = 1163
 icon_mode = 0
 
 [node name="TextLogButton" type="Button" parent="DialogueLayer"]
@@ -314,5 +315,6 @@ text = "Close"
 [connection signal="gui_input" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_gui_input"]
 [connection signal="visibility_changed" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_visibility_changed"]
 [connection signal="visibility_changed" from="DialogueLayer/DialogueResponses" to="." method="_on_dialogue_responses_visibility_changed"]
+[connection signal="item_activated" from="DialogueLayer/DialogueResponses/DialogueWindow/ResponseList" to="." method="_on_response_list_item_activated"]
 [connection signal="pressed" from="DialogueLayer/TextLogButton" to="." method="_on_text_log_button_pressed"]
 [connection signal="pressed" from="DialogueLayer/TextLog/TextLogCloseButton" to="." method="_on_text_log_close_button_pressed"]
