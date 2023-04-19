@@ -83,12 +83,12 @@ func _load_settings():
 
 # Reverts to default settings
 func _default_settings():
-	master_volume.value = 0.5
-	bgm_volume.value = 0.5
-	se_volume.value = 0.5
-	amb_volume.value = 0.5
-	text_speed.value = 0.5
-	auto_speed.value = 0.5
+	master_volume.value = 0.75
+	bgm_volume.value = 0.75
+	se_volume.value = 0.75
+	amb_volume.value = 0.75
+	text_speed.value = 1
+	auto_speed.value = 1
 
 	window_mode.button_pressed = true
 	resolution.selected = 1
@@ -123,6 +123,18 @@ func _on_music_slider_value_changed(value):
 func _on_se_slider_value_changed(value):
 	print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(value))
+
+#==============================================================================
+# ** Text Settings
+#------------------------------------------------------------------------------
+#  
+#==============================================================================
+
+func _on_text_speed_slider_value_changed(value:float):
+	DialogueScreen.text_speed_settings = value
+
+func _on_auto_speed_slider_value_changed(value:float):
+	DialogueScreen.auto_speed_settings = value
 
 #==============================================================================
 # ** Fullscreen
@@ -191,6 +203,9 @@ func _on_visibility_changed():
 	if self.is_visible():
 		print("Settings drawn and loaded.")
 		_load_settings()
+
+
+
 
 
 

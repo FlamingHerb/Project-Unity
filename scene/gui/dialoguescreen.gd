@@ -26,6 +26,9 @@ var dialogue_json_path = "res://assets/data/dialogue/"
 var json_databank
 var dialogue_next_id
 var dialogue_gui_input = false
+var text_speed_settings = 1
+var auto_speed_settings = 1
+
 
 func _ready():
 	pass
@@ -37,13 +40,13 @@ func _process(_delta):
 		State.READY:
 			pass
 		State.READING:
-			if dialogue_gui_input: # Originally Input.is_action_just_pressed("ui_accept") #FIXME: Find roundabout way to fix mouse clicks. 
+			if dialogue_gui_input: #FIXME: Find roundabout way to fix mouse clicks. 
 				dialogue_gui_input = false
 				dialogue_tween.stop()
 				dialogue_box_text.visible_ratio = 1
 				_finish_dialogue()
 		State.FINISHED:
-			if dialogue_gui_input: # Originally Input.is_action_just_pressed("ui_accept") #FIXME: Find roundabout way to fix mouse clicks.
+			if dialogue_gui_input: #FIXME: Find roundabout way to fix mouse clicks.
 				dialogue_gui_input = false
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
@@ -118,7 +121,12 @@ func _process_dialogue(dialogue_id):
 	dialogue_next_id = current_dialogue_data["commands"][0] # TODO: Redo this with interpreter.
 
 	change_state(State.READING)
-	dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
+	
+	var current_dialogue_character_count = dialogue_box_text.get_total_character_count()
+	var current_dialogue_speed = (current_dialogue_character_count / 20) / text_speed_settings
+	
+	dialogue_tween.tween_property(dialogue_box_text, "visible_characters", current_dialogue_character_count, current_dialogue_speed)
+	#dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
 
 	dialogue_tween.tween_callback(_finish_dialogue)
 
