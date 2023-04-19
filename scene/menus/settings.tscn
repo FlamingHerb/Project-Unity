@@ -180,6 +180,7 @@ text = "Fullscreen?"
 
 [node name="WindowOption" type="CheckButton" parent="DisplayGroup"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="ResLabel" type="Label" parent="DisplayGroup"]
 layout_mode = 2

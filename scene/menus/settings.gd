@@ -31,10 +31,7 @@ func _save_settings():
 	config.set_value("Music", "amb_volume", amb_volume.value)
 	config.set_value("Text", "text_speed", text_speed.value)
 	config.set_value("Text", "auto_speed", auto_speed.value)
-	if window_mode.button_pressed == true:
-		config.set_value("Window", "window_mode", "window")
-	else:
-		config.set_value("Window", "window_mode", "fullscreen")
+	config.set_value("Window", "window_mode", window_mode.button_pressed)
 	config.set_value("Window", "screen_res", DisplayServer.window_get_size())
 	config.set_value("Window", "vsync", vsync.button_pressed)
 
@@ -62,8 +59,12 @@ func _load_settings():
 	text_speed.value = config.get_value("Text", "text_speed")
 	auto_speed.value = config.get_value("Text", "auto_speed")
 
-	if config.get_value("Window", "window_mode") == "fullscreen":
-		pass
+	if config.get_value("Window", "window_mode"):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+	window_mode.button_pressed = config.get_value("Window", "window_mode")
 
 	match config.get_value("Window", "screen_res"):
 		Vector2i(1280, 720):
@@ -124,6 +125,11 @@ func _on_se_slider_value_changed(value):
 #	TODO: Rework code
 #==============================================================================
 
+func _on_window_option_toggled(button_pressed:bool):
+	if button_pressed:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 #==============================================================================
 # ** Resolution
@@ -170,3 +176,6 @@ func _on_visibility_changed():
 	if self.is_visible():
 		print("Settings drawn and loaded.")
 		_load_settings()
+
+
+
