@@ -61,8 +61,10 @@ func _load_settings():
 
 	if config.get_value("Window", "window_mode"):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		resolution.disabled = true
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		resolution.disabled = false
 
 	window_mode.button_pressed = config.get_value("Window", "window_mode")
 
@@ -131,8 +133,18 @@ func _on_se_slider_value_changed(value):
 func _on_window_option_toggled(button_pressed:bool):
 	if button_pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		resolution.disabled = true
 	else:
+		var selected_item_name = resolution.get_item_text(resolution.selected)
+		match selected_item_name:
+			"1280x720":
+				DisplayServer.window_set_size(Vector2i(1280, 720))
+			"1600x900":
+				DisplayServer.window_set_size(Vector2i(1600, 900))
+			"1920x1080":
+				DisplayServer.window_set_size(Vector2i(1920, 1080))
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		resolution.disabled = false
 
 #==============================================================================
 # ** Resolution
