@@ -62,7 +62,6 @@ grow_vertical = 2
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
 visible = false
@@ -188,6 +187,63 @@ libraries = {
 "": SubResource("AnimationLibrary_ouy7y")
 }
 
+[node name="DialogueResponses" type="Control" parent="DialogueLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 541.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DialogueWindow" type="Control" parent="DialogueLayer/DialogueResponses"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -581.5
+offset_top = -367.5
+offset_right = 581.5
+offset_bottom = 367.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DialogueLayer/DialogueResponses/DialogueWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="ResponseList" type="ItemList" parent="DialogueLayer/DialogueResponses/DialogueWindow"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -44.631
+offset_bottom = 21.369
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_constants/icon_margin = 0
+theme_override_font_sizes/font_size = 32
+auto_height = true
+same_column_width = true
+fixed_column_width = 1163
+icon_mode = 0
+
 [node name="TextLogButton" type="Button" parent="DialogueLayer"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -257,5 +313,8 @@ grow_vertical = 2
 text = "Close"
 
 [connection signal="gui_input" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_gui_input"]
+[connection signal="visibility_changed" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_visibility_changed"]
+[connection signal="visibility_changed" from="DialogueLayer/DialogueResponses" to="." method="_on_dialogue_responses_visibility_changed"]
+[connection signal="item_activated" from="DialogueLayer/DialogueResponses/DialogueWindow/ResponseList" to="." method="_on_response_list_item_activated"]
 [connection signal="pressed" from="DialogueLayer/TextLogButton" to="." method="_on_text_log_button_pressed"]
 [connection signal="pressed" from="DialogueLayer/TextLog/TextLogCloseButton" to="." method="_on_text_log_close_button_pressed"]
