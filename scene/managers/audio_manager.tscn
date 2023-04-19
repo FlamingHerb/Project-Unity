@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://do25dprvxeobf"]
+
+[ext_resource type="Script" path="res://scene/managers/audio_manager.gd" id="1_ehdqm"]
+[ext_resource type="PackedScene" uid="uid://dtoh476onbsr6" path="res://scene/audio/audio_queue.tscn" id="2_nl2rp"]
+[ext_resource type="AudioStream" uid="uid://0nv8odv6ww01" path="res://assets/audio/sfx/ui_click.mp3" id="3_cc6ie"]
+[ext_resource type="AudioStream" uid="uid://w8fjs4nhr8wu" path="res://assets/audio/sfx/ui_hover.mp3" id="4_af7xa"]
+[ext_resource type="AudioStream" uid="uid://511x6frki8p0" path="res://assets/audio/music/main_menu.mp3" id="5_khmxh"]
+[ext_resource type="AudioStream" uid="uid://cyl62k62b6c1e" path="res://assets/audio/sfx/locked_door.mp3" id="6_02np2"]
+[ext_resource type="AudioStream" uid="uid://b042s0p7lhfyq" path="res://assets/audio/sfx/opened_door.mp3" id="6_iersr"]
+[ext_resource type="AudioStream" uid="uid://r5xl6xtietaj" path="res://assets/audio/sfx/door_key.mp3" id="8_fjwim"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ehdqm")
+
+[node name="BtnAudioQueue" parent="." instance=ExtResource("2_nl2rp")]
+
+[node name="UiClick" type="AudioStreamPlayer" parent="BtnAudioQueue"]
+stream = ExtResource("3_cc6ie")
+bus = &"SFX"
+
+[node name="UiHover" type="AudioStreamPlayer" parent="BtnAudioQueue"]
+stream = ExtResource("4_af7xa")
+bus = &"SFX"
+
+[node name="MusicAudioQueue" parent="." instance=ExtResource("2_nl2rp")]
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="MusicAudioQueue"]
+stream = ExtResource("5_khmxh")
+bus = &"Music"
+
+[node name="SFXAudioQueue" parent="." instance=ExtResource("2_nl2rp")]
+
+[node name="OpenedDoor" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("6_iersr")
+bus = &"SFX"
+
+[node name="LockedDoor" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("6_02np2")
+bus = &"SFX"
+
+[node name="DoorKey" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("8_fjwim")
+bus = &"SFX"

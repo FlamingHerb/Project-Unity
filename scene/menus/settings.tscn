@@ -242,6 +242,8 @@ columns = 2
 [connection signal="pressed" from="BottomButtons/RestoreDefaultButton" to="." method="_on_restore_default_button_pressed"]
 [connection signal="pressed" from="BottomButtons/BackButton" to="." method="_on_backbutton_pressed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/MasterSoundSlider" to="." method="_on_master_sound_slider_value_changed"]
+[connection signal="value_changed" from="MusicAndDisplayGroup/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MusicAndDisplayGroup/SESlider" to="." method="_on_se_slider_value_changed"]
 [connection signal="toggled" from="DisplayGroup/WindowModeBoxes/WindowBox" to="." method="_on_window_box_toggled"]
 [connection signal="toggled" from="DisplayGroup/WindowModeBoxes/FullscreenBox" to="." method="_on_fullscreen_box_toggled"]
 [connection signal="item_selected" from="DisplayGroup/ResOptions" to="." method="_on_res_options_item_selected"]

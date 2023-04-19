@@ -23,6 +23,7 @@ Inventory="*res://scene/managers/inventory.gd"
 GlobalDatabase="*res://scene/managers/globaldatabase.gd"
 DialogueScreen="*res://scene/gui/dialoguescreen.tscn"
 GamePauseUI="*res://scene/gui/gamepauseui.tscn"
+AudioManager="*res://scene/managers/audio_manager.tscn"
 
 [display]
 

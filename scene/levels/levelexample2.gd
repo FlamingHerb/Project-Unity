@@ -14,9 +14,11 @@ func _process(_delta):
 func _on_closed_door_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if Inventory.check_item("debug_key"):
+			AudioManager.play_opened_door()
 			SceneManager.goto_scene("res://scene/levels/closedroom.tscn")
 		else:
 			DialogueScreen.init_dialogue("door_locked")
+			AudioManager.play_locked_door()
 
 
 func _on_open_door_input_event(_viewport, event, _shape_idx):
@@ -29,6 +31,7 @@ func _on_key_pressed():
 	Inventory.add_item("Vase")
 	DialogueScreen.init_dialogue("example_talk")
 	$Key.queue_free()
+	AudioManager.play_door_key()
 
 func _on_open_door_mouse_entered():
 	$OpenDoor/Line2D/AnimationPlayer.play("glow")

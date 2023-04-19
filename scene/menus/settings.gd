@@ -13,8 +13,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	_load_settings()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -101,6 +100,25 @@ func _on_master_sound_slider_value_changed(value):
 	print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 
+#==============================================================================
+# ** Music Volume
+#------------------------------------------------------------------------------
+#  
+#==============================================================================
+
+func _on_music_slider_value_changed(value):
+	print(linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear_to_db(value))
+
+#==============================================================================
+# ** SE Volume
+#------------------------------------------------------------------------------
+#  
+#==============================================================================
+
+func _on_se_slider_value_changed(value):
+	print(linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(value))
 
 #==============================================================================
 # ** Fullscreen

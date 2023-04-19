@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtoh476onbsr6"]
+
+[ext_resource type="Script" path="res://scene/audio/audio_queue.gd" id="1_u53vj"]
+
+[node name="AudioQueue" type="Node"]
+script = ExtResource("1_u53vj")
+count = 1
