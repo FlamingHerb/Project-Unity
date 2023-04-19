@@ -4,10 +4,9 @@
     "speaker": "none",
     "emotion": "neutral",
     "position": "left",
-    "text": "Door is locked.",
+    "text": "Ea incididunt nostrud id non quis elit reprehenderit nostrud consequat do aute officia cupidatat minim. Est laborum eiusmod incididunt proident pariatur id aute aliqua sit.",
     "commands": [
-        "end",
-        "example command"
+        "end"
     ]
   }
 }

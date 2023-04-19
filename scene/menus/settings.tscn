@@ -232,6 +232,8 @@ columns = 2
 [connection signal="value_changed" from="MusicAndDisplayGroup/MasterSoundSlider" to="." method="_on_master_sound_slider_value_changed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MusicAndDisplayGroup/SESlider" to="." method="_on_se_slider_value_changed"]
+[connection signal="value_changed" from="MusicAndDisplayGroup/TextSpeedSlider" to="." method="_on_text_speed_slider_value_changed"]
+[connection signal="value_changed" from="MusicAndDisplayGroup/AutoSpeedSlider" to="." method="_on_auto_speed_slider_value_changed"]
 [connection signal="toggled" from="DisplayGroup/WindowOption" to="." method="_on_window_option_toggled"]
 [connection signal="item_selected" from="DisplayGroup/ResOptions" to="." method="_on_res_options_item_selected"]
 [connection signal="toggled" from="DisplayGroup/VSync" to="." method="_on_vsync_button_toggled"]

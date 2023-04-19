@@ -26,6 +26,9 @@ var dialogue_json_path = "res://assets/data/dialogue/"
 var json_databank
 var dialogue_next_id
 var dialogue_gui_input = false
+var text_speed_settings = 1
+var auto_speed_settings = 1
+
 
 func _ready():
 	pass
@@ -120,7 +123,8 @@ func _process_dialogue(dialogue_id):
 	change_state(State.READING)
 	
 	var current_dialogue_character_count = dialogue_box_text.get_total_character_count()
-	var current_dialogue_speed = current_dialogue_character_count / 20
+	var current_dialogue_speed = (current_dialogue_character_count / 20) / text_speed_settings
+	
 	dialogue_tween.tween_property(dialogue_box_text, "visible_characters", current_dialogue_character_count, current_dialogue_speed)
 	#dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
 
