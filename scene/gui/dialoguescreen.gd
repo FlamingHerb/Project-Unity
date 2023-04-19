@@ -19,6 +19,7 @@ enum State {
 @onready var dialogue_box_speaker = $DialogueLayer/DialogueBox/DialogueActorName
 @onready var dialogue_next_indicator = $DialogueLayer/DialogueBox/NextIndicator
 @onready var dialogue_characters = $DialogueLayer/DialogueCharacters
+@onready var dialogue_responses = $DialogueLayer/DialogueResponses
 @onready var dialogue_tween
 
 var current_state = State.READY
@@ -50,24 +51,17 @@ func _process(_delta):
 				dialogue_gui_input = false
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
-	pass
 
 ## Text Log Related Functions
 ## START
 
 func _update_textlog(actor, line):
 	textlog_text.append_text(actor + ": " + line + "\n")
-	pass
 
 func toggle_ui(value):
 	if value:
 		dialogue_layer.show()
-		#dialogue_box.show()
-		#dialogue_characters.show()
-	else:
 		dialogue_layer.hide()
-		#dialogue_box.hide()
-		#dialogue_characters.hide()
 
 func _on_text_log_button_pressed():
 	textlog.show()
@@ -84,13 +78,21 @@ func _on_text_log_close_button_pressed():
 
 # Clears data for the next sequence of events.
 func _clear_data():
+	# Returns ownership and clears memory.
 	json_databank = null
 	dialogue_next_id = null
 	
+	# Hides all dialogue boxes
 	dialogue_box.hide()
 	dialogue_characters.hide()
+	dialogue_responses.hide()
+
+	# Checks for visibility
 	_dialogue_visibility_checker()
+
+	# Clear all items regardless if they were called
 	_clear_dialogue_box()
+	_clear_responses()
 
 	change_state(State.READY)
 
@@ -98,8 +100,6 @@ func _clear_data():
 # Rememeber that ID 000 will consequently be—and always—the first dialogue when loading.
 func init_dialogue(path, dialogue_key:String = "000"):
 	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
-	dialogue_box.show()
-	dialogue_characters.show()
 	_dialogue_visibility_checker()
 	_process_dialogue(dialogue_key)
 
@@ -109,39 +109,65 @@ func _process_dialogue(dialogue_id):
 		_clear_data()
 		return
 
+	# Gets data first
 	dialogue_tween = get_tree().create_tween()
 	var current_dialogue_data = json_databank[dialogue_id]
-	dialogue_box_text.visible_ratio = 0
 
-	if current_dialogue_data["speaker"] != "none":
-		dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
-	dialogue_box_text.bbcode_text = current_dialogue_data["text"]
-	_update_textlog(current_dialogue_data["speaker"], current_dialogue_data["text"])
+	#=====================================================
+	# START - IF THE FOLLOWING IS A DIALOGUE
+	#=====================================================
+	if current_dialogue_data["type"] == "basic":
+		# Shows dialogue JUST IN CASE.
+		dialogue_box.show()
+		dialogue_characters.show()
+		dialogue_responses.hide()
 
-	dialogue_next_id = current_dialogue_data["commands"][0] # TODO: Redo this with interpreter.
+		# Sets characters to an invisible state
+		dialogue_box_text.visible_characters = 0
 
-	change_state(State.READING)
-	
-	var current_dialogue_character_count = dialogue_box_text.get_total_character_count()
-	var current_dialogue_speed = (current_dialogue_character_count / 20) / text_speed_settings
-	
-	dialogue_tween.tween_property(dialogue_box_text, "visible_characters", current_dialogue_character_count, current_dialogue_speed)
-	#dialogue_tween.tween_property(dialogue_box_text, "visible_ratio", 1, 1)
+		# Sets and updates speaker data
+		if current_dialogue_data["speaker"] != "none":
+			dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
+		dialogue_box_text.bbcode_text = current_dialogue_data["text"]
+		_update_textlog(current_dialogue_data["speaker"], current_dialogue_data["text"])
 
-	dialogue_tween.tween_callback(_finish_dialogue)
+		# Setting up next ID for reading.
+		dialogue_next_id = current_dialogue_data["commands"][0] # TODO: Redo this with interpreter.
 
-	
-	#await dialogue_tween.finished # Kind of bland, but we take those anyway.
-	#_finish_dialogue()
-	
+		change_state(State.READING)
+		
+		var current_dialogue_character_count = dialogue_box_text.get_total_character_count()
+		var current_dialogue_speed = (current_dialogue_character_count / 20) / text_speed_settings
+		
+		dialogue_tween.tween_property(dialogue_box_text, "visible_characters", current_dialogue_character_count, current_dialogue_speed)
+
+		dialogue_tween.tween_callback(_finish_dialogue)
+	#=====================================================
+	# END - IF THE FOLLOWING IS A DIALOGUE
+	#=====================================================
+
+	#=====================================================
+	# START - IF THE FOLLOWING IS A RESPONSE
+	#=====================================================
+	# Gets data first for responses (CRUCIAL!)
+	if current_dialogue_data["type"] == "response":
+		# Visibility checks
+		dialogue_box.hide()
+		dialogue_characters.hide()
+		dialogue_responses.show()
+
+		var current_dialogue_responses = current_dialogue_data["responses"]
+
 func _finish_dialogue():
 	change_state(State.FINISHED)
 	dialogue_next_indicator.show()
-	pass
 
 func _clear_dialogue_box():
 	dialogue_box_speaker.bbcode_text = " "
 	dialogue_box_text.bbcode_text = " "
+
+func _clear_responses():
+	dialogue_responses.clear()
 
 func _dialogue_visibility_checker():
 	if dialogue_box.is_visible():
