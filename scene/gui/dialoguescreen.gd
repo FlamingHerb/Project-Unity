@@ -199,6 +199,17 @@ func change_state(next_state):
 		State.FINISHED:
 			print("Finished reading dialogue. Awaiting input.")
 
+#--------------------------------------------------------------------------
+# * Dialogue Interpreter
+# - Set variable (set variable_name)
+# - Release signal (signal signal_name)
+# - Add items (add_item item_name)
+# - Play BGM/SE/Music (play_bgm/se/music audio_name)
+#--------------------------------------------------------------------------
+func _dialogue_interpreter(command):
+	
+	pass
+
 
 ## Dialogue Related Functions
 ## END
