@@ -135,8 +135,9 @@ func _process_dialogue(dialogue_id):
 		change_state(State.READING)
 		
 		var current_dialogue_character_count = dialogue_box_text.get_total_character_count()
-		var current_dialogue_speed = (current_dialogue_character_count / 20) / text_speed_settings
-		
+		var current_dialogue_speed = (float(current_dialogue_character_count) / 20) / text_speed_settings 
+		print(current_dialogue_speed)
+
 		dialogue_tween.tween_property(dialogue_box_text, "visible_characters", current_dialogue_character_count, current_dialogue_speed)
 
 		dialogue_tween.tween_callback(_finish_dialogue)
