@@ -55,6 +55,7 @@ func _process(_delta):
 				_finish_dialogue()
 		State.FINISHED:
 			if dialogue_gui_input or Input.is_action_just_pressed("ui_accept"): #FIXME: Find roundabout way to fix mouse clicks.
+				dialogue_part_finished.emit()
 				dialogue_gui_input = false
 				_process_dialogue(dialogue_next_id)
 				dialogue_next_indicator.hide()
@@ -168,11 +169,16 @@ func _process_dialogue(dialogue_id):
 		# Shows dialogue box.
 		dialogue_responses.show()
 
+
 		# Waits for input
 		var selected_index = str(await dialogue_responses_list.item_activated)
 
 		# Processing next state (different from dialogue due to circumstances)
 		dialogue_next_id = current_responses[selected_index]["commands"][0]
+		
+		# Emits signal to tell which option was taken.
+		response_taken.emit(selected_index)
+
 		print(dialogue_next_id)
 		_process_dialogue(dialogue_next_id)
 
