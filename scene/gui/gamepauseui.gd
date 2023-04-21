@@ -1,7 +1,7 @@
 extends Control
 
 @onready var textlog = $PauseCanvasLayer/TextLog
-@onready var textlog_text = $PauseCanvasLayer/TextLog/MarginContainer/MarginContainer/TextLogText #FIXME: WHY
+@onready var textlog_text = $PauseCanvasLayer/TextLog/TextLogText #FIXME: WHY
 
 
 # Called when the node enters the scene tree for the first time.
