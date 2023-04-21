@@ -21,4 +21,11 @@ offset_right = 841.0
 offset_bottom = 470.0
 texture_normal = ExtResource("3_1vslc")
 
+[node name="BedroomDoor" type="Area2D" parent="FisheyeContainer"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="FisheyeContainer/BedroomDoor"]
+position = Vector2(2291, 235)
+polygon = PackedVector2Array(-79, -232, 430, -215, 333, 276, 256, 539, 187, 765, -189, 767)
+
 [connection signal="pressed" from="FisheyeContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="input_event" from="FisheyeContainer/BedroomDoor" to="." method="_on_bedroom_door_input_event"]

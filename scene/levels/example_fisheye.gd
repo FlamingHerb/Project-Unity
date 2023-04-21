@@ -17,3 +17,8 @@ func _on_texture_button_pressed():
 	await DialogueScreen.dialogue_all_finished
 	print("Dialogue finished")
 	DialogueScreen.hide_bust(1)
+
+
+func _on_bedroom_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("example_talk", "002")
