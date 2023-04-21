@@ -71,6 +71,7 @@ mouse_filter = 0
 texture = ExtResource("2_nq1me")
 
 [node name="CenterSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

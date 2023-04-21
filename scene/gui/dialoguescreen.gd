@@ -25,8 +25,13 @@ enum State {
 @onready var dialogue_responses_list = $DialogueLayer/DialogueResponses/DialogueWindow/ResponseList
 @onready var dialogue_tween
 
+@onready var bust_left = $DialogueLayer/DialogueCharacters/LeftSide
+@onready var bust_center = $DialogueLayer/DialogueCharacters/CenterSide
+@onready var bust_right = $DialogueLayer/DialogueCharacters/RightSide
+
 var current_state = State.READY
 var dialogue_json_path = "res://assets/data/dialogue/"
+var dialogue_bust_path = "res://assets/graphics/character_busts/"
 var json_databank
 var dialogue_next_id
 var dialogue_gui_input = false
@@ -197,6 +202,41 @@ func change_state(next_state):
 		State.FINISHED:
 			print("Finished reading dialogue. Awaiting input.")
 
+
+func change_dialogue_bust(bust_filename, bust_position):
+	match bust_position:
+		0:
+			bust_left.texture = load(dialogue_bust_path + bust_filename)
+		1:
+			bust_center.texture = load(dialogue_bust_path + bust_filename)
+		2:
+			bust_right.texture = load(dialogue_bust_path + bust_filename)
+
+func show_bust(bust_position):
+	match bust_position:
+		0:
+			bust_left.show()
+		1:
+			bust_center.show()
+		2:
+			bust_right.show()
+		3:
+			bust_left.show()
+			bust_center.show()
+			bust_right.show()
+
+func hide_bust(bust_position):
+	match bust_position:
+		0:
+			bust_left.hide()
+		1:
+			bust_center.hide()
+		2:
+			bust_right.hide()
+		3:
+			bust_left.hide()
+			bust_center.hide()
+			bust_right.hide()
 
 
 ## Dialogue Related Functions
