@@ -3,28 +3,19 @@
     "type": "basic",
     "speaker": "standin",
     "text": "Oh my oh my God.",
-    "commands": [
-        "001",
-        "example command"
-    ]
+    "next_id": "001"
   },
   "001":  {
     "type": "basic",
     "speaker": "standin",
     "text": "Yesanghaesseo na.",
-    "commands": [
-        "002",
-        "example command"
-    ]
+    "next_id": "002"
   },
 
   "002":  {
     "type": "basic",
     "speaker": "standin",
     "text": "I was really hoping.",
-    "commands": [
-        "end",
-        "example command"
-    ]
+    "next_id": "end"
   }
 }

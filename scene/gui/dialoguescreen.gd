@@ -132,7 +132,7 @@ func _process_dialogue(dialogue_id):
 		_update_textlog(current_dialogue_data["speaker"], current_dialogue_data["text"])
 
 		# Setting up next ID for reading.
-		dialogue_next_id = current_dialogue_data["commands"][0] # TODO: Redo this with interpreter.
+		dialogue_next_id = current_dialogue_data["next_id"] # TODO: Redo this with interpreter.
 
 		change_state(State.READING)
 		
@@ -174,12 +174,12 @@ func _process_dialogue(dialogue_id):
 		var selected_index = str(await dialogue_responses_list.item_activated)
 
 		# Processing next state (different from dialogue due to circumstances)
-		dialogue_next_id = current_responses[selected_index]["commands"][0]
+		dialogue_next_id = current_responses[selected_index]["next_id"]
 		
 		# Emits signal to tell which option was taken.
 		response_taken.emit(selected_index)
 
-		print(dialogue_next_id)
+		print("Next Dialogue ID:" + dialogue_next_id)
 		_process_dialogue(dialogue_next_id)
 
 
