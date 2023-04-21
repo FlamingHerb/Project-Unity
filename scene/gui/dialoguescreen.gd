@@ -61,6 +61,8 @@ func _process(_delta):
 func _update_textlog(actor, line):
 	GamePauseUI.textlog_text.append_text(actor + ": " + line + "\n")
 
+
+
 func toggle_ui(value):
 	if value:
 		dialogue_layer.show()
