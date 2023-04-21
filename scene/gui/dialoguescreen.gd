@@ -241,6 +241,18 @@ func hide_bust(bust_position):
 			bust_center.hide()
 			bust_right.hide()
 
+func clear_bust(bust_position):
+	match bust_position:
+		0:
+			bust_left.texture = null
+		1:
+			bust_center.texture = null
+		2:
+			bust_right.texture = null
+		3:
+			bust_left.texture = null
+			bust_center.texture = null
+			bust_right.texture = null
 
 ## Dialogue Related Functions
 ## END
