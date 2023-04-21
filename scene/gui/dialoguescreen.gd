@@ -16,8 +16,6 @@ enum State {
 }
 
 @onready var dialogue_layer = $DialogueLayer
-@onready var textlog = $DialogueLayer/TextLog
-@onready var textlog_text = $DialogueLayer/TextLog/MarginContainer/MarginContainer/TextLogText #FIXME: WHY
 @onready var dialogue_box = $DialogueLayer/DialogueBox
 @onready var dialogue_box_text = $DialogueLayer/DialogueBox/DialogueText
 @onready var dialogue_box_speaker = $DialogueLayer/DialogueBox/DialogueActorName
@@ -61,19 +59,15 @@ func _process(_delta):
 ## START
 
 func _update_textlog(actor, line):
-	textlog_text.append_text(actor + ": " + line + "\n")
+	GamePauseUI.textlog_text.append_text(actor + ": " + line + "\n")
+
+
 
 func toggle_ui(value):
 	if value:
 		dialogue_layer.show()
 	else:
 		dialogue_layer.hide()
-
-func _on_text_log_button_pressed():
-	textlog.show()
-
-func _on_text_log_close_button_pressed():
-	textlog.hide()
 
 ## Text Log Related Functions
 ## END

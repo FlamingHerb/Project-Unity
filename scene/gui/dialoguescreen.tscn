@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://vqr8unnrusa7"]
+[gd_scene load_steps=6 format=3 uid="uid://vqr8unnrusa7"]
 
 [ext_resource type="Script" path="res://scene/gui/dialoguescreen.gd" id="1_r3yfn"]
-[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_6goha"]
 [ext_resource type="Texture2D" uid="uid://c35m1g6xw32jb" path="res://assets/graphics/character_busts/standin_neutral.png" id="2_nq1me"]
 
 [sub_resource type="Animation" id="Animation_370vg"]
@@ -40,17 +39,6 @@ _data = {
 "IDLE": SubResource("Animation_370vg"),
 "RESET": SubResource("Animation_74ntn")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvkyh"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqdbj"]
-bg_color = Color(0, 0, 0, 1)
 
 [node name="DialogueHUD" type="Control"]
 layout_mode = 3
@@ -244,77 +232,7 @@ same_column_width = true
 fixed_column_width = 1163
 icon_mode = 0
 
-[node name="TextLogButton" type="Button" parent="DialogueLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -90.0
-offset_bottom = 36.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
-text = "Text Log"
-
-[node name="TextLog" type="Control" parent="DialogueLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="Blur" parent="DialogueLayer/TextLog" instance=ExtResource("2_6goha")]
-layout_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="DialogueLayer/TextLog"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -410.0
-offset_top = -242.131
-offset_right = 1190.0
-offset_bottom = 651.869
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Panel" type="Panel" parent="DialogueLayer/TextLog/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mvkyh")
-
-[node name="MarginContainer" type="MarginContainer" parent="DialogueLayer/TextLog/MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="Panel" type="Panel" parent="DialogueLayer/TextLog/MarginContainer/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vqdbj")
-
-[node name="TextLogText" type="RichTextLabel" parent="DialogueLayer/TextLog/MarginContainer/MarginContainer"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="TextLogCloseButton" type="Button" parent="DialogueLayer/TextLog"]
-layout_mode = 2
-offset_left = 874.522
-offset_top = 648.0
-offset_right = 1005.52
-offset_bottom = 719.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Close"
-
 [connection signal="gui_input" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_gui_input"]
 [connection signal="visibility_changed" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_visibility_changed"]
 [connection signal="visibility_changed" from="DialogueLayer/DialogueResponses" to="." method="_on_dialogue_responses_visibility_changed"]
 [connection signal="item_activated" from="DialogueLayer/DialogueResponses/DialogueWindow/ResponseList" to="." method="_on_response_list_item_activated"]
-[connection signal="pressed" from="DialogueLayer/TextLogButton" to="." method="_on_text_log_button_pressed"]
-[connection signal="pressed" from="DialogueLayer/TextLog/TextLogCloseButton" to="." method="_on_text_log_close_button_pressed"]
