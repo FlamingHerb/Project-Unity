@@ -3,9 +3,7 @@ extends Node
 @onready var fisheye_container = $FisheyeContainer
 
 func _ready():
-	GamePauseUI.toggle_ui(true)
-	DialogueScreen.toggle_ui(true)
-	AudioManager.stop_music()
+	SceneManager.debug_test()
 
 # Called when the node enters the scene tree for the first time.
 func _unhandled_input(event):

@@ -7,7 +7,7 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 
-func _debug_test():
+func debug_test():
 	GamePauseUI.toggle_ui(true)
 	DialogueScreen.toggle_ui(true)
 
