@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7u65domjbb7c"]
+
+[ext_resource type="Texture2D" uid="uid://bm4is0q168nrr" path="res://assets/graphics/background/flatten.jpg" id="1_7i0wi"]
+[ext_resource type="Script" path="res://scene/levels/example_fisheye.gd" id="1_j005s"]
+
+[node name="FisheyeExample" type="Node"]
+script = ExtResource("1_j005s")
+
+[node name="FisheyeContainer" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="FisheyeContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7i0wi")
