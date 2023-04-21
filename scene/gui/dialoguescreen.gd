@@ -5,6 +5,10 @@ extends Control
 ##
 ## Pretty much self-explanatory. Divided into two parts. The text log and the dialogue system. Also the responses are also there.
 
+signal dialogue_part_finished
+signal dialogue_all_finished
+signal response_taken(index)
+
 enum State {
 	READY,
 	READING,
@@ -198,6 +202,7 @@ func change_state(next_state):
 			print("Reading current dialogue.")
 		State.FINISHED:
 			print("Finished reading dialogue. Awaiting input.")
+
 
 
 ## Dialogue Related Functions
