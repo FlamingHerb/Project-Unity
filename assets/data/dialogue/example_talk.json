@@ -2,8 +2,6 @@
 	"000":  {
     "type": "basic",
     "speaker": "standin",
-    "emotion": "neutral",
-    "position": "left",
     "text": "Oh my oh my God.",
     "commands": [
         "001",
@@ -13,8 +11,6 @@
   "001":  {
     "type": "basic",
     "speaker": "standin",
-    "emotion": "neutral",
-    "position": "left",
     "text": "Yesanghaesseo na.",
     "commands": [
         "002",
@@ -25,8 +21,6 @@
   "002":  {
     "type": "basic",
     "speaker": "standin",
-    "emotion": "neutral",
-    "position": "left",
     "text": "I was really hoping.",
     "commands": [
         "end",

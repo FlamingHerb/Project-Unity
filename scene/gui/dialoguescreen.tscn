@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://vqr8unnrusa7"]
+[gd_scene load_steps=5 format=3 uid="uid://vqr8unnrusa7"]
 
 [ext_resource type="Script" path="res://scene/gui/dialoguescreen.gd" id="1_r3yfn"]
-[ext_resource type="Texture2D" uid="uid://c35m1g6xw32jb" path="res://assets/graphics/character_busts/standin_neutral.png" id="2_nq1me"]
 
 [sub_resource type="Animation" id="Animation_370vg"]
 resource_name = "IDLE"
@@ -50,29 +49,19 @@ grow_vertical = 2
 script = ExtResource("1_r3yfn")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="."]
-
-[node name="DialogueCharacters" type="Control" parent="DialogueLayer"]
 visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
 
-[node name="LeftSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
+[node name="LeftSide" type="TextureRect" parent="DialogueLayer"]
 visible = false
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -818.0
 offset_right = 500.0
 grow_vertical = 0
-mouse_filter = 0
-texture = ExtResource("2_nq1me")
 
-[node name="CenterSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
+[node name="CenterSide" type="TextureRect" parent="DialogueLayer"]
 visible = false
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -83,12 +72,9 @@ offset_top = -818.0
 offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 0
-texture = ExtResource("2_nq1me")
 
-[node name="RightSide" type="TextureRect" parent="DialogueLayer/DialogueCharacters"]
+[node name="RightSide" type="TextureRect" parent="DialogueLayer"]
 visible = false
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -98,8 +84,6 @@ offset_left = -500.0
 offset_top = -818.0
 grow_horizontal = 0
 grow_vertical = 0
-mouse_filter = 0
-texture = ExtResource("2_nq1me")
 
 [node name="DialogueBox" type="Control" parent="DialogueLayer"]
 visible = false

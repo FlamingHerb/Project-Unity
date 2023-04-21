@@ -20,14 +20,13 @@ enum State {
 @onready var dialogue_box_text = $DialogueLayer/DialogueBox/DialogueText
 @onready var dialogue_box_speaker = $DialogueLayer/DialogueBox/DialogueActorName
 @onready var dialogue_next_indicator = $DialogueLayer/DialogueBox/NextIndicator
-@onready var dialogue_characters = $DialogueLayer/DialogueCharacters
 @onready var dialogue_responses = $DialogueLayer/DialogueResponses
 @onready var dialogue_responses_list = $DialogueLayer/DialogueResponses/DialogueWindow/ResponseList
 @onready var dialogue_tween
 
-@onready var bust_left = $DialogueLayer/DialogueCharacters/LeftSide
-@onready var bust_center = $DialogueLayer/DialogueCharacters/CenterSide
-@onready var bust_right = $DialogueLayer/DialogueCharacters/RightSide
+@onready var bust_left = $DialogueLayer/LeftSide
+@onready var bust_center = $DialogueLayer/CenterSide
+@onready var bust_right = $DialogueLayer/RightSide
 
 var current_state = State.READY
 var dialogue_json_path = "res://assets/data/dialogue/"
@@ -89,7 +88,6 @@ func _clear_data():
 	
 	# Hides all dialogue boxes
 	dialogue_box.hide()
-	dialogue_characters.hide()
 	dialogue_responses.hide()
 
 	# Clear all items regardless if they were called
@@ -108,6 +106,7 @@ func init_dialogue(path, dialogue_key:String = "000"):
 func _process_dialogue(dialogue_id):
 	if dialogue_next_id == "end":
 		_clear_data()
+		dialogue_all_finished.emit()
 		return
 
 	# Gets data first
@@ -120,7 +119,6 @@ func _process_dialogue(dialogue_id):
 		dialogue_tween = get_tree().create_tween()
 		# Shows dialogue JUST IN CASE.
 		dialogue_box.show()
-		dialogue_characters.show()
 		dialogue_responses.hide()
 
 		# Sets characters to an invisible state
@@ -158,7 +156,6 @@ func _process_dialogue(dialogue_id):
 
 		# Visibility checks
 		dialogue_box.hide()
-		dialogue_characters.hide()
 
 		# ALWAYS CLEAR RESPONSES
 		_clear_responses()
