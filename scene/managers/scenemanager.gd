@@ -6,7 +6,11 @@ var current_scene = null
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
-	
+
+func debug_test():
+	GamePauseUI.toggle_ui(true)
+	DialogueScreen.toggle_ui(true)
+
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.

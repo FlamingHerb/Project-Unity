@@ -1,0 +1,33 @@
+{
+	"000":  {
+        "type": "basic",
+        "speaker": "standin",
+        "text": "Excepteur irure amet aliqua est sint. Incididunt ad culpa non non aliqua ea ad aliqua esse aliquip sint excepteur quis eiusmod. Qui anim aliquip commodo occaecat aute dolore in sit adipisicing nostrud non tempor enim.",
+        "next_id": "001"
+    },
+    "001":  {
+        "type": "response",
+        "responses": {
+            "0": {
+                "text": "Yes",
+                "next_id": "end"
+            },
+            "1": {
+                "text": "No",
+                "next_id": "end"
+            }
+        }
+    },
+    "yes":  {
+        "type": "basic",
+        "speaker": "standin",
+        "text": "You have picked yes.",
+        "next_id": "end"
+    },
+    "no":  {
+        "type": "basic",
+        "speaker": "standin",
+        "text": "You have picked no.",
+        "next_id": "end"
+    }
+}

@@ -2,35 +2,20 @@
 	"000":  {
     "type": "basic",
     "speaker": "standin",
-    "emotion": "neutral",
-    "position": "left",
     "text": "Oh my oh my God.",
-    "commands": [
-        "001",
-        "example command"
-    ]
+    "next_id": "001"
   },
   "001":  {
     "type": "basic",
     "speaker": "standin",
-    "emotion": "neutral",
-    "position": "left",
     "text": "Yesanghaesseo na.",
-    "commands": [
-        "002",
-        "example command"
-    ]
+    "next_id": "002"
   },
 
   "002":  {
     "type": "basic",
-    "speaker": "standin",
-    "emotion": "neutral",
-    "position": "left",
-    "text": "I was really hoping.",
-    "commands": [
-        "end",
-        "example command"
-    ]
+    "speaker": "Standing Cat",
+    "text": "The fuck they doin over there.",
+    "next_id": "end"
   }
 }

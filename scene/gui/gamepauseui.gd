@@ -1,5 +1,8 @@
 extends Control
 
+@onready var textlog = $PauseCanvasLayer/TextLog
+@onready var textlog_text = $PauseCanvasLayer/TextLog/TextLogText #FIXME: WHY
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,3 +27,13 @@ func _on_pause_button_pressed():
 func _on_inventory_button_pressed():
 	get_tree().paused = true
 	$PauseCanvasLayer/InventoryMenu.show()
+
+
+func _on_text_log_button_pressed():
+	get_tree().paused = true
+	textlog.show()
+
+
+func _on_text_log_close_button_pressed():
+	get_tree().paused = false
+	textlog.hide()

@@ -78,10 +78,10 @@ offset_bottom = 40.0
 texture = ExtResource("2_vpmgt")
 
 [node name="Key" type="TextureButton" parent="."]
-offset_left = 952.0
-offset_top = 573.0
-offset_right = 974.0
-offset_bottom = 596.0
+offset_left = 487.0
+offset_top = 908.0
+offset_right = 509.0
+offset_bottom = 931.0
 texture_normal = ExtResource("3_a8you")
 script = SubResource("GDScript_dlhvd")
 
