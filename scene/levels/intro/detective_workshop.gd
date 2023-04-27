@@ -25,9 +25,10 @@ func _on_return_button_pressed():
 
 func _on_worktable_key_pressed():
 	Inventory.add_item("Key")
-	DialogueScreen.init_dialogue("item_get", "detective_item_key")
+	DialogueScreen.init_dialogue("prologue_workroom_interact", "Bedroom Key")
+	await DialogueScreen.dialogue_all_finished
 	$TableCloseup/WorktableKey.queue_free()
-	$Key.queue_free()
+	$Main/Key.queue_free()
 
 
 

@@ -1,0 +1,21 @@
+{
+    "000":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "How'd you end up here?",
+        "next_id": "end"
+    },
+    "Introduction":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "I should go get ready.",
+        "next_id": "end"
+    },
+    "Getting Ready":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "I'm ready. The keys should be at the bag, so I'm all set.",
+        "next_id": "end"
+    }
+}
+

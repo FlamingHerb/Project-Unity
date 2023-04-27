@@ -1,0 +1,40 @@
+{
+    "000":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "How'd you end up here?",
+        "next_id": "end"
+    },
+    "Closet":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "I'm glad I had my suit ready.",
+        "next_id": "end"
+    },
+    "Duffle Bag":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "This should have all the things I need.",
+        "next_id": "Duffle Bag - Responses."
+    },
+    "Duffle Bag - Responses":  {
+        "type": "response",
+        "responses": {
+            "0": {
+                "text": "Head out.",
+                "next_id": "end"
+            },
+            "1": {
+                "text": "Stay a bit.",
+                "next_id": "end"
+            }
+        }
+    },
+    "Stay A While": {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "I'll check a few things before going out.",
+        "next_id": "end"
+    }
+}
+
