@@ -55,7 +55,7 @@
     },
     "Bedroom Key":  {
         "type": "basic",
-        "speaker": "none",
+        "speaker": "Detective",
         "text": "There you are!",
         "next_id": "Bedroom Key - End"
     },

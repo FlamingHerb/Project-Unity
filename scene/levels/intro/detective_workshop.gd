@@ -3,7 +3,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if GlobalDatabase.check_switch("workroom_dialogue") == false:
+		DialogueScreen.init_dialogue("prologue_dialogue", "Introduction")
+		GlobalDatabase.toggle_switch("workroom_dialogue", true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
