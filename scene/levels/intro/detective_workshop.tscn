@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=13 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
 [ext_resource type="Texture2D" uid="uid://b0a4bakr1xbox" path="res://assets/graphics/bg_items/PRO_workroom_item_key_back.png" id="2_vpmgt"]
 [ext_resource type="Texture2D" uid="uid://cwmup8nw7fyhs" path="res://assets/graphics/bg_items/PRO_workroom_item_key.png" id="3_a8you"]
+[ext_resource type="Texture2D" uid="uid://ct0ypvd0qvdnf" path="res://assets/graphics/background/PRO_worktable.png" id="5_hys4o"]
+[ext_resource type="Texture2D" uid="uid://ddyk3matl5jpf" path="res://assets/graphics/bg_items/PRO_worktable_item_key_back.png" id="6_854fu"]
+[ext_resource type="Texture2D" uid="uid://bnnfwnda1kk4i" path="res://assets/graphics/bg_items/PRO_worktable_item_key.png" id="7_ggche"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
 script/source = "extends TextureButton
@@ -18,12 +21,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_pressed():
-	Inventory.add_item(\"Key\")
-	DialogueScreen.init_dialogue(\"item_get\", \"detective_item_key\")
-	queue_free()
 "
 
 [sub_resource type="Animation" id="Animation_l26jv"]
@@ -63,6 +60,23 @@ _data = {
 "glow": SubResource("Animation_sa7cs")
 }
 
+[sub_resource type="GDScript" id="GDScript_q5o8c"]
+script/source = "# Worktable Key
+
+extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if Inventory.check_item(\"Key\"):
+		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [node name="DetectiveWorkshop" type="Node"]
 script = ExtResource("1_qgogg")
 
@@ -101,7 +115,52 @@ libraries = {
 "": SubResource("AnimationLibrary_f1l2m")
 }
 
-[connection signal="pressed" from="Key" to="Key" method="_on_pressed"]
+[node name="KeyInteractable" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="KeyInteractable"]
+polygon = PackedVector2Array(924, 528, 1024, 562, 1022, 691, 836, 621)
+
+[node name="TableCloseup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="CloseupTexture" type="TextureRect" parent="TableCloseup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_hys4o")
+
+[node name="CloseupTextureWithItem" type="TextureRect" parent="TableCloseup"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_854fu")
+
+[node name="WorktableKey" type="TextureButton" parent="TableCloseup"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 675.0
+offset_right = 939.0
+offset_bottom = 785.0
+texture_normal = ExtResource("7_ggche")
+script = SubResource("GDScript_q5o8c")
+
+[node name="ReturnButton" type="Button" parent="TableCloseup"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 943.0
+offset_right = 200.0
+offset_bottom = 996.0
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
 [connection signal="input_event" from="BedroomDoor" to="." method="_on_open_door_input_event"]
 [connection signal="mouse_entered" from="BedroomDoor" to="." method="_on_open_door_mouse_entered"]
 [connection signal="mouse_exited" from="BedroomDoor" to="." method="_on_open_door_mouse_exited"]
+[connection signal="input_event" from="KeyInteractable" to="." method="_on_key_interactable_input_event"]
+[connection signal="pressed" from="TableCloseup/WorktableKey" to="." method="_on_worktable_key_pressed"]
+[connection signal="pressed" from="TableCloseup/ReturnButton" to="." method="_on_return_button_pressed"]

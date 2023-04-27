@@ -26,3 +26,19 @@ func _on_open_door_mouse_exited():
 func _on_open_door_mouse_entered():
 	$BedroomDoor/Line2D/AnimationPlayer.play("glow")
 
+
+
+func _on_key_interactable_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$TableCloseup.show()
+
+
+func _on_return_button_pressed():
+	$TableCloseup.hide()
+
+
+func _on_worktable_key_pressed():
+	Inventory.add_item("Key")
+	DialogueScreen.init_dialogue("item_get", "detective_item_key")
+	$TableCloseup/WorktableKey.queue_free()
+	$Key.queue_free()
