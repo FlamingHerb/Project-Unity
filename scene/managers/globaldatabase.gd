@@ -22,3 +22,8 @@ func toggle_switch(switch_name, boolean_value):
 ## Check's the following switch's boolean value.
 func check_switch(switch_name):
 	return switches[switch_name]
+
+## Deactivate all switches when going back to the menu.
+func reset_switches():
+	for index in switches:
+		switches[index] = false

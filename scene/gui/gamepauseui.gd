@@ -37,3 +37,6 @@ func _on_text_log_button_pressed():
 func _on_text_log_close_button_pressed():
 	get_tree().paused = false
 	textlog.hide()
+
+func clear_textlog():
+	textlog_text.clear()
