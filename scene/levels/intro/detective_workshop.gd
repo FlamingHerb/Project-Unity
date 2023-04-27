@@ -26,7 +26,7 @@ func _on_return_button_pressed():
 
 
 func _on_worktable_key_pressed():
-	Inventory.add_item("Key")
+	Inventory.add_item("Bedroom Key")
 	DialogueScreen.init_dialogue("prologue_workroom_interact", "Bedroom Key")
 	await DialogueScreen.dialogue_all_finished
 	$TableCloseup/WorktableKey.queue_free()
