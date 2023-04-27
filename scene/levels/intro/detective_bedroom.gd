@@ -13,3 +13,9 @@ func _process(delta):
 
 func _on_door_pressed():
 	SceneManager.goto_level_scene("intro/detective_workshop.tscn")
+
+func _on_door_mouse_exited():
+	$Door/AnimationPlayer.stop()
+
+func _on_door_mouse_entered():
+	$Door/AnimationPlayer.play("door_outline")
