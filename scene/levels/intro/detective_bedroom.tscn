@@ -1,10 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=7 format=3 uid="uid://doscc68ks0f2y"]
 
-[ext_resource type="Texture2D" uid="uid://6u1whdh03gs2" path="res://assets/graphics/background/PRO_bedroom.png" id="1_7db1y"]
+[ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
+[ext_resource type="Texture2D" uid="uid://cc3i86yx08nac" path="res://assets/graphics/background/PRO_bedroom2.png" id="1_ydkg5"]
+[ext_resource type="Texture2D" uid="uid://7lyph3rkplve" path="res://assets/graphics/background/PRO_bedroom2_door.png" id="2_i2rma"]
+[ext_resource type="Shader" path="res://scene/shaders/2d_outline.gdshader" id="3_1tc7f"]
+[ext_resource type="BitMap" uid="uid://bhh1u78pvoy3d" path="res://assets/graphics/background/PRO_bedroom2_door_bitmask.png" id="3_oqp3i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xlkm5"]
+shader = ExtResource("3_1tc7f")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 5.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [node name="DetectiveBedroom" type="Node"]
+script = ExtResource("1_jci3d")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_7db1y")
+texture = ExtResource("1_ydkg5")
+
+[node name="Door" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_xlkm5")
+offset_left = 1517.0
+offset_right = 1920.0
+offset_bottom = 842.0
+texture_normal = ExtResource("2_i2rma")
+texture_click_mask = ExtResource("3_oqp3i")
+
+[connection signal="pressed" from="Door" to="." method="_on_door_pressed"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bhh1u78pvoy3d"
+path="res://.godot/imported/PRO_bedroom2_door_bitmask.png-71477c85cd6bb5a40c7407f70a97f41c.res"
+
+[deps]
+
+source_file="res://assets/graphics/background/PRO_bedroom2_door_bitmask.png"
+dest_files=["res://.godot/imported/PRO_bedroom2_door_bitmask.png-71477c85cd6bb5a40c7407f70a97f41c.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
