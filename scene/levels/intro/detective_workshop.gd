@@ -10,23 +10,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-
-func _on_open_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if Inventory.check_item("Key"):
-			SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
-		else:
-			DialogueScreen.init_dialogue("responses")
 		
-	
-func _on_open_door_mouse_exited():
-	$BedroomDoor/Line2D/AnimationPlayer.stop()
-
-
-func _on_open_door_mouse_entered():
-	$BedroomDoor/Line2D/AnimationPlayer.play("glow")
-
-
 
 func _on_key_interactable_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -42,3 +26,18 @@ func _on_worktable_key_pressed():
 	DialogueScreen.init_dialogue("item_get", "detective_item_key")
 	$TableCloseup/WorktableKey.queue_free()
 	$Key.queue_free()
+
+
+
+func _on_bedroom_door_mouse_exited():
+	$BedroomDoor/AnimationPlayer.stop()
+
+
+func _on_bedroom_door_mouse_entered():
+	$BedroomDoor/AnimationPlayer.play("global/door_outline")
+
+func _on_bedroom_door_pressed():
+	if Inventory.check_item("Key"):
+		SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
+	else:
+		DialogueScreen.init_dialogue("responses")
