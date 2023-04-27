@@ -14,10 +14,12 @@ func _process(_delta):
 
 func _on_key_interactable_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$Main.hide()
 		$TableCloseup.show()
 
 
 func _on_return_button_pressed():
+	$Main.show()
 	$TableCloseup.hide()
 
 
@@ -30,11 +32,11 @@ func _on_worktable_key_pressed():
 
 
 func _on_bedroom_door_mouse_exited():
-	$BedroomDoor/AnimationPlayer.stop()
+	$Main/BedroomDoor/AnimationPlayer.stop()
 
 
 func _on_bedroom_door_mouse_entered():
-	$BedroomDoor/AnimationPlayer.play("global/door_outline")
+	$Main/BedroomDoor/AnimationPlayer.play("global/door_outline")
 
 func _on_bedroom_door_pressed():
 	if Inventory.check_item("Key"):
@@ -61,3 +63,13 @@ func _on_bottles_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")
+
+
+func _on_corkboard_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Corkboard")
+
+
+func _on_picture_frame_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Picture Frame")
