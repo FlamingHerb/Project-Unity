@@ -1,0 +1,39 @@
+{
+    "000":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "How'd you end up here?",
+        "next_id": "end"
+    },
+    "Puzzle and Invitation":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "A certainly interesting puzzle... why did the Major send me this?",
+        "next_id": "end"
+    },
+    "Radio":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "Same sickening news everyday.",
+        "next_id": "end"
+    },
+    "Blinds":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "When will this weather end?",
+        "next_id": "end"
+    },
+    "Bottles of Alcohol":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "Everything went to a mess after she left me.",
+        "next_id": "end"
+    },
+    "Door Locked":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "Great, of course I locked it. Key should be here somewhere...",
+        "next_id": "end"
+    }
+
+}

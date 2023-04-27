@@ -40,4 +40,4 @@ func _on_bedroom_door_pressed():
 	if Inventory.check_item("Key"):
 		SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
 	else:
-		DialogueScreen.init_dialogue("responses")
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Door Locked")
