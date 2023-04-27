@@ -41,3 +41,23 @@ func _on_bedroom_door_pressed():
 		SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
 	else:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Door Locked")
+
+
+
+func _on_radio_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Radio")
+
+func _on_documents_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Pile of Documents")
+
+
+func _on_bottles_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Bottles of Alcohol")
+
+
+func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")

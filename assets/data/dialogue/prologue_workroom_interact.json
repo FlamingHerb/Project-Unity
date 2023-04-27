@@ -11,6 +11,12 @@
         "text": "A certainly interesting puzzle... why did the Major send me this?",
         "next_id": "end"
     },
+    "Pile of Documents":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "Paperworks, paperworks, and more paperworks...",
+        "next_id": "end"
+    },
     "Radio":  {
         "type": "basic",
         "speaker": "none",

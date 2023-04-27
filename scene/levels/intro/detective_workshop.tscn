@@ -29,8 +29,8 @@ func _process(delta):
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6yh67"]
 shader = ExtResource("8_7masu")
-shader_parameter/line_color = Color(1, 1, 1, 0.92034)
-shader_parameter/line_thickness = 4.6017
+shader_parameter/line_color = Color(1, 1, 1, 0)
+shader_parameter/line_thickness = 0.0
 
 [sub_resource type="GDScript" id="GDScript_q5o8c"]
 script/source = "# Worktable Key
@@ -88,7 +88,31 @@ libraries = {
 [node name="KeyInteractable" type="Area2D" parent="."]
 
 [node name="Interactable" type="CollisionPolygon2D" parent="KeyInteractable"]
-polygon = PackedVector2Array(924, 528, 1024, 562, 1022, 691, 836, 621)
+polygon = PackedVector2Array(924, 528, 1014, 557, 1022, 691, 737, 573)
+
+[node name="Documents" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Documents"]
+position = Vector2(-253, -166)
+polygon = PackedVector2Array(802, 674, 882, 562, 978, 535, 1046, 553, 1201, 668, 989, 718)
+
+[node name="Radio" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Radio"]
+position = Vector2(288, 62)
+polygon = PackedVector2Array(783, 487, 739, 496, 735, 569, 809, 637, 861, 618, 860, 547)
+
+[node name="Bottles" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Bottles"]
+position = Vector2(415, -43)
+polygon = PackedVector2Array(742, 498, 834, 500, 863, 517, 865, 655, 807, 701, 773, 644, 714, 635)
+
+[node name="Blinds" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Blinds"]
+position = Vector2(-651, -172)
+polygon = PackedVector2Array(730, 246, 759, 241, 753, 210, 651, 216, 651, 766, 822, 718)
 
 [node name="TableCloseup" type="Control" parent="."]
 visible = false
@@ -132,5 +156,9 @@ text = "Return"
 [connection signal="mouse_exited" from="BedroomDoor" to="." method="_on_bedroom_door_mouse_exited"]
 [connection signal="pressed" from="BedroomDoor" to="." method="_on_bedroom_door_pressed"]
 [connection signal="input_event" from="KeyInteractable" to="." method="_on_key_interactable_input_event"]
+[connection signal="input_event" from="Documents" to="." method="_on_documents_input_event"]
+[connection signal="input_event" from="Radio" to="." method="_on_radio_input_event"]
+[connection signal="input_event" from="Bottles" to="." method="_on_bottles_input_event"]
+[connection signal="input_event" from="Blinds" to="." method="_on_blinds_input_event"]
 [connection signal="pressed" from="TableCloseup/WorktableKey" to="." method="_on_worktable_key_pressed"]
 [connection signal="pressed" from="TableCloseup/ReturnButton" to="." method="_on_return_button_pressed"]
