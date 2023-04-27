@@ -15,7 +15,7 @@
         "type": "basic",
         "speaker": "Detective",
         "text": "This should have all the things I need.",
-        "next_id": "Duffle Bag - Responses."
+        "next_id": "Duffle Bag - Responses"
     },
     "Duffle Bag - Responses":  {
         "type": "response",

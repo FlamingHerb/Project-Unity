@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -21,3 +21,16 @@ func _on_door_mouse_exited():
 
 func _on_door_mouse_entered():
 	$Door/AnimationPlayer.play("door_outline")
+
+
+
+func _on_duffel_bag_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
+		var respon = await DialogueScreen.response_taken
+		if respon == 0:
+			print("Woah")
+
+func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")

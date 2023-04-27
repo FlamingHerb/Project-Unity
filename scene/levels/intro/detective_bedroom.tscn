@@ -33,6 +33,20 @@ libraries = {
 "": ExtResource("6_hpowo")
 }
 
+[node name="Closet" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Closet"]
+position = Vector2(1005, -147)
+polygon = PackedVector2Array(141, 258, 94, 268, 86, 883, 238, 907, 270, 955, 430, 977, 465, 936, 493, 269)
+
+[node name="DuffelBag" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="DuffelBag"]
+position = Vector2(1005, -147)
+polygon = PackedVector2Array(-255, 813, -123, 778, 19, 865, 23, 955, 2, 981, -37, 1025, -95, 1023, -196, 973, -245, 942)
+
 [connection signal="mouse_entered" from="Door" to="." method="_on_door_mouse_entered"]
 [connection signal="mouse_exited" from="Door" to="." method="_on_door_mouse_exited"]
 [connection signal="pressed" from="Door" to="." method="_on_door_pressed"]
+[connection signal="input_event" from="Closet" to="." method="_on_closet_input_event"]
+[connection signal="input_event" from="DuffelBag" to="." method="_on_duffel_bag_input_event"]
