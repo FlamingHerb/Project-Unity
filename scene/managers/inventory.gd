@@ -17,3 +17,7 @@ func check_item(item_id):
 	else:
 		print("The following item is absent.")
 		return false
+
+## Resets current inventory when going to the menu... or just a general reset overall.
+func reset():
+	current_items = {}

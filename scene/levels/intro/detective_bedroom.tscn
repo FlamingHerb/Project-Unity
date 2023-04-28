@@ -1,10 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=8 format=3 uid="uid://doscc68ks0f2y"]
 
-[ext_resource type="Texture2D" uid="uid://6u1whdh03gs2" path="res://assets/graphics/background/PRO_bedroom.png" id="1_7db1y"]
+[ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
+[ext_resource type="Texture2D" uid="uid://cc3i86yx08nac" path="res://assets/graphics/background/PRO_bedroom2.png" id="1_ydkg5"]
+[ext_resource type="Texture2D" uid="uid://7lyph3rkplve" path="res://assets/graphics/background/PRO_bedroom2_door.png" id="2_i2rma"]
+[ext_resource type="Shader" path="res://scene/shaders/2d_outline.gdshader" id="3_1tc7f"]
+[ext_resource type="BitMap" uid="uid://bhh1u78pvoy3d" path="res://assets/graphics/background/PRO_bedroom2_door_bitmask.png" id="3_oqp3i"]
+[ext_resource type="AnimationLibrary" uid="uid://lh38s0bt26m6" path="res://scene/animations/global.res" id="6_hpowo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xlkm5"]
+shader = ExtResource("3_1tc7f")
+shader_parameter/line_color = Color(1, 1, 1, 0)
+shader_parameter/line_thickness = 0.0
 
 [node name="DetectiveBedroom" type="Node"]
+script = ExtResource("1_jci3d")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_7db1y")
+texture = ExtResource("1_ydkg5")
+
+[node name="Door" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_xlkm5")
+offset_left = 1504.0
+offset_right = 1920.0
+offset_bottom = 842.0
+texture_normal = ExtResource("2_i2rma")
+texture_click_mask = ExtResource("3_oqp3i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door"]
+libraries = {
+"": ExtResource("6_hpowo")
+}
+
+[node name="Closet" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Closet"]
+position = Vector2(1005, -147)
+polygon = PackedVector2Array(141, 258, 94, 268, 86, 883, 238, 907, 270, 955, 430, 977, 465, 936, 493, 269)
+
+[node name="DuffelBag" type="Area2D" parent="."]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="DuffelBag"]
+position = Vector2(1005, -147)
+polygon = PackedVector2Array(-255, 813, -123, 778, 19, 865, 23, 955, 2, 981, -37, 1025, -95, 1023, -196, 973, -245, 942)
+
+[connection signal="mouse_entered" from="Door" to="." method="_on_door_mouse_entered"]
+[connection signal="mouse_exited" from="Door" to="." method="_on_door_mouse_exited"]
+[connection signal="pressed" from="Door" to="." method="_on_door_pressed"]
+[connection signal="input_event" from="Closet" to="." method="_on_closet_input_event"]
+[connection signal="input_event" from="DuffelBag" to="." method="_on_duffel_bag_input_event"]

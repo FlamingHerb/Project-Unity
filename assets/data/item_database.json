@@ -1,7 +1,7 @@
 {
-  "Key": {
+  "Bedroom Key": {
     "image": "key",
-    "description": "A key lying in a table."
+    "description": "I should be able to access my bedroom."
   },
   "Drill": {
     "image": "drill",

@@ -14,7 +14,7 @@ func _on_texture_button_pressed():
 	DialogueScreen.init_dialogue("example_talk")
 	DialogueScreen.change_dialogue_bust("standin_neutral.png", 1)
 	DialogueScreen.show_bust(1)
-	await DialogueScreen.dialogue_all_finished
+	await DialogueScreen.dialogue_part_finished
 	print("Dialogue finished")
 	DialogueScreen.hide_bust(1)
 

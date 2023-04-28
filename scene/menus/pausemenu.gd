@@ -29,3 +29,7 @@ func _on_main_menu_button_pressed():
 	SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
 	GamePauseUI.toggle_ui(false)
 	DialogueScreen.toggle_ui(false)
+
+	Inventory.reset()
+	GlobalDatabase.reset_switches()
+	GamePauseUI.clear_textlog()

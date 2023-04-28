@@ -177,7 +177,7 @@ func _process_dialogue(dialogue_id):
 		dialogue_next_id = current_responses[selected_index]["next_id"]
 		
 		# Emits signal to tell which option was taken.
-		response_taken.emit(selected_index)
+		response_taken.emit(int(selected_index))
 
 		print("Next Dialogue ID:" + dialogue_next_id)
 		_process_dialogue(dialogue_next_id)
