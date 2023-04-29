@@ -220,4 +220,4 @@ icon_mode = 0
 [connection signal="gui_input" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_gui_input"]
 [connection signal="visibility_changed" from="DialogueLayer/DialogueBox" to="." method="_on_dialogue_box_visibility_changed"]
 [connection signal="visibility_changed" from="DialogueLayer/DialogueResponses" to="." method="_on_dialogue_responses_visibility_changed"]
-[connection signal="item_activated" from="DialogueLayer/DialogueResponses/DialogueWindow/ResponseList" to="." method="_on_response_list_item_activated"]
+[connection signal="item_clicked" from="DialogueLayer/DialogueResponses/DialogueWindow/ResponseList" to="." method="_on_response_list_item_clicked"]

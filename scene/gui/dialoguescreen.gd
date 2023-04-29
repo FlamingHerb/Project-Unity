@@ -171,13 +171,12 @@ func _process_dialogue(dialogue_id):
 
 
 		# Waits for input
-		var selected_index = str(await dialogue_responses_list.item_activated)
-
+		var selected_index = await dialogue_responses_list.item_clicked
 		# Processing next state (different from dialogue due to circumstances)
-		dialogue_next_id = current_responses[selected_index]["next_id"]
+		dialogue_next_id = current_responses[str(selected_index[0])]["next_id"]
 		
 		# Emits signal to tell which option was taken.
-		response_taken.emit(int(selected_index))
+		response_taken.emit(selected_index[0])
 
 		print("Next Dialogue ID:" + dialogue_next_id)
 		_process_dialogue(dialogue_next_id)
@@ -281,4 +280,8 @@ func _on_dialogue_responses_visibility_changed():
 
 # Crucial
 func _on_response_list_item_activated(_index):
+	dialogue_responses.hide()
+
+# Crucial
+func _on_response_list_item_clicked(_index, _at_position, _mouse_button_index):
 	dialogue_responses.hide()
