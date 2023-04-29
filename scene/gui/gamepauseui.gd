@@ -1,8 +1,25 @@
 extends Control
 
+## The pause layer of the game.
+##
+## This is where the pause menu components are stored.
+## The following are the inventory, the text log and
+## the pause menu.
+##
+## @tutorial:            https://the/tutorial1/url.com
+## @tutorial(Tutorial2): https://the/tutorial2/url.com
+
+##===============================================
+## Variables
+##===============================================
+
 @onready var textlog = $PauseCanvasLayer/TextLog
 @onready var textlog_text = $PauseCanvasLayer/TextLog/TextLogText #FIXME: WHY
 
+
+##===============================================
+## Godot Processing functions
+##===============================================
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,11 +30,20 @@ func _ready():
 func _process(_delta):
 	pass
 
+##===============================================
+## UI-related functions
+##===============================================
+
+## Toggles UI of GamePauseUI.
 func toggle_ui(value):
 	if value:
 		$PauseCanvasLayer.show()
 	else:
 		$PauseCanvasLayer.hide()
+
+##===============================================
+## Other related functions
+##===============================================
 
 func _on_pause_button_pressed():
 	get_tree().paused = true
