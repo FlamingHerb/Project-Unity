@@ -1,11 +1,9 @@
 extends Node
 
-## The global database of the game.
+## The inventory system of the game.
 ##
-## The following system operates on the same vein as of
-## an RPG Maker-made game. It has a switches, it remembers
-## the items that you have, and processes any other
-## information within the game.
+## This system tracks the current items that the player
+## has, in order to keep track of a few things.
 ##
 ## @tutorial:            https://the/tutorial1/url.com
 ## @tutorial(Tutorial2): https://the/tutorial2/url.com
