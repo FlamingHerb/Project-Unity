@@ -12,7 +12,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_load_settings()
+	print("Settings loaded")
+	load_settings()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -38,7 +39,7 @@ func _save_settings():
 	config.save("user://settings.cfg")
 
 # Loads settings.
-func _load_settings():
+func load_settings():
 	# Create new ConfigFile object.
 	var config = ConfigFile.new()
 

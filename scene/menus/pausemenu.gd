@@ -33,3 +33,8 @@ func _on_main_menu_button_pressed():
 	Inventory.reset()
 	GlobalDatabase.reset_switches()
 	GamePauseUI.clear_textlog()
+
+
+func _on_visibility_changed():
+	if self.is_visible():
+		$Settings.load_settings()

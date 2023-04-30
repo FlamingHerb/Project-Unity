@@ -3,7 +3,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print_tree_pretty()
 	if GlobalDatabase.check_switch("workroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Introduction")
 		GlobalDatabase.toggle_switch("workroom_dialogue", true)
