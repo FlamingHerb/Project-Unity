@@ -13,7 +13,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_load_settings()
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -181,28 +180,23 @@ func _on_vsync_button_toggled(button_pressed):
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
-
 func _on_backbutton_pressed():
 	_save_settings()
 	hide()
 
-
 func _on_restore_default_button_pressed():
 	_default_settings()
-
 
 func _on_draw():
 	pass
 
-
 func _on_hidden():
 	pass
-
 
 func _on_visibility_changed():
 	if self.is_visible():
 		print("Settings drawn and loaded.")
-		_load_settings()
+		
 
 
 
