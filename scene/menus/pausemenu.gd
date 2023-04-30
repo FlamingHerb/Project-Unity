@@ -21,7 +21,7 @@ func _on_back_button_pressed():
 
 
 func _on_settings_pressed():
-	$OtherMenuModals/Settings.show()
+	$Settings.show()
 
 func _on_main_menu_button_pressed():
 	hide()
