@@ -101,7 +101,7 @@ func _default_settings():
 #==============================================================================
 
 func _on_master_sound_slider_value_changed(value):
-	print(linear_to_db(value))
+	#print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 
 #==============================================================================
@@ -111,7 +111,7 @@ func _on_master_sound_slider_value_changed(value):
 #==============================================================================
 
 func _on_music_slider_value_changed(value):
-	print(linear_to_db(value))
+	#print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear_to_db(value))
 
 #==============================================================================
@@ -121,7 +121,7 @@ func _on_music_slider_value_changed(value):
 #==============================================================================
 
 func _on_se_slider_value_changed(value):
-	print(linear_to_db(value))
+	#print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(value))
 
 #==============================================================================

@@ -165,7 +165,7 @@ func _process_dialogue(dialogue_id):
 		
 		var current_dialogue_character_count = dialogue_box_text.get_total_character_count()
 		var current_dialogue_speed = (float(current_dialogue_character_count) / 20) / text_speed_settings 
-		print(current_dialogue_speed)
+		#print(current_dialogue_speed)
 
 		dialogue_tween.tween_property(dialogue_box_text, "visible_characters", current_dialogue_character_count, current_dialogue_speed)
 
@@ -184,7 +184,7 @@ func _process_dialogue(dialogue_id):
 		_clear_responses()
 	
 		var current_responses = current_dialogue_data["responses"]
-		print(current_responses)
+		#print(current_responses)
 		for i in current_responses:
 			dialogue_responses_list.add_item(current_responses[i]["text"])
 		
@@ -200,7 +200,7 @@ func _process_dialogue(dialogue_id):
 		# Emits signal to tell which option was taken.
 		response_taken.emit(selected_index[0])
 
-		print("Next Dialogue ID:" + dialogue_next_id)
+		#print("Next Dialogue ID:" + dialogue_next_id)
 		_process_dialogue(dialogue_next_id)
 
 
