@@ -14,7 +14,10 @@ func _process(_delta):
 #===============================================================================
 
 func _on_new_game_pressed():
-	$NewGame.show()
+	SceneManager.goto_level_scene("intro/detective_workshop.tscn")
+	GamePauseUI.toggle_ui(true)
+	DialogueScreen.toggle_ui(true)
+	AudioManager.stop_music()
 
 func _on_load_game_pressed():
 	$LoadGame.show()

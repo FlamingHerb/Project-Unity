@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://1r54o3uo04vm"]
+[gd_scene load_steps=14 format=3 uid="uid://1r54o3uo04vm"]
 
 [ext_resource type="Texture2D" uid="uid://wi4qmpmkigos" path="res://assets/graphics/titlescreen.png" id="1_mgcf3"]
 [ext_resource type="Script" path="res://scene/menus/mainmenu.gd" id="1_rynt0"]
 [ext_resource type="Texture2D" uid="uid://8mehat7rt4he" path="res://assets/graphics/placeholder_titlescreen.jpg" id="2_0aybv"]
 [ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_fk8r1"]
-[ext_resource type="PackedScene" uid="uid://dc4dp6mlsimxo" path="res://scene/menus/newgame.tscn" id="3_os162"]
 [ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/settings.tscn" id="3_pluqi"]
 [ext_resource type="PackedScene" uid="uid://y50tqx50niub" path="res://scene/menus/loadgame.tscn" id="4_n6pvk"]
 [ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/help.tscn" id="6_0sc3y"]
@@ -121,10 +120,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 49
 text = "Exit"
-
-[node name="NewGame" parent="." instance=ExtResource("3_os162")]
-visible = false
-layout_mode = 1
 
 [node name="LoadGame" parent="." instance=ExtResource("4_n6pvk")]
 visible = false
