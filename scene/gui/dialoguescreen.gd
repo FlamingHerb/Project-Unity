@@ -154,7 +154,7 @@ func _process_dialogue(dialogue_id):
 		if current_dialogue_data["speaker"] != "none":
 			dialogue_box_speaker.bbcode_text = current_dialogue_data["speaker"]
 		else:
-			dialogue_box_speaker.bbcode_text = ""
+			dialogue_box_speaker.bbcode_text = " "
 		dialogue_box_text.bbcode_text = current_dialogue_data["text"]
 		_update_textlog(current_dialogue_data["speaker"], current_dialogue_data["text"])
 
