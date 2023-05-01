@@ -24,6 +24,19 @@ func _on_settings_pressed():
 	$Settings.show()
 
 func _on_main_menu_button_pressed():
+	$ReturnToMainMenu.show()
+
+
+func _on_visibility_changed():
+	if self.is_visible():
+		$Settings.load_settings()
+
+
+
+func _on_main_menu_no_pressed():
+	$ReturnToMainMenu.hide()
+
+func _on_main_menu_yes_pressed():
 	hide()
 	get_tree().paused = false
 	SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
@@ -33,8 +46,3 @@ func _on_main_menu_button_pressed():
 	Inventory.reset()
 	GlobalDatabase.reset_switches()
 	GamePauseUI.clear_textlog()
-
-
-func _on_visibility_changed():
-	if self.is_visible():
-		$Settings.load_settings()
