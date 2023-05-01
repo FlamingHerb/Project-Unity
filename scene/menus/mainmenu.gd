@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AudioManager.play_music()
+	AudioManager.play_sound("main_menu")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
