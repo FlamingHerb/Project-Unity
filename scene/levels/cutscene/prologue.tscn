@@ -1,3 +1,34 @@
 [gd_scene format=3 uid="uid://cmwq2cypsbkqt"]
 
 [node name="Node" type="Node"]
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackBars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlackBarTop" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 111.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackBarBottom" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 970.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
