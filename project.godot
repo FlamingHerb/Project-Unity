@@ -24,6 +24,7 @@ GlobalDatabase="*res://scene/managers/globaldatabase.gd"
 DialogueScreen="*res://scene/gui/dialoguescreen.tscn"
 GamePauseUI="*res://scene/gui/gamepauseui.tscn"
 AudioManager="*res://scene/managers/audio_manager.tscn"
+SoundManager="*res://addons/sound_manager/sound_manager.tscn"
 
 [display]
 
@@ -33,6 +34,10 @@ window/size/mode=3
 window/size/initial_position_type=2
 window/size/resizable=false
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 [input]
 
