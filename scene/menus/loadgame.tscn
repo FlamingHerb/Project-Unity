@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://y50tqx50niub"]
+[gd_scene load_steps=4 format=3 uid="uid://y50tqx50niub"]
 
 [ext_resource type="Script" path="res://scene/menus/loadgame.gd" id="1_8lg7u"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_efclp"]
+[ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_lbh8d"]
 
 [node name="LoadGame" type="Control"]
 layout_mode = 3
@@ -13,7 +14,14 @@ grow_vertical = 2
 script = ExtResource("1_8lg7u")
 
 [node name="Blur" parent="." instance=ExtResource("1_efclp")]
+visible = false
 layout_mode = 1
+
+[node name="BlackBackdrop" type="TextureRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_lbh8d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -22,9 +30,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
+offset_left = 34.0
 offset_top = -225.0
-offset_right = 400.0
+offset_right = 834.0
 offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -37,9 +45,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -62.5
+offset_left = 346.5
 offset_top = -194.0
-offset_right = 62.5
+offset_right = 521.5
 offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -55,9 +63,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
+offset_left = 411.5
 offset_top = 160.5
-offset_right = 22.5
+offset_right = 456.5
 offset_bottom = 191.5
 grow_horizontal = 2
 grow_vertical = 2
