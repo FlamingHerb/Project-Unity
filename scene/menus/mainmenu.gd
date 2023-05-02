@@ -14,9 +14,7 @@ func _process(_delta):
 #===============================================================================
 
 func _on_new_game_pressed():
-	SceneManager.goto_level_scene("intro/detective_workshop.tscn")
-	GamePauseUI.toggle_ui(true)
-	DialogueScreen.toggle_ui(true)
+	SceneManager.goto_level_scene("cutscene/prologue.tscn")
 	AudioManager.stop_music()
 
 func _on_load_game_pressed():
