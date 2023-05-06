@@ -1,5 +1,7 @@
 extends Control
 
+@onready var text_time_played = $SaveData/TimePlayed
+@onready var text_location = $SaveData/Location
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,8 +27,8 @@ func _on_save_list_item_activated(index:int):
 func _on_save_list_item_selected(index:int):
 	if not FileAccess.file_exists("user://savegame_" + str(index) + ".save"):
 		$SaveImage.texture = null
-		$TimePlayed.text = ""
-		$Location.text = ""
+		text_time_played.text = ""
+		text_location.text = ""
 		return
 
 	# Load image
@@ -41,6 +43,9 @@ func _on_save_list_item_selected(index:int):
 
 	# Parse data and use it.
 	var global_database_data = json.get_data()
-	$Location.text = global_database_data["location"]
+	print(global_database_data)
+
+	text_time_played.text = global_database_data["save_date"]
+	text_location.text = global_database_data["location"]
 
 	#$SaveImage.texture = load(OS.get_user_data_dir() + "/savescreen_" + str(index) + ".png")

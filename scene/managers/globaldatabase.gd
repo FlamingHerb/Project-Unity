@@ -19,8 +19,6 @@ var switches = {
 	"workroom_dialogue" = false,
 	"bedroom_dialogue" = false
 }
-var time_start
-var time_elapsed
 var location
 var current_location
 var save_screenshot
@@ -60,10 +58,10 @@ func read_from_JSON(path):
 	return JSON.parse_string(file.get_as_text())
 
 func save_data():
+
 	var global_database = {
 		"switches": switches,
-		"time_start": time_start,
-		"time_elapsed": time_elapsed,
+		"save_date": Time.get_datetime_string_from_system(false,true),
 		"location": location,
 		"current_location": current_location,
 	}
@@ -80,3 +78,4 @@ func set_flavor_location(flavor_loc):
 func set_node_location(node_loc):
 	current_location = node_loc
 	print("Node path set to: " + node_loc)
+

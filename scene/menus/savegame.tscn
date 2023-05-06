@@ -98,37 +98,37 @@ offset_bottom = 584.0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TPLabel" type="Label" parent="."]
+[node name="SaveData" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 1392.5
+offset_left = 1392.0
 offset_top = 608.0
-offset_right = 1495.5
-offset_bottom = 634.0
-text = "Time Played: "
-uppercase = true
+offset_right = 1688.0
+offset_bottom = 664.0
+columns = 2
 
-[node name="LLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1392.5
-offset_top = 648.0
-offset_right = 1486.5
-offset_bottom = 674.0
+[node name="LLabel" type="Label" parent="SaveData"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Location: "
 uppercase = true
 
-[node name="TimePlayed" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1520.5
-offset_top = 608.0
-offset_right = 1623.5
-offset_bottom = 634.0
+[node name="Location" type="Label" parent="SaveData"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Location" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1520.5
-offset_top = 648.0
-offset_right = 1623.5
-offset_bottom = 674.0
+[node name="TPLabel" type="Label" parent="SaveData"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Time SAVED: "
+uppercase = true
+
+[node name="TimePlayed" type="Label" parent="SaveData"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="item_activated" from="SaveList" to="." method="_on_save_list_item_activated"]
 [connection signal="item_selected" from="SaveList" to="." method="_on_save_list_item_selected"]

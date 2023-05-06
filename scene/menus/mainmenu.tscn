@@ -98,7 +98,6 @@ theme_override_font_sizes/font_size = 49
 text = "Exit"
 
 [node name="LoadGame" parent="." instance=ExtResource("4_n6pvk")]
-visible = false
 layout_mode = 1
 
 [node name="Settings" parent="." instance=ExtResource("3_pluqi")]
