@@ -23,6 +23,7 @@ var time_start
 var time_elapsed
 var location
 var current_location
+var save_screenshot
 
 ##===============================================
 ## Godot Processing functions
@@ -67,3 +68,6 @@ func save_data():
 		"current_location": current_location,
 	}
 	return global_database
+
+func get_save_screenshot():
+	save_screenshot = get_viewport().get_texture().get_image()

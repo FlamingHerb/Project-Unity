@@ -131,4 +131,5 @@ offset_right = 1623.5
 offset_bottom = 674.0
 
 [connection signal="item_activated" from="SaveList" to="." method="_on_save_list_item_activated"]
+[connection signal="item_selected" from="SaveList" to="." method="_on_save_list_item_selected"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

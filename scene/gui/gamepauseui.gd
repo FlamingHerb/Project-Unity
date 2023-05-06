@@ -46,6 +46,7 @@ func toggle_ui(value):
 ##===============================================
 
 func _on_pause_button_pressed():
+	GlobalDatabase.get_save_screenshot()
 	get_tree().paused = true
 	$PauseCanvasLayer/PauseMenu.show()
 
