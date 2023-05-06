@@ -72,3 +72,11 @@ func save_data():
 func get_save_screenshot():
 	save_screenshot = get_viewport().get_texture().get_image()
 	save_screenshot.resize(312,176)
+
+func set_flavor_location(flavor_loc):
+	print("Going to " + flavor_loc)
+	location = flavor_loc
+
+func set_node_location(node_loc):
+	current_location = node_loc
+	print("Node path set to: " + node_loc)

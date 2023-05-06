@@ -25,8 +25,19 @@ func _on_save_list_item_activated(index:int):
 func _on_save_list_item_selected(index:int):
 	if not FileAccess.file_exists("user://savegame_" + str(index) + ".save"):
 		$SaveImage.texture = null
+		$TimePlayed.text = ""
+		$Location.text = ""
 		return
+
+	# Load image
 	var image = Image.new()
 	image.load("user://savescreen_" + str(index) + ".png")
 	$SaveImage.texture = ImageTexture.create_from_image(image)
+
+	# Load data
+	var load_data = FileAccess.open("user://savegame_" + str(index) + ".save", FileAccess.READ)
+	var json = JSON.new()
+	json.parse(load_data.get_line())
+	print(json.get_data())
+	
 	#$SaveImage.texture = load(OS.get_user_data_dir() + "/savescreen_" + str(index) + ".png")

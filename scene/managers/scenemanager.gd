@@ -56,6 +56,7 @@ func goto_level_scene(path):
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
 	var path_of_level = level_path + path
+	GlobalDatabase.set_node_location(path_of_level)
 	call_deferred("_deferred_goto_scene", path_of_level)
 
 ## Frees current scene and jumps to the next.
