@@ -71,3 +71,4 @@ func save_data():
 
 func get_save_screenshot():
 	save_screenshot = get_viewport().get_texture().get_image()
+	save_screenshot.resize(312,176)
