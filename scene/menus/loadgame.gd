@@ -20,12 +20,33 @@ func _on_back_button_pressed():
 	hide()
 
 
-func _on_inventory_pressed():
-	pass # Replace with function body.
-
-
 func _on_save_list_item_activated(index:int):
-	pass # Replace with function body.
+	var save_game = FileAccess.open("user://savegame_" + str(index) + ".save", FileAccess.READ)
+	var target_scene
+	
+	while save_game.get_position() < save_game.get_length():
+		var json_string = save_game.get_line()
+		var json = JSON.new()
+		var parse_result = json.parse(json_string)
+		if not parse_result == OK:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+			continue
+		
+		var save_data = json.get_data()
+
+		if save_data["name"] == "GlobalDatabase":
+			target_scene = save_data["current_location"]
+			GlobalDatabase.load_data(save_data)
+
+		if save_data["name"] == "Inventory":
+			Inventory.load_data(save_data)
+			
+	AudioManager.stop_music()
+	SceneManager.goto_level_scene(target_scene)
+	GamePauseUI.toggle_ui(true)
+	DialogueScreen.toggle_ui(true)
+	
+	# Changes to scene.
 
 
 func _on_visibility_changed():

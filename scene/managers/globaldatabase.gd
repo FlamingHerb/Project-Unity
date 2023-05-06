@@ -58,14 +58,17 @@ func read_from_JSON(path):
 	return JSON.parse_string(file.get_as_text())
 
 func save_data():
-
 	var global_database = {
+		"name": "GlobalDatabase",
 		"switches": switches,
 		"save_date": Time.get_datetime_string_from_system(false,true),
 		"location": location,
 		"current_location": current_location,
 	}
 	return global_database
+
+func load_data(dict_data):
+	switches = dict_data["switches"]
 
 func get_save_screenshot():
 	save_screenshot = get_viewport().get_texture().get_image()

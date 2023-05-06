@@ -46,6 +46,10 @@ func reset():
 
 func save_data():
 	var inven = {
+		"name": "Inventory",
 		"current_items": current_items,
 	}
 	return inven
+
+func load_data(dict_data):
+	current_items = dict_data["current_items"]
