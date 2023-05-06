@@ -67,3 +67,11 @@ func _on_text_log_close_button_pressed():
 
 func clear_textlog():
 	textlog_text.clear()
+
+func dialogue_running():
+	$PauseCanvasLayer/PauseMenu/GridContainer/SaveButton.disabled = true
+	$PauseCanvasLayer/InventoryButton.hide()
+
+func dialogue_done():
+	$PauseCanvasLayer/PauseMenu/GridContainer/SaveButton.disabled = false
+	$PauseCanvasLayer/InventoryButton.show()

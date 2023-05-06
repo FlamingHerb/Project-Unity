@@ -121,12 +121,14 @@ func _clear_data():
 	_clear_dialogue_box()
 	_clear_responses()
 
+	GamePauseUI.dialogue_done()
 	_change_state(State.READY)
 
 ## Loads the appropriate JSON Dialogue databank for the following scene.
 ## ID 000 will consequently be—and always—the first dialogue when loading.
 ## That is without any parameters to the dialogue_key.
 func init_dialogue(path, dialogue_key:String = "000"):
+	GamePauseUI.dialogue_running()
 	json_databank = read_from_JSON(dialogue_json_path + path + ".json")
 	_process_dialogue(dialogue_key)
 
