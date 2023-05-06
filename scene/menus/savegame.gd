@@ -38,6 +38,9 @@ func _on_save_list_item_selected(index:int):
 	var load_data = FileAccess.open("user://savegame_" + str(index) + ".save", FileAccess.READ)
 	var json = JSON.new()
 	json.parse(load_data.get_line())
-	print(json.get_data())
-	
+
+	# Parse data and use it.
+	var global_database_data = json.get_data()
+	$Location.text = global_database_data["location"]
+
 	#$SaveImage.texture = load(OS.get_user_data_dir() + "/savescreen_" + str(index) + ".png")
