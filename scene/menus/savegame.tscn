@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://baowy5cj3cdai"]
+[gd_scene load_steps=5 format=3 uid="uid://baowy5cj3cdai"]
 
 [ext_resource type="Script" path="res://scene/menus/savegame.gd" id="1_fbawy"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_5il62"]
 [ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_vx4ic"]
-[ext_resource type="Texture2D" uid="uid://deurn74t2qrfh" path="res://assets/graphics/background/hallway.jpg" id="4_baw3h"]
 
 [sub_resource type="Theme" id="Theme_ku0iw"]
 ItemList/constants/v_separation = 11
@@ -72,11 +71,8 @@ theme_override_font_sizes/font_size = 48
 text_overrun_behavior = 0
 item_count = 3
 item_0/text = "Save File 1"
-item_0/disabled = true
 item_1/text = "Save File 2"
-item_1/disabled = true
 item_2/text = "Save File 3"
-item_2/disabled = true
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
@@ -99,7 +95,6 @@ offset_left = 1392.0
 offset_top = 408.0
 offset_right = 1704.0
 offset_bottom = 584.0
-texture = ExtResource("4_baw3h")
 expand_mode = 2
 stretch_mode = 4
 
@@ -127,7 +122,6 @@ offset_left = 1520.5
 offset_top = 608.0
 offset_right = 1623.5
 offset_bottom = 634.0
-text = "00:00:00"
 
 [node name="Location" type="Label" parent="."]
 layout_mode = 0
@@ -135,6 +129,6 @@ offset_left = 1520.5
 offset_top = 648.0
 offset_right = 1623.5
 offset_bottom = 674.0
-text = "Bedroom"
 
+[connection signal="item_activated" from="SaveList" to="." method="_on_save_list_item_activated"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

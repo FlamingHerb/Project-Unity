@@ -19,6 +19,10 @@ var switches = {
 	"workroom_dialogue" = false,
 	"bedroom_dialogue" = false
 }
+var time_start
+var time_elapsed
+var location
+var current_location
 
 ##===============================================
 ## Godot Processing functions
@@ -53,3 +57,13 @@ func reset_switches():
 func read_from_JSON(path):
 	var file = FileAccess.open(path, FileAccess.READ)
 	return JSON.parse_string(file.get_as_text())
+
+func save_data():
+	var global_database = {
+		"switches": switches,
+		"time_start": time_start,
+		"time_elapsed": time_elapsed,
+		"location": location,
+		"current_location": current_location,
+	}
+	return global_database

@@ -43,3 +43,9 @@ func check_item(item_id):
 ## Resets current inventory when going to the menu... or just a general reset overall.
 func reset():
 	current_items = {}
+
+func save_data():
+	var inven = {
+		"current_items": current_items,
+	}
+	return inven

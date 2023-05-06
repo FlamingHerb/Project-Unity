@@ -55,3 +55,7 @@ func _on_quit_no_pressed():
 
 func _on_quit_yes_pressed():
 	get_tree().quit()
+
+
+func _on_save_button_pressed():
+	$SaveGame.show()
