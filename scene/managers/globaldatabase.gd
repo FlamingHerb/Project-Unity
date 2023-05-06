@@ -27,7 +27,7 @@ var switches = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	item_database = read_from_JSON("res://assets/data/item_database.json")
-	#print(item_database)
+	print(item_database)
 
 ##===============================================
 ## Switch-related functions
