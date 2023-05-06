@@ -36,11 +36,11 @@ func _on_save_list_item_activated(index:int):
 
 		if save_data["name"] == "GlobalDatabase":
 			target_scene = save_data["current_location"]
-			GlobalDatabase.load_data(save_data)
+			await GlobalDatabase.load_data(save_data)
 
 		if save_data["name"] == "Inventory":
-			Inventory.load_data(save_data)
-			
+			await Inventory.load_data(save_data)
+
 	AudioManager.stop_music()
 	SceneManager.goto_level_scene(target_scene)
 	GamePauseUI.toggle_ui(true)

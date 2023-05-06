@@ -18,7 +18,7 @@ script/source = "extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Inventory.check_item(\"Key\"):
+	if Inventory.check_item(\"Bedroom Key\"):
 		queue_free()
 
 
@@ -40,7 +40,7 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Inventory.check_item(\"Key\"):
+	if Inventory.check_item(\"Bedroom Key\"):
 		queue_free()
 
 
