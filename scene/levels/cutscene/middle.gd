@@ -16,3 +16,5 @@ func _cutscene():
 
 func _switch():
 	SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
+	GamePauseUI.toggle_ui(true)
+	DialogueScreen.toggle_ui(true)
