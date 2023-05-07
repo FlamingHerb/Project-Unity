@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=16 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://da801ceyqseei" path="res://assets/graphics/background/PRO_workroom_door.png" id="8_rsjxy"]
 [ext_resource type="BitMap" uid="uid://dui8fq1ywenm5" path="res://assets/graphics/background/PRO_workroom_door_bitmask.png" id="9_4s3sp"]
 [ext_resource type="AnimationLibrary" uid="uid://lh38s0bt26m6" path="res://scene/animations/global.res" id="9_modln"]
+[ext_resource type="Texture2D" uid="uid://refjj53ny22f" path="res://assets/graphics/background/PRO_window_closeup.png" id="12_pwe2f"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
 script/source = "extends TextureRect
@@ -159,6 +160,29 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 48
 text = "Return"
 
+[node name="WindowCloseup" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="WindowCloseup"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_pwe2f")
+
+[node name="WindowReturnButton" type="Button" parent="WindowCloseup"]
+offset_left = 87.0
+offset_top = 943.0
+offset_right = 200.0
+offset_bottom = 996.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
+[node name="BlindsCloseup" type="Area2D" parent="WindowCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="WindowCloseup/BlindsCloseup"]
+position = Vector2(-335, -212)
+polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
+
 [connection signal="mouse_entered" from="Main/BedroomDoor" to="." method="_on_bedroom_door_mouse_entered"]
 [connection signal="mouse_exited" from="Main/BedroomDoor" to="." method="_on_bedroom_door_mouse_exited"]
 [connection signal="pressed" from="Main/BedroomDoor" to="." method="_on_bedroom_door_pressed"]
@@ -171,3 +195,5 @@ text = "Return"
 [connection signal="pressed" from="TableCloseup/WorktableKey" to="." method="_on_worktable_key_pressed"]
 [connection signal="input_event" from="TableCloseup/PictureFrame" to="." method="_on_picture_frame_input_event"]
 [connection signal="pressed" from="TableCloseup/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="WindowCloseup/WindowReturnButton" to="." method="_on_window_return_button_pressed"]
+[connection signal="input_event" from="WindowCloseup/BlindsCloseup" to="." method="_on_blinds_closeup_input_event"]

@@ -67,7 +67,8 @@ func _on_bottles_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 
 func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")
+		$Main.hide()
+		$WindowCloseup.show()
 
 
 func _on_corkboard_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
@@ -78,3 +79,13 @@ func _on_corkboard_input_event(_viewport:Node, event:InputEvent, _shape_idx:int)
 func _on_picture_frame_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Picture Frame")
+
+
+func _on_window_return_button_pressed():
+	$Main.show()
+	$WindowCloseup.hide()
+
+
+func _on_blinds_closeup_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")
