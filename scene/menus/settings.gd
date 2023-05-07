@@ -125,6 +125,16 @@ func _on_se_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(value))
 
 #==============================================================================
+# ** Ambience Volume
+#------------------------------------------------------------------------------
+#  
+#==============================================================================
+
+func _on_ambience_slider_value_changed(value):
+	print(linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Ambience"),linear_to_db(value))
+
+#==============================================================================
 # ** Text Settings
 #------------------------------------------------------------------------------
 #  
@@ -197,10 +207,4 @@ func _on_hidden():
 func _on_visibility_changed():
 	if self.is_visible():
 		print("Settings drawn and loaded.")
-		
-
-
-
-
-
-
+		_load_settings()

@@ -4,23 +4,19 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalDatabase.set_flavor_location("Detective's Workshop")
-
+	AudioManager.play_sound("room")
 	if GlobalDatabase.check_switch("workroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Introduction")
 		GlobalDatabase.toggle_switch("workroom_dialogue", true)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-		
-
 func _on_key_interactable_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$Main.hide()
 		$TableCloseup.show()
-
 
 func _on_return_button_pressed():
 	$Main.show()
@@ -29,6 +25,7 @@ func _on_return_button_pressed():
 
 func _on_worktable_key_pressed():
 	Inventory.add_item("Bedroom Key")
+	AudioManager.play_sound("door_key")
 	DialogueScreen.init_dialogue("prologue_workroom_interact", "Bedroom Key")
 	await DialogueScreen.dialogue_all_finished
 	$TableCloseup/WorktableKey.queue_free()
@@ -45,8 +42,11 @@ func _on_bedroom_door_mouse_entered():
 
 func _on_bedroom_door_pressed():
 	if Inventory.check_item("Bedroom Key"):
+		AudioManager.play_sound("opened_door")
+		AudioManager.stop_sound("room")
 		SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
 	else:
+		AudioManager.play_sound("locked_door")
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Door Locked")
 
 
