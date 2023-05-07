@@ -13,20 +13,10 @@ func _ready() -> void:
 		var audio_stream_player = child as AudioStreamPlayer
 		_audio_stream_players.append(audio_stream_player)
 		for i in range(count):
-			var duplicate = audio_stream_player.duplicate()
-			if duplicate is AudioStreamPlayer:
-				add_child(duplicate)
-				_audio_stream_players.append(duplicate)
-
-# TO FIX: Doesn't show
-func _get_configuration_warning() -> String:
-	var warning := ""
-	if get_child_count() == 0:
-		warning =  "No children found. Expected one AudioStreamPLayer child."
-	if not get_child(0) is AudioStreamPlayer:
-		warning = "Expected first child to be an AudioStreamPlayer"
-	return warning
-
+			var dup = audio_stream_player.duplicate()
+			if dup is AudioStreamPlayer:
+				add_child(dup)
+				_audio_stream_players.append(dup)
 
 func play_sound() -> void:
 	if !_audio_stream_players[_next].playing:
