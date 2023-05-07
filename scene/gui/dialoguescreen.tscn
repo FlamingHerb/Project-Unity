@@ -100,12 +100,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -800.0
+offset_left = -960.0
 offset_top = -252.0
-offset_right = 800.0
+offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 0.588235)
+color = Color(0, 0, 0, 0.784314)
 
 [node name="DialogueActorName" type="RichTextLabel" parent="DialogueLayer/DialogueBox"]
 layout_mode = 1

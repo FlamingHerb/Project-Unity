@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmwq2cypsbkqt"]
+
+[ext_resource type="Script" path="res://scene/levels/cutscene/prologue.gd" id="1_dp2rs"]
+
+[sub_resource type="Animation" id="Animation_subxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeToWhite:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p7fla"]
+resource_name = "cutscene"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeToWhite:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_switch_to_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bst1b"]
+_data = {
+"RESET": SubResource("Animation_subxq"),
+"cutscene": SubResource("Animation_p7fla")
+}
+
+[node name="Prologue" type="Node"]
+script = ExtResource("1_dp2rs")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadeToWhite" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(1, 1, 1, 0)
+
+[node name="BlackBars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlackBarTop" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 1880.0
+offset_bottom = 111.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BlackBarBottom" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 970.0
+offset_right = 1880.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bst1b")
+}

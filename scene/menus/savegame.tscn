@@ -1,22 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://y50tqx50niub"]
+[gd_scene load_steps=5 format=3 uid="uid://baowy5cj3cdai"]
 
-[ext_resource type="Script" path="res://scene/menus/loadgame.gd" id="1_8lg7u"]
-[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="1_efclp"]
-[ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_lbh8d"]
+[ext_resource type="Script" path="res://scene/menus/savegame.gd" id="1_fbawy"]
+[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_5il62"]
+[ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_vx4ic"]
 
-[sub_resource type="Theme" id="Theme_ywuus"]
+[sub_resource type="Theme" id="Theme_ku0iw"]
 ItemList/constants/v_separation = 11
 
-[node name="LoadGame" type="Control"]
+[node name="SaveGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8lg7u")
+script = ExtResource("1_fbawy")
 
-[node name="Blur" parent="." instance=ExtResource("1_efclp")]
+[node name="Blur" parent="." instance=ExtResource("2_5il62")]
 visible = false
 layout_mode = 1
 
@@ -25,7 +25,7 @@ visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("3_lbh8d")
+texture = ExtResource("3_vx4ic")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -56,7 +56,7 @@ offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Load Game"
+text = "Save Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,7 +66,7 @@ offset_left = 1048.0
 offset_top = 408.0
 offset_right = 1304.0
 offset_bottom = 684.0
-theme = SubResource("Theme_ywuus")
+theme = SubResource("Theme_ku0iw")
 theme_override_font_sizes/font_size = 48
 text_overrun_behavior = 0
 item_count = 3
@@ -130,7 +130,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="item_activated" from="SaveList" to="." method="_on_save_list_item_activated"]
-[connection signal="item_clicked" from="SaveList" to="." method="_on_save_list_item_clicked"]
+[connection signal="item_selected" from="SaveList" to="." method="_on_save_list_item_selected"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

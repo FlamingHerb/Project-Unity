@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://1r54o3uo04vm"]
+[gd_scene load_steps=10 format=3 uid="uid://1r54o3uo04vm"]
 
 [ext_resource type="Texture2D" uid="uid://wi4qmpmkigos" path="res://assets/graphics/titlescreen.png" id="1_mgcf3"]
 [ext_resource type="Script" path="res://scene/menus/mainmenu.gd" id="1_rynt0"]
 [ext_resource type="Texture2D" uid="uid://8mehat7rt4he" path="res://assets/graphics/placeholder_titlescreen.jpg" id="2_0aybv"]
-[ext_resource type="PackedScene" uid="uid://dc4dp6mlsimxo" path="res://scene/menus/newgame.tscn" id="3_os162"]
+[ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_fk8r1"]
 [ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/settings.tscn" id="3_pluqi"]
 [ext_resource type="PackedScene" uid="uid://y50tqx50niub" path="res://scene/menus/loadgame.tscn" id="4_n6pvk"]
+[ext_resource type="Theme" uid="uid://bxbivfg8cdk47" path="res://scene/themes/mainmenu.tres" id="5_17jgo"]
 [ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/help.tscn" id="6_0sc3y"]
 [ext_resource type="PackedScene" uid="uid://biratu1kw11v1" path="res://scene/menus/about.tscn" id="7_exvcy"]
 
@@ -25,6 +26,12 @@ offset_bottom = 2571.0
 scale = Vector2(0.42, 0.42)
 texture = ExtResource("2_0aybv")
 
+[node name="BlackBackdrop" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_fk8r1")
+
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 2
 offset_right = 40.0
@@ -34,19 +41,18 @@ texture = ExtResource("1_mgcf3")
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 138.0
-offset_top = 435.0
+offset_top = 488.0
 offset_right = 690.0
-offset_bottom = 571.0
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 30
-columns = 3
+offset_bottom = 956.0
+theme = ExtResource("5_17jgo")
+theme_override_constants/v_separation = 0
 
 [node name="NewGame" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 49
 text = "New Game"
 
 [node name="LoadGame" type="Button" parent="GridContainer"]
@@ -54,7 +60,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 49
 text = "Load Game"
 
 [node name="Settings" type="Button" parent="GridContainer"]
@@ -62,23 +68,25 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 49
 text = "Settings"
 
 [node name="Help" type="Button" parent="GridContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 49
 text = "Help"
 
 [node name="About" type="Button" parent="GridContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 49
 text = "About"
 
 [node name="Exit" type="Button" parent="GridContainer"]
@@ -86,12 +94,8 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 49
 text = "Exit"
-
-[node name="NewGame" parent="." instance=ExtResource("3_os162")]
-visible = false
-layout_mode = 1
 
 [node name="LoadGame" parent="." instance=ExtResource("4_n6pvk")]
 visible = false

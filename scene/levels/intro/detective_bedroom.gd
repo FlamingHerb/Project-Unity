@@ -3,6 +3,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalDatabase.set_flavor_location("Detective's Bedroom")
+
 	if GlobalDatabase.check_switch("bedroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Getting Ready")
 		GlobalDatabase.toggle_switch("bedroom_dialogue", true)
@@ -29,7 +31,9 @@ func _on_duffel_bag_input_event(_viewport:Node, event:InputEvent, _shape_idx:int
 		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
 		var respon = await DialogueScreen.response_taken
 		if respon == 0:
-			SceneManager.goto_level_scene("mansion/parking_lot.tscn")
+			GamePauseUI.toggle_ui(false)
+			DialogueScreen.toggle_ui(false)
+			SceneManager.goto_level_scene("cutscene/middle.tscn")
 
 func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

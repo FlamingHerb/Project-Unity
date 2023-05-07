@@ -3,7 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print_tree_pretty()
+	GlobalDatabase.set_flavor_location("Detective's Workshop")
 	AudioManager.play_sound("room")
 	if GlobalDatabase.check_switch("workroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Introduction")

@@ -12,8 +12,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_load_settings()
-	pass
+	print("Settings loaded")
+	load_settings()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -39,7 +39,7 @@ func _save_settings():
 	config.save("user://settings.cfg")
 
 # Loads settings.
-func _load_settings():
+func load_settings():
 	# Create new ConfigFile object.
 	var config = ConfigFile.new()
 
@@ -101,7 +101,7 @@ func _default_settings():
 #==============================================================================
 
 func _on_master_sound_slider_value_changed(value):
-	print(linear_to_db(value))
+	#print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 
 #==============================================================================
@@ -111,7 +111,7 @@ func _on_master_sound_slider_value_changed(value):
 #==============================================================================
 
 func _on_music_slider_value_changed(value):
-	print(linear_to_db(value))
+	#print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear_to_db(value))
 
 #==============================================================================
@@ -121,7 +121,7 @@ func _on_music_slider_value_changed(value):
 #==============================================================================
 
 func _on_se_slider_value_changed(value):
-	print(linear_to_db(value))
+	#print(linear_to_db(value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(value))
 
 #==============================================================================
@@ -191,23 +191,18 @@ func _on_vsync_button_toggled(button_pressed):
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
-
 func _on_backbutton_pressed():
 	_save_settings()
 	hide()
 
-
 func _on_restore_default_button_pressed():
 	_default_settings()
-
 
 func _on_draw():
 	pass
 
-
 func _on_hidden():
 	pass
-
 
 func _on_visibility_changed():
 	if self.is_visible():
