@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7kkeb346j6wf"]
+
+[ext_resource type="Texture2D" uid="uid://b8ifbrppihicf" path="res://assets/graphics/background/PRO_frontentrance.png" id="1_o8i42"]
+
+[node name="FrontEntrance" type="Node"]
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Main"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_o8i42")

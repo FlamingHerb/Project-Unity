@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd1kppy0jydl4"]
+
+[ext_resource type="Texture2D" uid="uid://b0fieynbewo41" path="res://assets/graphics/background/PRO_bathroom.png" id="1_kr4j0"]
+
+[node name="Bathroom" type="Node"]
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Main"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_kr4j0")
