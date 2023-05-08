@@ -17,7 +17,8 @@ extends Node
 var item_database
 var switches = {
 	"workroom_dialogue" = false,
-	"bedroom_dialogue" = false
+	"bedroom_dialogue" = false,
+	"finale_sequence" = false,
 }
 var location
 var current_location
