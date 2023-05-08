@@ -71,7 +71,7 @@ func _on_blinds_closeup_input_event(_viewport:Node, event:InputEvent, _shape_idx
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")
 
 
-func _on_bedroom_door_input_event(viewport:Node, event:InputEvent, shape_idx:int):
+func _on_bedroom_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if Inventory.check_item("Bedroom Key"):
 			AudioManager.play_sound("opened_door")

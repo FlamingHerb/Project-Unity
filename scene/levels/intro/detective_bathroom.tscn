@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd1kppy0jydl4"]
+[gd_scene load_steps=3 format=3 uid="uid://cd1kppy0jydl4"]
 
+[ext_resource type="Script" path="res://scene/levels/intro/detective_bathroom.gd" id="1_416sj"]
 [ext_resource type="Texture2D" uid="uid://b0fieynbewo41" path="res://assets/graphics/background/PRO_bathroom.png" id="1_kr4j0"]
 
 [node name="Bathroom" type="Node"]
+script = ExtResource("1_416sj")
 
 [node name="Main" type="Node2D" parent="."]
 
@@ -10,3 +12,11 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_kr4j0")
+
+[node name="BathroomDoor" type="Area2D" parent="Main"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/BathroomDoor"]
+position = Vector2(1001, -540)
+polygon = PackedVector2Array(816, 1563, 859, 533, 915, 539, 917, 1620, 828, 1616)
+
+[connection signal="input_event" from="Main/BathroomDoor" to="." method="_on_bathroom_door_input_event"]

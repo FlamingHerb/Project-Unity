@@ -43,5 +43,12 @@ texture_normal = ExtResource("4_it6gn")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="BathroomDoor" type="Area2D" parent="Main"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/BathroomDoor"]
+position = Vector2(-830, -169)
+polygon = PackedVector2Array(916, 952, 859, 533, 1174, 552, 1208, 942, 1172, 907)
+
 [connection signal="pressed" from="Main/RightNavigation" to="." method="_on_right_navigation_pressed"]
 [connection signal="pressed" from="Main/LeftNavigation" to="." method="_on_left_navigation_pressed"]
+[connection signal="input_event" from="Main/BathroomDoor" to="." method="_on_bathroom_door_input_event"]
