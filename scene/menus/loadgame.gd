@@ -41,7 +41,7 @@ func _on_save_list_item_activated(index:int):
 		if save_data["name"] == "Inventory":
 			await Inventory.load_data(save_data)
 
-	AudioManager.stop_music()
+	AudioManager.stop_sound("main_menu")
 	SceneManager.goto_level_scene(target_scene)
 	GamePauseUI.toggle_ui(true)
 	DialogueScreen.toggle_ui(true)

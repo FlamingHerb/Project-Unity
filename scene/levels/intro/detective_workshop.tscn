@@ -80,6 +80,7 @@ offset_left = 1355.0
 offset_top = 32.0
 offset_right = 1920.0
 offset_bottom = 982.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("8_rsjxy")
 texture_click_mask = ExtResource("9_4s3sp")
 

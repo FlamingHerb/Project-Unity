@@ -207,4 +207,4 @@ func _on_hidden():
 func _on_visibility_changed():
 	if self.is_visible():
 		print("Settings drawn and loaded.")
-		_load_settings()
+		load_settings()
