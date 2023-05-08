@@ -31,26 +31,6 @@ func _on_worktable_key_pressed():
 	$TableCloseup/WorktableKey.queue_free()
 	$Main/Key.queue_free()
 
-
-
-func _on_bedroom_door_mouse_exited():
-	$Main/BedroomDoor/AnimationPlayer.stop()
-
-
-func _on_bedroom_door_mouse_entered():
-	$Main/BedroomDoor/AnimationPlayer.play("global/door_outline")
-
-func _on_bedroom_door_pressed():
-	if Inventory.check_item("Bedroom Key"):
-		AudioManager.play_sound("opened_door")
-		AudioManager.stop_sound("room")
-		SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
-	else:
-		AudioManager.play_sound("locked_door")
-		DialogueScreen.init_dialogue("prologue_workroom_interact", "Door Locked")
-
-
-
 func _on_radio_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Radio")
@@ -89,3 +69,21 @@ func _on_window_return_button_pressed():
 func _on_blinds_closeup_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")
+
+
+func _on_bedroom_door_input_event(viewport:Node, event:InputEvent, shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if Inventory.check_item("Bedroom Key"):
+			AudioManager.play_sound("opened_door")
+			AudioManager.stop_sound("room")
+			SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
+		else:
+			AudioManager.play_sound("locked_door")
+			DialogueScreen.init_dialogue("prologue_workroom_interact", "Door Locked")
+
+func _on_right_navigation_pressed():
+	SceneManager.goto_level_scene("intro/detective_front_entrance.tscn")
+
+
+func _on_left_navigation_pressed():
+	SceneManager.goto_level_scene("intro/detective_kitchen.tscn")

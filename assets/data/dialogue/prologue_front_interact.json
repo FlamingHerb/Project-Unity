@@ -1,0 +1,15 @@
+{
+    "000":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "How'd you end up here?",
+        "next_id": "end"
+    },
+    "No Reason":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "I have no reason to go outside.",
+        "next_id": "end"
+    }
+}
+

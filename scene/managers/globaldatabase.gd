@@ -81,4 +81,3 @@ func set_flavor_location(flavor_loc):
 func set_node_location(node_loc):
 	current_location = node_loc
 	print("Node path set to: " + node_loc)
-

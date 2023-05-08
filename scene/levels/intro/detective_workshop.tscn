@@ -1,16 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=13 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
 [ext_resource type="Texture2D" uid="uid://b0a4bakr1xbox" path="res://assets/graphics/bg_items/PRO_workroom_item_key_back.png" id="2_vpmgt"]
 [ext_resource type="Texture2D" uid="uid://cwmup8nw7fyhs" path="res://assets/graphics/bg_items/PRO_workroom_item_key.png" id="3_a8you"]
+[ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="5_elc4c"]
 [ext_resource type="Texture2D" uid="uid://ct0ypvd0qvdnf" path="res://assets/graphics/background/PRO_worktable.png" id="5_hys4o"]
+[ext_resource type="Texture2D" uid="uid://cfjkp7qehte3d" path="res://assets/graphics/navigation_left.png" id="6_2eo8u"]
 [ext_resource type="Texture2D" uid="uid://ddyk3matl5jpf" path="res://assets/graphics/bg_items/PRO_worktable_item_key_back.png" id="6_854fu"]
 [ext_resource type="Texture2D" uid="uid://bnnfwnda1kk4i" path="res://assets/graphics/bg_items/PRO_worktable_item_key.png" id="7_ggche"]
-[ext_resource type="Shader" path="res://scene/shaders/2d_outline.gdshader" id="8_7masu"]
-[ext_resource type="Texture2D" uid="uid://da801ceyqseei" path="res://assets/graphics/background/PRO_workroom_door.png" id="8_rsjxy"]
-[ext_resource type="BitMap" uid="uid://dui8fq1ywenm5" path="res://assets/graphics/background/PRO_workroom_door_bitmask.png" id="9_4s3sp"]
-[ext_resource type="AnimationLibrary" uid="uid://lh38s0bt26m6" path="res://scene/animations/global.res" id="9_modln"]
 [ext_resource type="Texture2D" uid="uid://refjj53ny22f" path="res://assets/graphics/background/PRO_window_closeup.png" id="12_pwe2f"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
@@ -27,11 +25,6 @@ func _ready():
 func _process(delta):
 	pass
 "
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6yh67"]
-shader = ExtResource("8_7masu")
-shader_parameter/line_color = Color(1, 1, 1, 0)
-shader_parameter/line_thickness = 0.0
 
 [sub_resource type="GDScript" id="GDScript_q5o8c"]
 script/source = "# Worktable Key
@@ -74,20 +67,11 @@ offset_bottom = 596.0
 texture = ExtResource("3_a8you")
 script = SubResource("GDScript_dlhvd")
 
-[node name="BedroomDoor" type="TextureButton" parent="Main"]
-material = SubResource("ShaderMaterial_6yh67")
-offset_left = 1355.0
-offset_top = 32.0
-offset_right = 1920.0
-offset_bottom = 982.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_rsjxy")
-texture_click_mask = ExtResource("9_4s3sp")
+[node name="BedroomDoor" type="Area2D" parent="Main"]
+position = Vector2(652, -153)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/BedroomDoor"]
-libraries = {
-"global": ExtResource("9_modln")
-}
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/BedroomDoor"]
+polygon = PackedVector2Array(798, 192, 1294, 224, 1220, 656, 1142, 722, 1063, 1123, 714, 1010)
 
 [node name="KeyInteractable" type="Area2D" parent="Main"]
 
@@ -123,6 +107,34 @@ polygon = PackedVector2Array(730, 246, 759, 241, 753, 210, 651, 216, 651, 766, 8
 [node name="Interactable" type="CollisionPolygon2D" parent="Main/Corkboard"]
 position = Vector2(-189, -223)
 polygon = PackedVector2Array(867, 243, 333, 277, 419, 746, 886, 599)
+
+[node name="RightNavigation" type="TextureButton" parent="Main"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1824.0
+offset_top = 492.0
+offset_right = 1920.0
+offset_bottom = 588.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_elc4c")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LeftNavigation" type="TextureButton" parent="Main"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 492.0
+offset_right = 96.0
+offset_bottom = 588.0
+grow_vertical = 2
+texture_normal = ExtResource("6_2eo8u")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="TableCloseup" type="Node2D" parent="."]
 visible = false
@@ -184,15 +196,15 @@ text = "Return"
 position = Vector2(-335, -212)
 polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
 
-[connection signal="mouse_entered" from="Main/BedroomDoor" to="." method="_on_bedroom_door_mouse_entered"]
-[connection signal="mouse_exited" from="Main/BedroomDoor" to="." method="_on_bedroom_door_mouse_exited"]
-[connection signal="pressed" from="Main/BedroomDoor" to="." method="_on_bedroom_door_pressed"]
+[connection signal="input_event" from="Main/BedroomDoor" to="." method="_on_bedroom_door_input_event"]
 [connection signal="input_event" from="Main/KeyInteractable" to="." method="_on_key_interactable_input_event"]
 [connection signal="input_event" from="Main/Documents" to="." method="_on_documents_input_event"]
 [connection signal="input_event" from="Main/Radio" to="." method="_on_radio_input_event"]
 [connection signal="input_event" from="Main/Bottles" to="." method="_on_bottles_input_event"]
 [connection signal="input_event" from="Main/Blinds" to="." method="_on_blinds_input_event"]
 [connection signal="input_event" from="Main/Corkboard" to="." method="_on_corkboard_input_event"]
+[connection signal="pressed" from="Main/RightNavigation" to="." method="_on_right_navigation_pressed"]
+[connection signal="pressed" from="Main/LeftNavigation" to="." method="_on_left_navigation_pressed"]
 [connection signal="pressed" from="TableCloseup/WorktableKey" to="." method="_on_worktable_key_pressed"]
 [connection signal="input_event" from="TableCloseup/PictureFrame" to="." method="_on_picture_frame_input_event"]
 [connection signal="pressed" from="TableCloseup/ReturnButton" to="." method="_on_return_button_pressed"]
