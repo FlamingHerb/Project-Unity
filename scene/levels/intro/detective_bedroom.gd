@@ -42,3 +42,8 @@ func _on_drawer_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 func _on_box_return_button_pressed():
 	$Main.show()
 	$DrawerCloseup.hide()
+
+
+func _on_gun_pressed():
+	Inventory.add_item("Gun")
+	$DrawerCloseup/Gun.queue_free()

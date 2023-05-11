@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=8 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
 [ext_resource type="Texture2D" uid="uid://cc3i86yx08nac" path="res://assets/graphics/background/PRO_bedroom2.png" id="1_ydkg5"]
 [ext_resource type="Texture2D" uid="uid://dfix8i81sqo4u" path="res://assets/graphics/background/PRO_drawer_closeupempty.png" id="3_cckxn"]
+[ext_resource type="Texture2D" uid="uid://bikfwuncd7on1" path="res://assets/graphics/background/PRO_drawer_closeup.png" id="4_olenb"]
+[ext_resource type="Texture2D" uid="uid://cygbkfrnvi1g8" path="res://assets/graphics/bg_items/PRO_drawer_gun.png" id="5_ajhxr"]
+[ext_resource type="BitMap" uid="uid://hj2jwgxhsrju" path="res://assets/graphics/bg_items/PRO_drawer_gun_bitmap.png" id="6_ock0q"]
+
+[sub_resource type="GDScript" id="GDScript_vlvps"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if Inventory.check_item(\"Gun\"):
+		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="DetectiveBedroom" type="Node"]
 script = ExtResource("1_jci3d")
@@ -46,6 +64,21 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_cckxn")
 
+[node name="Background2" type="TextureRect" parent="DrawerCloseup"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_olenb")
+
+[node name="Gun" type="TextureButton" parent="DrawerCloseup"]
+offset_left = 150.0
+offset_top = 402.0
+offset_right = 808.0
+offset_bottom = 746.0
+texture_normal = ExtResource("5_ajhxr")
+texture_click_mask = ExtResource("6_ock0q")
+script = SubResource("GDScript_vlvps")
+
 [node name="BoxReturnButton" type="Button" parent="DrawerCloseup"]
 offset_left = 87.0
 offset_top = 943.0
@@ -59,4 +92,5 @@ text = "Return"
 [connection signal="input_event" from="Main/Drawer" to="." method="_on_drawer_input_event"]
 [connection signal="input_event" from="Main/Door" to="." method="_on_door_input_event"]
 [connection signal="input_event" from="Main/DuffelBag" to="." method="_on_duffel_bag_input_event"]
+[connection signal="pressed" from="DrawerCloseup/Gun" to="." method="_on_gun_pressed"]
 [connection signal="pressed" from="DrawerCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]

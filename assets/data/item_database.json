@@ -3,12 +3,12 @@
     "image": "key",
     "description": "I should be able to access my bedroom."
   },
-  "Drill": {
+  "Gun": {
     "image": "drill",
-    "description": "A drill lying in the floor."
+    "description": "A standard issue 9mm gun. You can never sleep without it beside you."
   },
-  "Vase": {
+  "9mm Round Magazine": {
     "image": "vase",
-    "description": "A vase lying in a table."
+    "description": "You can't shoot living things without bullets."
   }
 }
