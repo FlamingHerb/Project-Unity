@@ -4,11 +4,11 @@
     "description": "I should be able to access my bedroom."
   },
   "Gun": {
-    "image": "drill",
+    "image": "gun",
     "description": "A standard issue 9mm gun. You can never sleep without it beside you."
   },
-  "9mm Round Magazine": {
-    "image": "vase",
+  "Magazine": {
+    "image": "magazine",
     "description": "You can't shoot living things without bullets."
   }
 }
