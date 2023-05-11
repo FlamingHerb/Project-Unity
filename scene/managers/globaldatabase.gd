@@ -20,6 +20,7 @@ var switches = {
 	"bedroom_dialogue" = false,
 	"woke_up" = false,
 	"finale_sequence" = false,
+	"puzzle_solved" = false,
 }
 var location
 var current_location

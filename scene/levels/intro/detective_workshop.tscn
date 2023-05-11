@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=20 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
@@ -8,8 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://ct0ypvd0qvdnf" path="res://assets/graphics/background/PRO_worktable.png" id="5_hys4o"]
 [ext_resource type="Texture2D" uid="uid://cfjkp7qehte3d" path="res://assets/graphics/navigation_left.png" id="6_2eo8u"]
 [ext_resource type="Texture2D" uid="uid://ddyk3matl5jpf" path="res://assets/graphics/bg_items/PRO_worktable_item_key_back.png" id="6_854fu"]
+[ext_resource type="BitMap" uid="uid://dksc5vbnb1w6" path="res://assets/graphics/bg_items/PRO_workroom_box_bitmask.png" id="6_stipv"]
 [ext_resource type="Texture2D" uid="uid://bnnfwnda1kk4i" path="res://assets/graphics/bg_items/PRO_worktable_item_key.png" id="7_ggche"]
+[ext_resource type="Texture2D" uid="uid://cju143yslixl4" path="res://assets/graphics/bg_items/PRO_workroom_box.png" id="7_ti5px"]
+[ext_resource type="Texture2D" uid="uid://22hvaodqb8id" path="res://assets/graphics/bg_items/PRO_workroom_box_open.png" id="7_tv7lj"]
+[ext_resource type="BitMap" uid="uid://c1sw06q2xqx21" path="res://assets/graphics/bg_items/PRO_workroom_box_open_bitmask.png" id="8_kopa5"]
 [ext_resource type="Texture2D" uid="uid://refjj53ny22f" path="res://assets/graphics/background/PRO_window_closeup.png" id="12_pwe2f"]
+[ext_resource type="Texture2D" uid="uid://cfo2r72w1kxky" path="res://assets/graphics/background/PRO_box_closeup.png" id="15_x444l"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
 script/source = "extends TextureRect
@@ -19,6 +24,36 @@ script/source = "extends TextureRect
 func _ready():
 	if Inventory.check_item(\"Bedroom Key\"):
 		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_rfebk"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"puzzle_solved\"):
+		hide()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_no8ek"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"puzzle_solved\"):
+		show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,6 +101,23 @@ offset_right = 974.0
 offset_bottom = 596.0
 texture = ExtResource("3_a8you")
 script = SubResource("GDScript_dlhvd")
+
+[node name="MysteryBox" type="TextureButton" parent="Main"]
+offset_top = 729.0
+offset_right = 210.0
+offset_bottom = 922.0
+texture_normal = ExtResource("7_ti5px")
+texture_click_mask = ExtResource("6_stipv")
+script = SubResource("GDScript_rfebk")
+
+[node name="MysteryBoxOpened" type="TextureButton" parent="Main"]
+visible = false
+offset_top = 729.0
+offset_right = 210.0
+offset_bottom = 922.0
+texture_normal = ExtResource("7_tv7lj")
+texture_click_mask = ExtResource("8_kopa5")
+script = SubResource("GDScript_no8ek")
 
 [node name="BedroomDoor" type="Area2D" parent="Main"]
 position = Vector2(652, -153)
@@ -196,6 +248,25 @@ text = "Return"
 position = Vector2(-335, -212)
 polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
 
+[node name="BoxCloseup" type="Node2D" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="BoxCloseup"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_x444l")
+
+[node name="BoxReturnButton" type="Button" parent="BoxCloseup"]
+offset_left = 87.0
+offset_top = 943.0
+offset_right = 200.0
+offset_bottom = 996.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
+[connection signal="pressed" from="Main/MysteryBox" to="." method="_on_mystery_box_pressed"]
+[connection signal="pressed" from="Main/MysteryBoxOpened" to="." method="_on_mystery_box_opened_pressed"]
 [connection signal="input_event" from="Main/BedroomDoor" to="." method="_on_bedroom_door_input_event"]
 [connection signal="input_event" from="Main/KeyInteractable" to="." method="_on_key_interactable_input_event"]
 [connection signal="input_event" from="Main/Documents" to="." method="_on_documents_input_event"]
@@ -210,3 +281,4 @@ polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
 [connection signal="pressed" from="TableCloseup/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="WindowCloseup/WindowReturnButton" to="." method="_on_window_return_button_pressed"]
 [connection signal="input_event" from="WindowCloseup/BlindsCloseup" to="." method="_on_blinds_closeup_input_event"]
+[connection signal="pressed" from="BoxCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]

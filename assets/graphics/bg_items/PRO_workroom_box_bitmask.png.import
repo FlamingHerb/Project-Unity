@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dksc5vbnb1w6"
+path="res://.godot/imported/PRO_workroom_box_bitmask.png-4477bb22d53e32d9dd534a461d19959a.res"
+
+[deps]
+
+source_file="res://assets/graphics/bg_items/PRO_workroom_box_bitmask.png"
+dest_files=["res://.godot/imported/PRO_workroom_box_bitmask.png-4477bb22d53e32d9dd534a461d19959a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

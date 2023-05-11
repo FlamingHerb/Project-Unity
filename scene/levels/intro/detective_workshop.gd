@@ -87,3 +87,14 @@ func _on_right_navigation_pressed():
 
 func _on_left_navigation_pressed():
 	SceneManager.goto_level_scene("intro/detective_kitchen.tscn")
+
+func _on_mystery_box_opened_pressed():
+	pass # Replace with function body.
+
+func _on_mystery_box_pressed():
+	$Main.hide()
+	$BoxCloseup.show()
+
+func _on_box_return_button_pressed():
+	$Main.show()
+	$BoxCloseup.hide()

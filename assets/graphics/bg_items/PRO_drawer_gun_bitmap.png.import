@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://hj2jwgxhsrju"
+path="res://.godot/imported/PRO_drawer_gun_bitmap.png-29d34225f972d1b0ba648029d3b3f344.res"
+
+[deps]
+
+source_file="res://assets/graphics/bg_items/PRO_drawer_gun_bitmap.png"
+dest_files=["res://.godot/imported/PRO_drawer_gun_bitmap.png-29d34225f972d1b0ba648029d3b3f344.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

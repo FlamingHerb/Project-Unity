@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dhhs67xhmbx32"
+path="res://.godot/imported/PRO_bedroom2_magazinemissing_bitmap.png-0b019706dbceeaf58810baf0b4d894f8.res"
+
+[deps]
+
+source_file="res://assets/graphics/bg_items/PRO_bedroom2_magazinemissing_bitmap.png"
+dest_files=["res://.godot/imported/PRO_bedroom2_magazinemissing_bitmap.png-0b019706dbceeaf58810baf0b4d894f8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
