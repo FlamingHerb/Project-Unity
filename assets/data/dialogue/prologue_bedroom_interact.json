@@ -35,6 +35,12 @@
         "speaker": "Detective",
         "text": "I'll check a few things before going out.",
         "next_id": "end"
+    },
+    "Gun": {
+        "type": "basic",
+        "speaker": "none",
+        "text": "(You have obtained the [b]Gun[/b].)",
+        "next_id": "end"
     }
 }
 

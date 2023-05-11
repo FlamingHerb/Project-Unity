@@ -45,6 +45,7 @@ func _on_box_return_button_pressed():
 
 
 func _on_gun_pressed():
+	DialogueScreen.init_dialogue("prologue_bedroom_interact", "Gun")
 	Inventory.add_item("Gun")
 	$DrawerCloseup/Gun.queue_free()
 

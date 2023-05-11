@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://curknihdfnhn5"]
 
-[ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
+[ext_resource type="Texture2D" uid="uid://cbjllk4stou8k" path="res://assets/graphics/background/PRO_workroom_keymissing.png" id="2_u6v4h"]
 [ext_resource type="Texture2D" uid="uid://b0a4bakr1xbox" path="res://assets/graphics/bg_items/PRO_workroom_item_key_back.png" id="2_vpmgt"]
 [ext_resource type="Texture2D" uid="uid://cwmup8nw7fyhs" path="res://assets/graphics/bg_items/PRO_workroom_item_key.png" id="3_a8you"]
 [ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="5_elc4c"]
@@ -88,7 +88,7 @@ script = ExtResource("1_qgogg")
 [node name="Background" type="TextureRect" parent="Main"]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("1_2atqe")
+texture = ExtResource("2_u6v4h")
 
 [node name="TextureRect2" type="TextureRect" parent="Main"]
 visible = false

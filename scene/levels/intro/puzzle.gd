@@ -36,6 +36,11 @@ func _mouse_click_detection(event:InputEvent):
 func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if _mouse_click_detection(event):
 		if letter == [0, 2, 4, 1, 3, 0]:
+			DialogueScreen.init_dialogue("prologue_dialogue", "PS0")
+			await DialogueScreen.dialogue_part_finished
+			await DialogueScreen.dialogue_part_finished
+			Inventory.add_item("Invitation")
+			await DialogueScreen.dialogue_all_finished
 			GlobalDatabase.toggle_switch("puzzle_solved", true)
 			mystery_solved.emit()
 		else:
