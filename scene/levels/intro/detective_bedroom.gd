@@ -14,14 +14,14 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_duffel_bag_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
-		var respon = await DialogueScreen.response_taken
-		if respon == 0:
-			GamePauseUI.toggle_ui(false)
-			DialogueScreen.toggle_ui(false)
-			SceneManager.goto_level_scene("cutscene/middle.tscn")
+# func _on_duffel_bag_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+# 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+# 		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
+# 		var respon = await DialogueScreen.response_taken
+# 		if respon == 0:
+# 			GamePauseUI.toggle_ui(false)
+# 			DialogueScreen.toggle_ui(false)
+# 			SceneManager.goto_level_scene("cutscene/middle.tscn")
 
 func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -47,3 +47,12 @@ func _on_box_return_button_pressed():
 func _on_gun_pressed():
 	Inventory.add_item("Gun")
 	$DrawerCloseup/Gun.queue_free()
+
+
+func _on_duffel_bag_pressed():
+	DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
+	var respon = await DialogueScreen.response_taken
+	if respon == 0:
+		GamePauseUI.toggle_ui(false)
+		DialogueScreen.toggle_ui(false)
+		SceneManager.goto_level_scene("cutscene/middle.tscn")
