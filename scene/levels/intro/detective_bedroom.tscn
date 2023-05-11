@@ -21,7 +21,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -40,6 +40,7 @@ color = Color(0, 0, 0, 1)
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_5tufu")
+metadata/_edit_lock_ = true
 
 [node name="Closet" type="Area2D" parent="Main"]
 
@@ -57,7 +58,7 @@ polygon = PackedVector2Array(78, 513, 87, 604, 318, 499, 312, 411)
 
 [node name="Interactable" type="CollisionPolygon2D" parent="Main/Door"]
 position = Vector2(1458, -272)
-polygon = PackedVector2Array(94, 268, 60, 1068, 458, 1119, 496, 267)
+polygon = PackedVector2Array(97, 271, 60, 1068, 461, 1116, 461, 271)
 
 [node name="DuffelBag" type="TextureButton" parent="Main"]
 visible = false
@@ -75,6 +76,7 @@ visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_cckxn")
+metadata/_edit_lock_ = true
 
 [node name="Background2" type="TextureRect" parent="DrawerCloseup"]
 visible = false

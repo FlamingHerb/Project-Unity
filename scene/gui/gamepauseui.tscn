@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://yitienbql1uy"]
+[gd_scene load_steps=10 format=3 uid="uid://yitienbql1uy"]
 
 [ext_resource type="Script" path="res://scene/gui/gamepauseui.gd" id="1_4orwv"]
+[ext_resource type="Texture2D" uid="uid://bh8ch2fmeekmx" path="res://assets/graphics/menu_background/pausemenu_paste.png" id="2_r0utq"]
 [ext_resource type="PackedScene" uid="uid://bpwi77dqdbj5f" path="res://scene/menus/pausemenu.tscn" id="2_x0g5k"]
 [ext_resource type="PackedScene" uid="uid://de7k8onp0awqt" path="res://scene/menus/inventory.tscn" id="3_1pygl"]
+[ext_resource type="BitMap" uid="uid://b5w8nv8k2pcsq" path="res://assets/graphics/menu_background/pausemenu_paste_bitmap.png" id="3_kve1p"]
+[ext_resource type="FontFile" uid="uid://co314y1qj4wmd" path="res://assets/font/VL-Gothic-Regular.ttf" id="4_1ac2h"]
 [ext_resource type="Texture2D" uid="uid://xvtwh2rypr58" path="res://assets/graphics/menu_background/text_log.png" id="4_2p2cf"]
 [ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="4_tsh6w"]
 
@@ -22,30 +25,59 @@ script = ExtResource("1_4orwv")
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="PauseButton" type="Button" parent="PauseCanvasLayer"]
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 147.0
-offset_bottom = 87.0
-theme_override_font_sizes/font_size = 40
+[node name="PauseButton" type="TextureButton" parent="PauseCanvasLayer"]
+offset_left = -217.0
+offset_top = 27.5
+offset_right = 391.0
+offset_bottom = 127.5
+texture_normal = ExtResource("2_r0utq")
+texture_click_mask = ExtResource("3_kve1p")
+
+[node name="PauseLabel" type="Label" parent="PauseCanvasLayer"]
+offset_left = 111.19
+offset_top = 43.6696
+offset_right = 231.19
+offset_bottom = 107.67
+theme_override_fonts/font = ExtResource("4_1ac2h")
+theme_override_font_sizes/font_size = 48
 text = "Pause"
 
-[node name="InventoryButton" type="Button" parent="PauseCanvasLayer"]
-offset_left = 155.0
-offset_top = 24.0
-offset_right = 347.0
-offset_bottom = 87.0
-theme_override_font_sizes/font_size = 40
+[node name="InventoryButton" type="TextureButton" parent="PauseCanvasLayer"]
+offset_left = -214.0
+offset_top = 136.0
+offset_right = 394.0
+offset_bottom = 236.0
+texture_normal = ExtResource("2_r0utq")
+texture_click_mask = ExtResource("3_kve1p")
+
+[node name="InventoryLabel" type="Label" parent="PauseCanvasLayer"]
+offset_left = 64.0397
+offset_top = 152.15
+offset_right = 280.04
+offset_bottom = 216.15
+theme_override_fonts/font = ExtResource("4_1ac2h")
+theme_override_font_sizes/font_size = 48
 text = "Inventory"
 
-[node name="TextLogButton" type="Button" parent="PauseCanvasLayer"]
+[node name="TextLogButton" type="TextureButton" parent="PauseCanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -90.0
-offset_bottom = 36.0
+offset_left = -345.0
+offset_top = 27.5
+offset_right = 263.0
+offset_bottom = 127.5
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
+texture_normal = ExtResource("2_r0utq")
+texture_click_mask = ExtResource("3_kve1p")
+
+[node name="TextLogLabel" type="Label" parent="PauseCanvasLayer"]
+offset_left = 1680.7
+offset_top = 51.0195
+offset_right = 1896.7
+offset_bottom = 115.02
+theme_override_fonts/font = ExtResource("4_1ac2h")
+theme_override_font_sizes/font_size = 48
 text = "Text Log"
 
 [node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("2_x0g5k")]
