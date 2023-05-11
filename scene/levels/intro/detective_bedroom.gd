@@ -31,3 +31,14 @@ func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		SceneManager.goto_level_scene("intro/detective_workshop.tscn")
+
+
+func _on_drawer_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$Main.hide()
+		$DrawerCloseup.show()
+
+
+func _on_box_return_button_pressed():
+	$Main.show()
+	$DrawerCloseup.hide()

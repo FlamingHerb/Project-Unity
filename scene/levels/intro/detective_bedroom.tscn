@@ -1,34 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=4 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
 [ext_resource type="Texture2D" uid="uid://cc3i86yx08nac" path="res://assets/graphics/background/PRO_bedroom2.png" id="1_ydkg5"]
+[ext_resource type="Texture2D" uid="uid://dfix8i81sqo4u" path="res://assets/graphics/background/PRO_drawer_closeupempty.png" id="3_cckxn"]
 
 [node name="DetectiveBedroom" type="Node"]
 script = ExtResource("1_jci3d")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("1_ydkg5")
 
-[node name="Closet" type="Area2D" parent="."]
+[node name="Closet" type="Area2D" parent="Main"]
 
-[node name="Interactable" type="CollisionPolygon2D" parent="Closet"]
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/Closet"]
 position = Vector2(1005, -147)
 polygon = PackedVector2Array(141, 258, 94, 268, 86, 883, 238, 907, 270, 955, 430, 977, 465, 936, 493, 269)
 
-[node name="Door" type="Area2D" parent="."]
+[node name="Drawer" type="Area2D" parent="Main"]
 
-[node name="Interactable" type="CollisionPolygon2D" parent="Door"]
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/Drawer"]
+position = Vector2(-32, 316)
+polygon = PackedVector2Array(78, 513, 87, 604, 318, 499, 312, 411)
+
+[node name="Door" type="Area2D" parent="Main"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/Door"]
 position = Vector2(1458, -272)
 polygon = PackedVector2Array(94, 268, 60, 1068, 458, 1119, 496, 267)
 
-[node name="DuffelBag" type="Area2D" parent="."]
+[node name="DuffelBag" type="Area2D" parent="Main"]
 
-[node name="Interactable" type="CollisionPolygon2D" parent="DuffelBag"]
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/DuffelBag"]
 position = Vector2(1005, -147)
 polygon = PackedVector2Array(-255, 813, -123, 778, 19, 865, 23, 955, 2, 981, -37, 1025, -95, 1023, -196, 973, -245, 942)
 
-[connection signal="input_event" from="Closet" to="." method="_on_closet_input_event"]
-[connection signal="input_event" from="Door" to="." method="_on_door_input_event"]
-[connection signal="input_event" from="DuffelBag" to="." method="_on_duffel_bag_input_event"]
+[node name="DrawerCloseup" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="DrawerCloseup"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_cckxn")
+
+[node name="BoxReturnButton" type="Button" parent="DrawerCloseup"]
+offset_left = 87.0
+offset_top = 943.0
+offset_right = 200.0
+offset_bottom = 996.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
+[connection signal="input_event" from="Main/Closet" to="." method="_on_closet_input_event"]
+[connection signal="input_event" from="Main/Drawer" to="." method="_on_drawer_input_event"]
+[connection signal="input_event" from="Main/Door" to="." method="_on_door_input_event"]
+[connection signal="input_event" from="Main/DuffelBag" to="." method="_on_duffel_bag_input_event"]
+[connection signal="pressed" from="DrawerCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]
