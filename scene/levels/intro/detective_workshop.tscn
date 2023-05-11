@@ -352,6 +352,84 @@ position = Vector2(1862, 1446)
 rotation = -3.14159
 polygon = PackedVector2Array(957.002, 500.996, 839.002, 500.996, 839.002, 458.996, 957.002, 458.996)
 
+[node name="TextLabel1" type="Label" parent="BoxCloseup"]
+offset_left = 519.0
+offset_top = 349.0
+offset_right = 653.0
+offset_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+visible_characters = 1
+
+[node name="TextLabel2" type="Label" parent="BoxCloseup"]
+offset_left = 654.0
+offset_top = 349.0
+offset_right = 808.0
+offset_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+visible_characters = 1
+
+[node name="TextLabel3" type="Label" parent="BoxCloseup"]
+offset_left = 810.0
+offset_top = 349.0
+offset_right = 963.0
+offset_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+visible_characters = 1
+
+[node name="TextLabel4" type="Label" parent="BoxCloseup"]
+offset_left = 964.0
+offset_top = 349.0
+offset_right = 1115.0
+offset_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+visible_characters = 1
+
+[node name="TextLabel5" type="Label" parent="BoxCloseup"]
+offset_left = 1118.0
+offset_top = 349.0
+offset_right = 1271.0
+offset_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+visible_characters = 1
+
+[node name="TextLabel6" type="Label" parent="BoxCloseup"]
+offset_left = 1273.0
+offset_top = 349.0
+offset_right = 1407.0
+offset_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+visible_characters = 1
+
 [connection signal="pressed" from="Main/MysteryBox" to="." method="_on_mystery_box_pressed"]
 [connection signal="pressed" from="Main/MysteryBoxOpened" to="." method="_on_mystery_box_opened_pressed"]
 [connection signal="input_event" from="Main/BedroomDoor" to="." method="_on_bedroom_door_input_event"]
