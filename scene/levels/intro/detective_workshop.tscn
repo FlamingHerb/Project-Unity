@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=22 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://refjj53ny22f" path="res://assets/graphics/background/PRO_window_closeup.png" id="12_pwe2f"]
 [ext_resource type="Script" path="res://scene/levels/intro/puzzle.gd" id="15_bjkf0"]
 [ext_resource type="Texture2D" uid="uid://cfo2r72w1kxky" path="res://assets/graphics/background/PRO_box_closeup.png" id="15_x444l"]
+[ext_resource type="FontFile" uid="uid://ccltikahp4ms2" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="17_0i7su"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
 script/source = "extends TextureRect
@@ -250,7 +251,6 @@ position = Vector2(-335, -212)
 polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
 
 [node name="BoxCloseup" type="Node2D" parent="."]
-visible = false
 script = ExtResource("15_bjkf0")
 
 [node name="TextureRect" type="TextureRect" parent="BoxCloseup"]
@@ -359,6 +359,7 @@ offset_right = 653.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
 horizontal_alignment = 1
@@ -373,6 +374,7 @@ offset_right = 808.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
 horizontal_alignment = 1
@@ -387,6 +389,7 @@ offset_right = 963.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
 horizontal_alignment = 1
@@ -401,6 +404,7 @@ offset_right = 1115.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
 horizontal_alignment = 1
@@ -415,6 +419,7 @@ offset_right = 1271.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
 horizontal_alignment = 1
@@ -429,6 +434,7 @@ offset_right = 1407.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
 horizontal_alignment = 1
