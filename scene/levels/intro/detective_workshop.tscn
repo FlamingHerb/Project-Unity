@@ -29,7 +29,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -44,7 +44,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -59,7 +59,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -76,7 +76,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -363,7 +363,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
-text = "a"
+text = "d"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -379,7 +379,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
-text = "a"
+text = "y"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -395,7 +395,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
-text = "a"
+text = "f"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -411,7 +411,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
-text = "a"
+text = "g"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -427,7 +427,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
-text = "a"
+text = "h"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -443,7 +443,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
-text = "a"
+text = "e"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true

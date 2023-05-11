@@ -4,12 +4,14 @@ signal mystery_solved
 
 var letter = [0, 0, 0, 0, 0, 0]
 
-var let_dic_1 = ["a","b","c"]
-var let_dic_2 = ["a","b","c"]
-var let_dic_3 = ["a","b","c"]
-var let_dic_4 = ["a","b","c"]
-var let_dic_5 = ["a","b","c"]
-var let_dic_6 = ["a","b","c"]
+var let_dic_1 = ["d","t","s","c","w"] # 0
+var let_dic_2 = ["y","g","e","n","d"] # 2
+var let_dic_3 = ["f","a","t","c","m"] # 4
+var let_dic_4 = ["g","i","x","v","r"] # 1
+var let_dic_5 = ["h","w","o","s","r"] # 3
+var let_dic_6 = ["e","b","v","x","t"] # 0
+
+var letter_length = len(let_dic_1) - 1
 
 @onready var letter_1 = $TextLabel1
 @onready var letter_2 = $TextLabel2
@@ -33,7 +35,7 @@ func _mouse_click_detection(event:InputEvent):
 
 func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if _mouse_click_detection(event):
-		if letter == [1, 1, 1, 1, 1, 1]:
+		if letter == [0, 2, 4, 1, 3, 0]:
 			GlobalDatabase.toggle_switch("puzzle_solved", true)
 			mystery_solved.emit()
 		else:
@@ -41,7 +43,7 @@ func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:
 
 func add_num(index: int):
 	match letter[index]:
-		2:
+		letter_length:
 			letter[index] = 0
 		_:
 			letter[index] += 1
@@ -50,7 +52,7 @@ func add_num(index: int):
 func sub_num(index: int):
 	match letter[index]:
 		0:
-			letter[index] = 2
+			letter[index] = letter_length
 		_:
 			letter[index] -= 1
 	print("Sub " + str(index) + ": " + str(letter[index]))
