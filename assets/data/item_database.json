@@ -10,5 +10,9 @@
   "Magazine": {
     "image": "magazine",
     "description": "You can't shoot living things without bullets."
+  },
+  "Invitation": {
+    "image": "invitation",
+    "description": "An invitation from your former superior after solving a box."
   }
 }

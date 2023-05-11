@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=11 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
-[ext_resource type="Texture2D" uid="uid://cc3i86yx08nac" path="res://assets/graphics/background/PRO_bedroom2.png" id="1_ydkg5"]
+[ext_resource type="Texture2D" uid="uid://mxcdl1mo72cy" path="res://assets/graphics/background/PRO_NewBedroom.png" id="2_5tufu"]
 [ext_resource type="Texture2D" uid="uid://dfix8i81sqo4u" path="res://assets/graphics/background/PRO_drawer_closeupempty.png" id="3_cckxn"]
 [ext_resource type="Texture2D" uid="uid://riw1hp5yc6hl" path="res://assets/graphics/bg_items/PRO_bedroom2_bags.png" id="3_smy63"]
 [ext_resource type="BitMap" uid="uid://dc8hhl14sw2je" path="res://assets/graphics/bg_items/PRO_bedroom2_bags_bitmask.png" id="4_4hptp"]
 [ext_resource type="Texture2D" uid="uid://bikfwuncd7on1" path="res://assets/graphics/background/PRO_drawer_closeup.png" id="4_olenb"]
 [ext_resource type="Texture2D" uid="uid://cygbkfrnvi1g8" path="res://assets/graphics/bg_items/PRO_drawer_gun.png" id="5_ajhxr"]
 [ext_resource type="BitMap" uid="uid://hj2jwgxhsrju" path="res://assets/graphics/bg_items/PRO_drawer_gun_bitmap.png" id="6_ock0q"]
+[ext_resource type="Texture2D" uid="uid://mm7huj1gl36f" path="res://assets/graphics/background/PRO_Magazine_Closeup.png" id="9_v6dm5"]
 
 [sub_resource type="GDScript" id="GDScript_vlvps"]
 script/source = "extends TextureButton
@@ -29,10 +30,16 @@ script = ExtResource("1_jci3d")
 
 [node name="Main" type="Node2D" parent="."]
 
+[node name="OutsideColor" type="ColorRect" parent="Main"]
+offset_left = 640.0
+offset_right = 1124.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
 [node name="Background" type="TextureRect" parent="Main"]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("1_ydkg5")
+texture = ExtResource("2_5tufu")
 
 [node name="Closet" type="Area2D" parent="Main"]
 
@@ -53,6 +60,7 @@ position = Vector2(1458, -272)
 polygon = PackedVector2Array(94, 268, 60, 1068, 458, 1119, 496, 267)
 
 [node name="DuffelBag" type="TextureButton" parent="Main"]
+visible = false
 offset_left = 720.0
 offset_top = 639.0
 offset_right = 1053.0
@@ -91,6 +99,14 @@ offset_bottom = 996.0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 48
 text = "Return"
+
+[node name="PillowCloseup" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="PillowCloseup"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_v6dm5")
 
 [connection signal="input_event" from="Main/Closet" to="." method="_on_closet_input_event"]
 [connection signal="input_event" from="Main/Drawer" to="." method="_on_drawer_input_event"]
