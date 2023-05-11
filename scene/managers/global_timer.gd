@@ -11,7 +11,5 @@ func _process(_delta):
 	pass
 
 
-
-func _on_door_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		SceneManager.goto_scene("res://scene/levels/junction.tscn")
+func _on_timer_timeout():
+	pass # Replace with function body.
