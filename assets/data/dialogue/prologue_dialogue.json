@@ -8,7 +8,31 @@
     "Introduction":  {
         "type": "basic",
         "speaker": "Detective",
-        "text": "I should go get ready.",
+        "text": "Alright, major. What the hell did you send this time?",
+        "next_id": "end"
+    },
+    "PS0":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "Is... this a letter?",
+        "next_id": "PS1"
+    },
+    "PS1":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "An invitation to a party? That's a first.",
+        "next_id": "PS2"
+    },
+    "PS2":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "(You have obtained the [Invitation].)",
+        "next_id": "PS3"
+    },
+    "PS3":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "Guess I should get ready. Might as well check the [b]closet[/b] for anything.",
         "next_id": "end"
     },
     "Getting Ready":  {
