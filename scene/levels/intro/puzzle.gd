@@ -1,5 +1,7 @@
 extends Node2D
 
+signal mystery_solved
+
 var letter = [0, 0, 0, 0, 0, 0]
 
 var let_dic_1 = ["a","b","c"]
@@ -31,7 +33,11 @@ func _mouse_click_detection(event:InputEvent):
 
 func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if _mouse_click_detection(event):
-		print("sex")
+		if letter == [1, 1, 1, 1, 1, 1]:
+			GlobalDatabase.toggle_switch("puzzle_solved", true)
+			mystery_solved.emit()
+		else:
+			print("Yeah, kinda wrong buddy.")
 
 func add_num(index: int):
 	match letter[index]:

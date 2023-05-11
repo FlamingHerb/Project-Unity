@@ -40,11 +40,12 @@ func _ready():
 ##===============================================
 
 ## Takes the switch's name and toggles it to the specified boolean value.
-func toggle_switch(switch_name, boolean_value):
+func toggle_switch(switch_name: String, boolean_value: bool):
+	print(switch_name + " set to " + str(boolean_value))
 	switches[switch_name] = boolean_value
 
 ## Check's the following switch's boolean value.
-func check_switch(switch_name):
+func check_switch(switch_name: String):
 	return switches[switch_name]
 
 ## Deactivate all switches when going back to the menu.

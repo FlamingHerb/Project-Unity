@@ -98,3 +98,9 @@ func _on_mystery_box_pressed():
 func _on_box_return_button_pressed():
 	$Main.show()
 	$BoxCloseup.hide()
+
+func _on_box_closeup_mystery_solved():
+	$Main.show()
+	$BoxCloseup.hide()
+	$Main/MysteryBox.hide()
+	$Main/MysteryBoxOpened.show()

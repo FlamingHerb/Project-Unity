@@ -251,6 +251,7 @@ position = Vector2(-335, -212)
 polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
 
 [node name="BoxCloseup" type="Node2D" parent="."]
+visible = false
 script = ExtResource("15_bjkf0")
 
 [node name="TextureRect" type="TextureRect" parent="BoxCloseup"]
@@ -359,6 +360,7 @@ offset_right = 653.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
@@ -374,6 +376,7 @@ offset_right = 808.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
@@ -389,6 +392,7 @@ offset_right = 963.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
@@ -404,6 +408,7 @@ offset_right = 1115.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
@@ -419,6 +424,7 @@ offset_right = 1271.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
@@ -434,6 +440,7 @@ offset_right = 1407.0
 offset_bottom = 708.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.431373, 0, 1)
 theme_override_fonts/font = ExtResource("17_0i7su")
 theme_override_font_sizes/font_size = 120
 text = "a"
@@ -458,6 +465,7 @@ visible_characters = 1
 [connection signal="pressed" from="TableCloseup/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="WindowCloseup/WindowReturnButton" to="." method="_on_window_return_button_pressed"]
 [connection signal="input_event" from="WindowCloseup/BlindsCloseup" to="." method="_on_blinds_closeup_input_event"]
+[connection signal="mystery_solved" from="BoxCloseup" to="." method="_on_box_closeup_mystery_solved"]
 [connection signal="pressed" from="BoxCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]
 [connection signal="input_event" from="BoxCloseup/TopButton1" to="BoxCloseup" method="_on_top_button_1_input_event"]
 [connection signal="input_event" from="BoxCloseup/TopButton2" to="BoxCloseup" method="_on_top_button_2_input_event"]
