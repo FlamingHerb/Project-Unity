@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=21 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Texture2D" uid="uid://d11s64mkgkavw" path="res://assets/graphics/background/PRO_workroom.png" id="1_2atqe"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://22hvaodqb8id" path="res://assets/graphics/bg_items/PRO_workroom_box_open.png" id="7_tv7lj"]
 [ext_resource type="BitMap" uid="uid://c1sw06q2xqx21" path="res://assets/graphics/bg_items/PRO_workroom_box_open_bitmask.png" id="8_kopa5"]
 [ext_resource type="Texture2D" uid="uid://refjj53ny22f" path="res://assets/graphics/background/PRO_window_closeup.png" id="12_pwe2f"]
+[ext_resource type="Script" path="res://scene/levels/intro/puzzle.gd" id="15_bjkf0"]
 [ext_resource type="Texture2D" uid="uid://cfo2r72w1kxky" path="res://assets/graphics/background/PRO_box_closeup.png" id="15_x444l"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
@@ -250,6 +251,7 @@ polygon = PackedVector2Array(2033, 209, 647, 220, 664, 1292, 2016, 1283)
 
 [node name="BoxCloseup" type="Node2D" parent="."]
 visible = false
+script = ExtResource("15_bjkf0")
 
 [node name="TextureRect" type="TextureRect" parent="BoxCloseup"]
 offset_right = 40.0
@@ -264,6 +266,91 @@ offset_bottom = 996.0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 48
 text = "Return"
+
+[node name="TopButton1" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/TopButton1"]
+position = Vector2(-335, -212)
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="TopButton2" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/TopButton2"]
+position = Vector2(-184, -211)
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="TopButton3" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/TopButton3"]
+position = Vector2(-32, -211)
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="TopButton4" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/TopButton4"]
+position = Vector2(119, -211)
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="TopButton5" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/TopButton5"]
+position = Vector2(278, -211)
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="TopButton6" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/TopButton6"]
+position = Vector2(429, -211)
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="BottomButton1" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/BottomButton1"]
+position = Vector2(1507, 1266)
+rotation = -3.14159
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="BottomButton2" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/BottomButton2"]
+position = Vector2(1659, 1266)
+rotation = -3.14159
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="BottomButton3" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/BottomButton3"]
+position = Vector2(1810, 1266)
+rotation = -3.14159
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="BottomButton4" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/BottomButton4"]
+position = Vector2(1962, 1266)
+rotation = -3.14159
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="BottomButton5" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/BottomButton5"]
+position = Vector2(2119, 1266)
+rotation = -3.14159
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="BottomButton6" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/BottomButton6"]
+position = Vector2(2271, 1266)
+rotation = -3.14159
+polygon = PackedVector2Array(921, 425, 873, 521, 970, 521)
+
+[node name="AnswerButton" type="Area2D" parent="BoxCloseup"]
+
+[node name="Interactable" type="CollisionPolygon2D" parent="BoxCloseup/AnswerButton"]
+position = Vector2(1862, 1446)
+rotation = -3.14159
+polygon = PackedVector2Array(957.002, 500.996, 839.002, 500.996, 839.002, 458.996, 957.002, 458.996)
 
 [connection signal="pressed" from="Main/MysteryBox" to="." method="_on_mystery_box_pressed"]
 [connection signal="pressed" from="Main/MysteryBoxOpened" to="." method="_on_mystery_box_opened_pressed"]
@@ -282,3 +369,16 @@ text = "Return"
 [connection signal="pressed" from="WindowCloseup/WindowReturnButton" to="." method="_on_window_return_button_pressed"]
 [connection signal="input_event" from="WindowCloseup/BlindsCloseup" to="." method="_on_blinds_closeup_input_event"]
 [connection signal="pressed" from="BoxCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]
+[connection signal="input_event" from="BoxCloseup/TopButton1" to="BoxCloseup" method="_on_top_button_1_input_event"]
+[connection signal="input_event" from="BoxCloseup/TopButton2" to="BoxCloseup" method="_on_top_button_2_input_event"]
+[connection signal="input_event" from="BoxCloseup/TopButton3" to="BoxCloseup" method="_on_top_button_3_input_event"]
+[connection signal="input_event" from="BoxCloseup/TopButton4" to="BoxCloseup" method="_on_top_button_4_input_event"]
+[connection signal="input_event" from="BoxCloseup/TopButton5" to="BoxCloseup" method="_on_top_button_5_input_event"]
+[connection signal="input_event" from="BoxCloseup/TopButton6" to="BoxCloseup" method="_on_top_button_6_input_event"]
+[connection signal="input_event" from="BoxCloseup/BottomButton1" to="BoxCloseup" method="_on_bottom_button_1_input_event"]
+[connection signal="input_event" from="BoxCloseup/BottomButton2" to="BoxCloseup" method="_on_bottom_button_2_input_event"]
+[connection signal="input_event" from="BoxCloseup/BottomButton3" to="BoxCloseup" method="_on_bottom_button_3_input_event"]
+[connection signal="input_event" from="BoxCloseup/BottomButton4" to="BoxCloseup" method="_on_bottom_button_4_input_event"]
+[connection signal="input_event" from="BoxCloseup/BottomButton5" to="BoxCloseup" method="_on_bottom_button_5_input_event"]
+[connection signal="input_event" from="BoxCloseup/BottomButton6" to="BoxCloseup" method="_on_bottom_button_6_input_event"]
+[connection signal="input_event" from="BoxCloseup/AnswerButton" to="BoxCloseup" method="_on_answer_button_input_event"]
