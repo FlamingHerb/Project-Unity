@@ -24,9 +24,10 @@ func _ready():
 	ui_hover.stream = load("res://assets/audio/sfx/ui_hover.mp3")
 	$MusicAudioQueue/MusicStream.stream = load("res://assets/audio/music/main_menu.mp3")
 	$SFXAudioQueue/OpenedDoor.stream = load("res://assets/audio/sfx/opened_door.mp3")
-	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/locked_door.mp3")
+	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/door_knock.mp3")
 	$SFXAudioQueue/DoorKey.stream = load("res://assets/audio/sfx/door_key.mp3")
-	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/room.wav")
+	$SFXAudioQueue/PuzzleButton.stream = load("res://assets/audio/sfx/puzzle_button.mp3")
+	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/thunder_rain.mp3")
 
 func _process(_delta):
 	pass
@@ -47,6 +48,8 @@ func play_sound(sound: String):
 			$SFXAudioQueue/DoorKey.play()
 		"room":
 			$AmbienceAudioQueue/Room.play()
+		"puzzle_button":
+			$SFXAudioQueue/PuzzleButton.play()
 		_:
 			print("Sound not found:", sound)
 

@@ -75,7 +75,7 @@ func _on_bedroom_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:i
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if Inventory.check_item("Bedroom Key"):
 			AudioManager.play_sound("opened_door")
-			AudioManager.stop_sound("room")
+#			AudioManager.stop_sound("room")
 			SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
 		else:
 			AudioManager.play_sound("locked_door")
