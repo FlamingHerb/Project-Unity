@@ -36,9 +36,9 @@ func _ready():
 	item_database = read_from_JSON("res://assets/data/item_database.json")
 	print(item_database)
 
-func _input(event):
+func _input(_event):
 	# Debug only
-	if event.is_key_pressed(KEY_F7):
+	if Input.is_key_pressed(KEY_F7):
 		_debug()
 ##===============================================
 ## Switch-related functions
