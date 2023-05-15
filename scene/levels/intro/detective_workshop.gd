@@ -7,6 +7,7 @@ func _ready():
 		$Main/Background.texture = load("res://assets/graphics/background/PRO_workroom.png")
 		DialogueScreen.init_dialogue("prologue_dialogue", "Pre-Finale Dialogue")
 		await DialogueScreen.dialogue_all_finished
+		GlobalDatabase.toggle_switch("door_knocking", true)
 		return
 	
 	GlobalDatabase.set_flavor_location("Detective's Workshop")

@@ -22,6 +22,7 @@ var switches = {
 	"puzzle_solved" = false,
 	"bag_taken" = false,
 	"finale_sequence" = false,
+	"door_knocking" = false,
 }
 var location
 var current_location
