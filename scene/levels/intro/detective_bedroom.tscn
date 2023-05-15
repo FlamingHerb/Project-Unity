@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=12 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
 [ext_resource type="Texture2D" uid="uid://mxcdl1mo72cy" path="res://assets/graphics/background/PRO_NewBedroom.png" id="2_5tufu"]
@@ -9,6 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://cygbkfrnvi1g8" path="res://assets/graphics/bg_items/PRO_drawer_gun.png" id="5_ajhxr"]
 [ext_resource type="BitMap" uid="uid://hj2jwgxhsrju" path="res://assets/graphics/bg_items/PRO_drawer_gun_bitmap.png" id="6_ock0q"]
 [ext_resource type="Texture2D" uid="uid://mm7huj1gl36f" path="res://assets/graphics/background/PRO_Magazine_Closeup.png" id="9_v6dm5"]
+
+[sub_resource type="GDScript" id="GDScript_0yg54"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"bag_taken\"):
+		show()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="GDScript" id="GDScript_vlvps"]
 script/source = "extends TextureButton
@@ -68,6 +83,7 @@ offset_right = 1053.0
 offset_bottom = 880.0
 texture_normal = ExtResource("3_smy63")
 texture_click_mask = ExtResource("4_4hptp")
+script = SubResource("GDScript_0yg54")
 
 [node name="DrawerCloseup" type="Node2D" parent="."]
 visible = false

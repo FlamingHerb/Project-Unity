@@ -25,7 +25,18 @@ func _process(_delta):
 
 func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")
+		if GlobalDatabase.check_switch("bag_taken"):
+			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")
+			return
+		if GlobalDatabase.check_switch("puzzle_solved"):
+			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet - Puzzle Solved")
+			await DialogueScreen.dialogue_all_finished
+			GlobalDatabase.toggle_switch("bag_taken", true)
+			$Main/DuffelBag.show()
+			return
+		else:
+			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")
+			return
 
 
 func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):

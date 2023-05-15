@@ -20,6 +20,7 @@ var switches = {
 	"bedroom_dialogue" = false,
 	"woke_up" = false,
 	"puzzle_solved" = false,
+	"bag_taken" = false,
 	"finale_sequence" = false,
 }
 var location
@@ -35,9 +36,19 @@ func _ready():
 	item_database = read_from_JSON("res://assets/data/item_database.json")
 	print(item_database)
 
+func _input(event):
+	# Debug only
+	if event.is_key_pressed(KEY_F7):
+		_debug()
 ##===============================================
 ## Switch-related functions
 ##===============================================
+
+func _debug():
+	print("Switches:")
+	for switch in switches.keys():
+		print(switch + ":" + str(switches[switch]))
+	return
 
 ## Takes the switch's name and toggles it to the specified boolean value.
 func toggle_switch(switch_name: String, boolean_value: bool):
