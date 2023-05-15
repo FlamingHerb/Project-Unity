@@ -51,7 +51,7 @@
         "type": "basic",
         "speaker": "Detective",
         "text": "Who's knocking at the door?",
-        "next_id": "PFD1"
+        "next_id": "end"
     }
 }
 
