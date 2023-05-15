@@ -3,11 +3,16 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch("finale_sequence"):
+		$Main/Background.texture = load("res://assets/graphics/background/PRO_workroom.png")
+		return
+	
 	GlobalDatabase.set_flavor_location("Detective's Workshop")
 	AudioManager.play_sound("room")
 	if GlobalDatabase.check_switch("workroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Introduction")
 		GlobalDatabase.toggle_switch("workroom_dialogue", true)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

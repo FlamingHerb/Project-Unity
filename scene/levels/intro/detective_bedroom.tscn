@@ -16,6 +16,9 @@ script/source = "extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		hide()
+		return
 	if GlobalDatabase.check_switch(\"bag_taken\"):
 		show()
 
@@ -31,6 +34,9 @@ script/source = "extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		queue_free()
+		return
 	if Inventory.check_item(\"Gun\"):
 		queue_free()
 

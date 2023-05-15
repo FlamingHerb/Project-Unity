@@ -67,4 +67,5 @@ func _on_duffel_bag_pressed():
 	if respon == 0:
 		GamePauseUI.toggle_ui(false)
 		DialogueScreen.toggle_ui(false)
+		GlobalDatabase.toggle_switch("finale_sequence", true)
 		SceneManager.goto_level_scene("cutscene/middle.tscn")
