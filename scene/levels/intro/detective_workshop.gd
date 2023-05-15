@@ -5,6 +5,8 @@ extends Node
 func _ready():
 	if GlobalDatabase.check_switch("finale_sequence"):
 		$Main/Background.texture = load("res://assets/graphics/background/PRO_workroom.png")
+		DialogueScreen.init_dialogue("prologue_dialogue", "Pre-Finale Dialogue")
+		await DialogueScreen.dialogue_all_finished
 		return
 	
 	GlobalDatabase.set_flavor_location("Detective's Workshop")

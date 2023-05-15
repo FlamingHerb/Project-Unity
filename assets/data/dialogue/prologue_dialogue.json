@@ -40,6 +40,18 @@
         "speaker": "Detective",
         "text": "I'm ready. The keys should be at the bag, so I'm all set.",
         "next_id": "end"
+    },
+    "Pre-Finale Dialogue": {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "Didn't know it was this late.",
+        "next_id": "PFD1"
+    },
+    "PFD1": {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "Who's knocking at the door?",
+        "next_id": "PFD1"
     }
 }
 
