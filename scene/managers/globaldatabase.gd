@@ -19,8 +19,8 @@ var switches = {
 	"workroom_dialogue" = false,
 	"bedroom_dialogue" = false,
 	"woke_up" = false,
-	"finale_sequence" = false,
 	"puzzle_solved" = false,
+	"finale_sequence" = false,
 }
 var location
 var current_location
