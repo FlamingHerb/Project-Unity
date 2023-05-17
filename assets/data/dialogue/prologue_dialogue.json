@@ -52,6 +52,18 @@
         "speaker": "Detective",
         "text": "Who's knocking at the door?",
         "next_id": "end"
+    },
+    "Door Intruder": {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "What the—",
+        "next_id": "DI1"
+    },
+    "DI1": {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "What the—",
+        "next_id": "end"
     }
 }
 
