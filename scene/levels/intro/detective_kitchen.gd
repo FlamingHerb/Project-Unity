@@ -6,7 +6,7 @@ func _ready():
 	if GlobalDatabase.check_switch("door_knocking"):
 		$Main/Background.hide()
 
-	GlobalDatabase.set_flavor_location("Detective's Kitchen")
+	GlobalDatabase.set_flavor_location("Kitchen")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

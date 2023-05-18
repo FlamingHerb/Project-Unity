@@ -12,7 +12,7 @@ func _ready():
 		await DialogueScreen.dialogue_all_finished
 		GlobalDatabase.toggle_switch("door_knocking", true)
 
-	GlobalDatabase.set_flavor_location("Detective's Bedroom")
+	GlobalDatabase.set_flavor_location("Bedroom")
 
 	if GlobalDatabase.check_switch("bedroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Getting Ready")
