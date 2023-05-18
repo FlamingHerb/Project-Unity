@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7kkeb346j6wf"]
+[gd_scene load_steps=6 format=3 uid="uid://b7kkeb346j6wf"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_front_entrance.gd" id="1_efs8u"]
 [ext_resource type="Texture2D" uid="uid://b8ifbrppihicf" path="res://assets/graphics/background/PRO_frontentrance.png" id="1_o8i42"]
+[ext_resource type="Texture2D" uid="uid://dh5et1ix26iu4" path="res://assets/graphics/background/DARK_hallway.png" id="2_i2jv4"]
 [ext_resource type="Texture2D" uid="uid://cfjkp7qehte3d" path="res://assets/graphics/navigation_left.png" id="3_ksjux"]
 [ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="4_eabjn"]
 
@@ -10,7 +11,12 @@ script = ExtResource("1_efs8u")
 
 [node name="Main" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Main"]
+[node name="BackgroundDark" type="TextureRect" parent="Main"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_i2jv4")
+
+[node name="Background" type="TextureRect" parent="Main"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_o8i42")

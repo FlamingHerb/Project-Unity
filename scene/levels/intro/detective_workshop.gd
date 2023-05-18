@@ -3,12 +3,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if GlobalDatabase.check_switch("finale_sequence"):
-		$Main/Background.texture = load("res://assets/graphics/background/PRO_workroom.png")
-		DialogueScreen.init_dialogue("prologue_dialogue", "Pre-Finale Dialogue")
-		await DialogueScreen.dialogue_all_finished
-		GlobalDatabase.toggle_switch("door_knocking", true)
-		return
+	if GlobalDatabase.check_switch("door_knocking"):
+		$Main/Background.hide()
 	
 	GlobalDatabase.set_flavor_location("Detective's Workshop")
 	AudioManager.play_sound("room")

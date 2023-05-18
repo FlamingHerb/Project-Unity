@@ -3,6 +3,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch("door_knocking"):
+		$Main/Background.hide()
+
 	GlobalDatabase.set_flavor_location("Detective's Front Entrance")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

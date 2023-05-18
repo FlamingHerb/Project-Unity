@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=24 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
+[ext_resource type="Texture2D" uid="uid://bq2n3y4bmaasq" path="res://assets/graphics/background/DARK_workroom.png" id="2_pmaev"]
 [ext_resource type="Texture2D" uid="uid://cbjllk4stou8k" path="res://assets/graphics/background/PRO_workroom_keymissing.png" id="2_u6v4h"]
 [ext_resource type="Texture2D" uid="uid://b0a4bakr1xbox" path="res://assets/graphics/bg_items/PRO_workroom_item_key_back.png" id="2_vpmgt"]
+[ext_resource type="Texture2D" uid="uid://l5fj5oosdkay" path="res://assets/graphics/background/DARK_workroom2.png" id="3_168f8"]
 [ext_resource type="Texture2D" uid="uid://cwmup8nw7fyhs" path="res://assets/graphics/bg_items/PRO_workroom_item_key.png" id="3_a8you"]
 [ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="5_elc4c"]
 [ext_resource type="Texture2D" uid="uid://ct0ypvd0qvdnf" path="res://assets/graphics/background/PRO_worktable.png" id="5_hys4o"]
@@ -92,6 +94,16 @@ func _process(_delta):
 script = ExtResource("1_qgogg")
 
 [node name="Main" type="Node2D" parent="."]
+
+[node name="BackgroundDarkLit" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_pmaev")
+
+[node name="BackgroundDark" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_168f8")
 
 [node name="Background" type="TextureRect" parent="Main"]
 offset_right = 1920.0

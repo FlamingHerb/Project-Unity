@@ -3,6 +3,15 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch("door_knocking"):
+		$Main/Background.hide()
+
+	if GlobalDatabase.check_switch("finale_sequence"):
+		$Main/Background.hide()
+		DialogueScreen.init_dialogue("prologue_dialogue", "Pre-Finale Dialogue")
+		await DialogueScreen.dialogue_all_finished
+		GlobalDatabase.toggle_switch("door_knocking", true)
+
 	GlobalDatabase.set_flavor_location("Detective's Bedroom")
 
 	if GlobalDatabase.check_switch("bedroom_dialogue") == false:
