@@ -55,7 +55,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 
 func _on_drawer_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		GlobalTimer.ready_time(100)
+		GlobalTimer.ready_time(30)
 		$Main.hide()
 		$DrawerCloseup.show()
 

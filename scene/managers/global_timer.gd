@@ -20,6 +20,8 @@ func _text_time_update(seconds: int):
 	var secondss = time_needed % 60
 	var str_elapsed = "%02d : %02d" % [minutes, secondss]
 	the_timer_text.text = str_elapsed
+	if OS.is_debug_build():
+		print(str_elapsed)
 
 ## Set time by the seconds.
 func ready_time(seconds: int):
@@ -35,6 +37,7 @@ func _on_timer_timeout():
 	_text_time_update(time_needed)
 
 	if !time_needed:
+		print("Time ended.")
 		global_timer_timeout.emit()
 		the_timer.stop()
 
