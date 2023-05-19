@@ -15,10 +15,10 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _text_time_update(seconds: int):
+func _text_time_update():
 	var minutes = time_needed / 60
-	var secondss = time_needed % 60
-	var str_elapsed = "%02d : %02d" % [minutes, secondss]
+	var seconds = time_needed % 60
+	var str_elapsed = "%02d : %02d" % [minutes, seconds]
 	the_timer_text.text = str_elapsed
 	if OS.is_debug_build():
 		print(str_elapsed)
@@ -27,14 +27,17 @@ func _text_time_update(seconds: int):
 func ready_time(seconds: int):
 	time_needed = seconds
 
-	_text_time_update(time_needed)
+	_text_time_update()
 
 	the_timer.start()
+
+func stop_time():
+	the_timer.stop()
 
 func _on_timer_timeout():
 	time_needed -= 1
 
-	_text_time_update(time_needed)
+	_text_time_update()
 
 	if !time_needed:
 		print("Time ended.")

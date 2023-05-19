@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmwq2cypsbkqt"]
+[gd_scene load_steps=5 format=3 uid="uid://rv8d6lcvey84"]
 
-[ext_resource type="Script" path="res://scene/levels/cutscene/prologue.gd" id="1_dp2rs"]
+[ext_resource type="Script" path="res://scene/levels/cutscene/finale.gd" id="1_utcet"]
 
 [sub_resource type="Animation" id="Animation_subxq"]
 length = 0.001
@@ -29,8 +29,8 @@ _data = {
 "cutscene": SubResource("Animation_p7fla")
 }
 
-[node name="Prologue" type="Node"]
-script = ExtResource("1_dp2rs")
+[node name="Finale" type="Node"]
+script = ExtResource("1_utcet")
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -39,11 +39,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="FadeToWhite" type="ColorRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1081.0
-color = Color(1, 1, 1, 0)
 
 [node name="BlackBars" type="Control" parent="."]
 layout_mode = 3

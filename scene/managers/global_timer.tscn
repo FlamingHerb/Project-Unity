@@ -14,6 +14,7 @@ script = ExtResource("1_d1dyg")
 [node name="TimeLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" type="Timer" parent="TimeLayer"]
+process_mode = 1
 
 [node name="TimerText" type="Label" parent="TimeLayer"]
 anchors_preset = 3

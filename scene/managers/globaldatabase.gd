@@ -34,6 +34,7 @@ var save_screenshot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalTimer.connect("global_timer_timeout", times_up)
 	item_database = read_from_JSON("res://assets/data/item_database.json")
 	print(item_database)
 
@@ -44,6 +45,12 @@ func _input(_event):
 ##===============================================
 ## Switch-related functions
 ##===============================================
+
+func times_up():
+	GamePauseUI.toggle_ui(false)
+	DialogueScreen.toggle_ui(false)
+	GlobalDatabase.toggle_switch("finale_sequence", true)
+	SceneManager.goto_level_scene("cutscene/middle.tscn")
 
 func _debug():
 	print("Switches:")
