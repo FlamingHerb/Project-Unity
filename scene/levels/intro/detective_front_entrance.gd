@@ -15,8 +15,34 @@ func _process(_delta):
 
 func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if GlobalDatabase.check_switch("intruder"):
+			DialogueScreen.init_dialogue("prologue_front_interact", "Intruder")
+			return
+		
+		# TODO: Cutscene
 		if GlobalDatabase.check_switch("door_knocking"):
-			DialogueScreen.init_dialogue("prologue_front_interact", "Door Inspection")
+			DialogueScreen.init_dialogue("prologue_dialogue", "Door Intruder")
+			await DialogueScreen.dialogue_all_finished
+			$FrontDoorLook.show()
+
+			DialogueScreen.init_dialogue("prologue_dialogue", "DI1")
+			await DialogueScreen.dialogue_all_finished
+
+			# Jumpscare, door banging.
+
+			DialogueScreen.init_dialogue("prologue_dialogue", "DI2")
+			await DialogueScreen.dialogue_all_finished
+
+			$FrontDoorLook.hide()
+
+			# Door being knocked
+
+			DialogueScreen.init_dialogue("prologue_dialogue", "DI3")
+			await DialogueScreen.dialogue_all_finished
+
+			# Finale begins
+			GlobalDatabase.toggle_switch("intruder", true)
+			GlobalTimer.ready_time(30)
 		else:
 			DialogueScreen.init_dialogue("prologue_front_interact", "No Reason")
 			return

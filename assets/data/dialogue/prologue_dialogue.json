@@ -56,13 +56,25 @@
     "Door Intruder": {
         "type": "basic",
         "speaker": "Detective",
-        "text": "What the—",
-        "next_id": "DI1"
+        "text": "Okay, let's see who it is...",
+        "next_id": "end"
     },
     "DI1": {
         "type": "basic",
         "speaker": "Detective",
         "text": "What the—",
+        "next_id": "end"
+    },
+    "DI2": {
+        "type": "basic",
+        "speaker": "[color=red]???[/color]",
+        "text": "[i]Time's up, detective.[/i]",
+        "next_id": "end"
+    },
+    "DI3": {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "Okay... what the fuck should I do?",
         "next_id": "end"
     }
 }

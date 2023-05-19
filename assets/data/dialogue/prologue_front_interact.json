@@ -10,6 +10,18 @@
         "speaker": "none",
         "text": "I have no reason to go outside.",
         "next_id": "end"
+    },
+    "Intruder":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "He'll be banging on the door any minute now.",
+        "next_id": "I2"
+    },
+    "I2":  {
+        "type": "basic",
+        "speaker": "Detective",
+        "text": "I have to do something!",
+        "next_id": "end"
     }
 }
 

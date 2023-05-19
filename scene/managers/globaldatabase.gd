@@ -23,6 +23,7 @@ var switches = {
 	"bag_taken" = false,
 	"finale_sequence" = false,
 	"door_knocking" = false,
+	"intruder" = false
 }
 var location
 var current_location

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7kkeb346j6wf"]
+[gd_scene load_steps=7 format=3 uid="uid://b7kkeb346j6wf"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_front_entrance.gd" id="1_efs8u"]
 [ext_resource type="Texture2D" uid="uid://b8ifbrppihicf" path="res://assets/graphics/background/PRO_frontentrance.png" id="1_o8i42"]
 [ext_resource type="Texture2D" uid="uid://dh5et1ix26iu4" path="res://assets/graphics/background/DARK_hallway.png" id="2_i2jv4"]
 [ext_resource type="Texture2D" uid="uid://cfjkp7qehte3d" path="res://assets/graphics/navigation_left.png" id="3_ksjux"]
 [ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="4_eabjn"]
+[ext_resource type="Texture2D" uid="uid://ckwis43lukwei" path="res://assets/graphics/peephole.jpg" id="6_qir3d"]
 
 [node name="FrontEntrance" type="Node"]
 script = ExtResource("1_efs8u")
@@ -54,6 +55,14 @@ grow_vertical = 2
 texture_normal = ExtResource("3_ksjux")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="FrontDoorLook" type="Node2D" parent="."]
+visible = false
+
+[node name="Peephole" type="TextureRect" parent="FrontDoorLook"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_qir3d")
 
 [connection signal="input_event" from="Main/Door" to="." method="_on_door_input_event"]
 [connection signal="pressed" from="Main/RightNavigation" to="." method="_on_right_navigation_pressed"]
