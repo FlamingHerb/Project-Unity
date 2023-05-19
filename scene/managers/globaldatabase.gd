@@ -50,7 +50,7 @@ func times_up():
 	GamePauseUI.toggle_ui(false)
 	DialogueScreen.toggle_ui(false)
 	GlobalDatabase.toggle_switch("finale_sequence", true)
-	SceneManager.goto_level_scene("cutscene/middle.tscn")
+	SceneManager.goto_level_scene("cutscene/finale.tscn")
 
 func _debug():
 	print("Switches:")

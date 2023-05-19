@@ -3,17 +3,21 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	_cutscene()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _cutscene():
 	$AnimationPlayer.play("cutscene")
 
 func _switch_to_game():
-	SceneManager.goto_level_scene("intro/detective_workshop.tscn")
-	GamePauseUI.toggle_ui(true)
-	DialogueScreen.toggle_ui(true)
+	SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
+	GamePauseUI.toggle_ui(false)
+	DialogueScreen.toggle_ui(false)
+
+	Inventory.reset()
+	GlobalDatabase.reset_switches()
+	GamePauseUI.clear_textlog()
