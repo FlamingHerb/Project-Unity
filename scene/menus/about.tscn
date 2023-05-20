@@ -1,19 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://biratu1kw11v1"]
 
 [ext_resource type="Script" path="res://scene/menus/about.gd" id="1_aw5ll"]
-[ext_resource type="PackedScene" uid="uid://smav7ilugg5n" path="res://scene/shaders/blur.tscn" id="2_x82oj"]
+[ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="2_isg6i"]
 
 [node name="About" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 888.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aw5ll")
 
-[node name="Blur" parent="." instance=ExtResource("2_x82oj")]
-layout_mode = 1
+[node name="BlackBackdrop" type="TextureRect" parent="."]
+visible = false
+offset_left = -886.334
+offset_right = 1033.67
+offset_bottom = 1080.0
+texture = ExtResource("2_isg6i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -71,9 +76,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -304.0
-offset_top = -149.0
+offset_top = -128.364
 offset_right = 304.0
-offset_bottom = 149.0
+offset_bottom = 169.636
 grow_horizontal = 2
 grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus semper quam, vitae consequat risus sodales non. Sed eu purus auctor, bibendum elit non, suscipit felis. Aenean eget dui quis libero dapibus vestibulum. Nam ac risus tincidunt, ullamcorper velit ac, efficitur justo. Morbi malesuada neque sit amet nulla rutrum lacinia. Nulla facilisi. Duis et mi at turpis bibendum pulvinar. Quisque auctor felis in sapien congue, id vestibulum arcu convallis. Vivamus at velit nisl. Integer gravida nulla eget turpis luctus, eu volutpat eros lobortis. Maecenas finibus lectus at magna ultrices malesuada. Duis mollis, arcu eu euismod auctor, mi dui aliquet felis, vel fermentum est mi at nisl. Nulla facilisi. Sed vel libero quis metus hendrerit mattis. Curabitur posuere quam eu turpis fringilla congue."

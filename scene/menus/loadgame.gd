@@ -100,10 +100,11 @@ func _on_delete_button_pressed():
 	$SaveImage.texture = null
 	text_time_played.text = ""
 	text_location.text = ""
-	$SaveList.set_item_disabled(current_index, true)
-	$SaveList.deselect_all()
+	
 
 	DirAccess.remove_absolute("user://savegame_" + str(current_index) + ".save")
 	DirAccess.remove_absolute("user://savescreen_" + str(current_index) + ".png")
 
+	$SaveList.set_item_disabled(current_index, true)
+	$SaveList.deselect_all()
 	current_index = 0

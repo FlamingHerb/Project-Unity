@@ -41,9 +41,9 @@ texture = ExtResource("1_mgcf3")
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 138.0
-offset_top = 488.0
+offset_top = 450.0
 offset_right = 690.0
-offset_bottom = 956.0
+offset_bottom = 1019.0
 theme = ExtResource("5_17jgo")
 theme_override_constants/v_separation = 0
 
@@ -72,7 +72,6 @@ theme_override_font_sizes/font_size = 49
 text = "Settings"
 
 [node name="Help" type="Button" parent="GridContainer"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -81,7 +80,6 @@ theme_override_font_sizes/font_size = 49
 text = "Help"
 
 [node name="About" type="Button" parent="GridContainer"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
