@@ -91,7 +91,7 @@ func _on_pillow_return_button_pressed():
 	$Main.show()
 	$PillowCloseup.hide()
 
-func _on_pillow_input_event(viewport:Node, event:InputEvent, shape_idx:int):
+func _on_pillow_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$PillowCloseup.show()
 		$Main.hide()

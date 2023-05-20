@@ -10,7 +10,6 @@ func _ready():
 func _process(_delta):
 	pass
 
-
 func _on_quit_button_pressed():
 	$QuitGameModal.show()
 
@@ -59,3 +58,12 @@ func _on_quit_yes_pressed():
 
 func _on_save_button_pressed():
 	$SaveGame.show()
+
+
+func _on_load_button_pressed():
+	$LoadGame.show()
+
+
+func _on_load_game_load_activated():
+	get_tree().paused = false
+	hide()

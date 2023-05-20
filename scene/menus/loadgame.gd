@@ -1,5 +1,7 @@
 extends Control
 
+signal load_activated
+
 @onready var text_time_played = $SaveData/TimePlayed
 @onready var text_location = $SaveData/Location
 
@@ -22,6 +24,9 @@ func _on_back_button_pressed():
 
 
 func _on_save_list_item_activated(index:int):
+	hide()
+	load_activated.emit()
+	
 	var save_game = FileAccess.open("user://savegame_" + str(index) + ".save", FileAccess.READ)
 	var target_scene
 	
