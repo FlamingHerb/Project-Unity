@@ -8,9 +8,12 @@ func _ready():
 	if GlobalDatabase.check_switch("door_knocking"):
 		$Main/Background.hide()
 		$DrawerCloseup/Background.hide()
+		$PillowCloseup/Background.hide()
 
 	if GlobalDatabase.check_switch("finale_sequence") && GlobalDatabase.check_switch("bedroom_dialogue_2") == false:
 		$Main/Background.hide()
+		$DrawerCloseup/Background.hide()
+		$PillowCloseup/Background.hide()
 		DialogueScreen.init_dialogue("prologue_dialogue", "Pre-Finale Dialogue")
 		await DialogueScreen.dialogue_all_finished
 		GlobalDatabase.toggle_switch("door_knocking", true)

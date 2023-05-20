@@ -18,6 +18,8 @@ func _process(_delta):
 	pass
 
 func _on_key_interactable_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if GlobalDatabase.check_switch("door_knocking"):
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$Main.hide()
 		$TableCloseup.show()
@@ -50,6 +52,8 @@ func _on_bottles_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 
 
 func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
+	if GlobalDatabase.check_switch("door_knocking"):
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$Main.hide()
 		$WindowCloseup.show()
