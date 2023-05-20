@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=17 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
 [ext_resource type="Texture2D" uid="uid://mxcdl1mo72cy" path="res://assets/graphics/background/PRO_NewBedroom.png" id="2_5tufu"]
@@ -11,24 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://hul3enous5uy" path="res://assets/graphics/background/DARK_gun_closeup_missing.png" id="6_she6y"]
 [ext_resource type="Texture2D" uid="uid://mm7huj1gl36f" path="res://assets/graphics/background/PRO_Magazine_Closeup.png" id="9_v6dm5"]
 [ext_resource type="Texture2D" uid="uid://d30wsvv1u8428" path="res://assets/graphics/background/DARK_magazine_closeup_missing.png" id="10_6mmos"]
-
-[sub_resource type="GDScript" id="GDScript_gh2n3"]
-script/source = "extends Area2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	if GlobalDatabase.check_switch(\"finale_sequence\"):
-		queue_free()
-		return
-	if Inventory.check_item(\"Gun\"):
-		queue_free()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
+[ext_resource type="Texture2D" uid="uid://b0jqk2hwn2snx" path="res://assets/graphics/bg_items/PRO_Magazine.png" id="12_nxljt"]
+[ext_resource type="BitMap" uid="uid://cmpic70bg60hd" path="res://assets/graphics/bg_items/PRO_Magazine_bitmask.png" id="13_pfqrn"]
 
 [sub_resource type="GDScript" id="GDScript_0yg54"]
 script/source = "extends TextureButton
@@ -63,6 +47,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_ekcxy"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		queue_free()
+		return
+	if Inventory.check_item(\"Magazine\"):
+		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
 	pass
 "
 
@@ -109,7 +111,6 @@ polygon = PackedVector2Array(97, 271, 60, 1068, 461, 1116, 461, 271)
 
 [node name="Pillow" type="Area2D" parent="Main"]
 position = Vector2(-1210, 76)
-script = SubResource("GDScript_gh2n3")
 
 [node name="Interactable" type="CollisionPolygon2D" parent="Main/Pillow"]
 position = Vector2(1297, 282)
@@ -159,7 +160,6 @@ theme_override_font_sizes/font_size = 48
 text = "Return"
 
 [node name="PillowCloseup" type="Node2D" parent="."]
-visible = false
 
 [node name="BackgroundDark" type="TextureRect" parent="PillowCloseup"]
 offset_right = 1920.0
@@ -172,15 +172,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_v6dm5")
 
-[node name="Magazine" type="Area2D" parent="PillowCloseup"]
-
-[node name="Interactable" type="CollisionPolygon2D" parent="PillowCloseup/Magazine"]
-position = Vector2(199, -105)
-polygon = PackedVector2Array(112, 297, 64, 397, 292, 425, 288, 316)
-
-[node name="Interactable2" type="CollisionPolygon2D" parent="PillowCloseup/Magazine"]
-position = Vector2(195, 42)
-polygon = PackedVector2Array(187, 335, 228, 418, 283, 415, 288, 316)
+[node name="Magazine" type="TextureButton" parent="PillowCloseup"]
+offset_left = 221.0
+offset_top = 158.0
+offset_right = 879.0
+offset_bottom = 502.0
+texture_normal = ExtResource("12_nxljt")
+texture_click_mask = ExtResource("13_pfqrn")
+script = SubResource("GDScript_ekcxy")
 
 [node name="PillowReturnButton" type="Button" parent="PillowCloseup"]
 offset_left = 87.0
@@ -198,5 +197,5 @@ text = "Return"
 [connection signal="pressed" from="Main/DuffelBag" to="." method="_on_duffel_bag_pressed"]
 [connection signal="pressed" from="DrawerCloseup/Gun" to="." method="_on_gun_pressed"]
 [connection signal="pressed" from="DrawerCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]
-[connection signal="input_event" from="PillowCloseup/Magazine" to="." method="_on_magazine_input_event"]
+[connection signal="pressed" from="PillowCloseup/Magazine" to="." method="_on_magazine_pressed"]
 [connection signal="pressed" from="PillowCloseup/PillowReturnButton" to="." method="_on_pillow_return_button_pressed"]
