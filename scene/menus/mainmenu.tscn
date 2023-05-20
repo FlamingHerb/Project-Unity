@@ -102,7 +102,6 @@ visible = false
 layout_mode = 1
 
 [node name="Settings" parent="." instance=ExtResource("3_pluqi")]
-visible = false
 layout_mode = 1
 
 [node name="Help" parent="." instance=ExtResource("6_0sc3y")]
