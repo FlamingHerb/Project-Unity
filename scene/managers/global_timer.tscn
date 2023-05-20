@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_d1dyg")
 
 [node name="TimeLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Timer" type="Timer" parent="TimeLayer"]
 process_mode = 1

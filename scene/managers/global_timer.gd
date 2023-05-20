@@ -30,9 +30,11 @@ func ready_time(seconds: int):
 	_text_time_update()
 
 	the_timer.start()
+	$TimeLayer.show()
 
 func stop_time():
 	the_timer.stop()
+	$TimeLayer.hide()
 
 func _on_timer_timeout():
 	time_needed -= 1
@@ -41,6 +43,7 @@ func _on_timer_timeout():
 
 	if !time_needed:
 		print("Time ended.")
+		$TimeLayer.hide()
 		global_timer_timeout.emit()
 		the_timer.stop()
 

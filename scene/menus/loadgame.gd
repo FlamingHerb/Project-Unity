@@ -17,6 +17,7 @@ func _on_back_button_pressed():
 	$SaveImage.texture = null
 	text_time_played.text = ""
 	text_location.text = ""
+	$SaveList.deselect_all()
 	hide()
 
 
