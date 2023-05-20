@@ -291,7 +291,6 @@ func clear_bust(bust_position):
 			bust_center.texture = null
 			bust_right.texture = null
 
-
 ##===============================================
 ## Other related functions
 ##===============================================
