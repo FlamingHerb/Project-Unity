@@ -18,6 +18,7 @@ var item_database
 var switches = {
 	"workroom_dialogue" = false,
 	"bedroom_dialogue" = false,
+	"bedroom_dialogue_2" = false,
 	"woke_up" = false,
 	"puzzle_solved" = false,
 	"bag_taken" = false,
