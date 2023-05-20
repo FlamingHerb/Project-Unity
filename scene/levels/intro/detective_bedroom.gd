@@ -79,3 +79,23 @@ func _on_duffel_bag_pressed():
 		DialogueScreen.toggle_ui(false)
 		GlobalDatabase.toggle_switch("finale_sequence", true)
 		SceneManager.goto_level_scene("cutscene/middle.tscn")
+
+
+
+func _on_pillow_return_button_pressed():
+	$Main.show()
+	$PillowCloseup.hide()
+
+func _on_pillow_input_event(viewport:Node, event:InputEvent, shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$PillowCloseup.show()
+		$Main.hide()
+
+
+func _on_magazine_input_event(viewport:Node, event:InputEvent, shape_idx:int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Magazine")
+		Inventory.add_item("Magazine")
+		$Main/Pillow.queue_free()
+		$Main.show()
+		$PillowCloseup.hide()

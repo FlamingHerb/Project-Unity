@@ -47,6 +47,12 @@
 		"speaker": "none",
 		"text": "(You have obtained the [b]Gun[/b].)",
 		"next_id": "end"
+	},
+	"Magazine": {
+		"type": "basic",
+		"speaker": "none",
+		"text": "(You have obtained the [b]Magazine[/b].)",
+		"next_id": "end"
 	}
 }
 
