@@ -114,3 +114,11 @@ func _on_box_closeup_mystery_solved():
 	$BoxCloseup.hide()
 	$Main/MysteryBox.hide()
 	$Main/MysteryBoxOpened.show()
+
+func _on_letter_return_box_pressed():
+	$Main.show()
+	$LetterCloseup.hide()
+
+func _on_letter_pressed():
+	$Main.hide()
+	$LetterCloseup.show()
