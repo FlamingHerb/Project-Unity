@@ -88,7 +88,6 @@ visible = false
 layout_mode = 1
 
 [node name="Settings" parent="." instance=ExtResource("3_njooi")]
-visible = false
 layout_mode = 1
 mouse_filter = 1
 

@@ -47,7 +47,8 @@ func play_sound(sound: String):
 		"door_key":
 			$SFXAudioQueue/DoorKey.play()
 		"room":
-			$AmbienceAudioQueue/Room.play()
+			if not $AmbienceAudioQueue/Room.is_playing():
+				$AmbienceAudioQueue/Room.play()
 		"puzzle_button":
 			$SFXAudioQueue/PuzzleButton.play()
 		_:
@@ -61,6 +62,9 @@ func stop_sound(sound: String):
 			$AmbienceAudioQueue/Room.stop()
 		_:
 			print("Sound not found:", sound)
+
+func add_btn_sfx() -> void:
+	_enter_tree()
 
 func _enter_tree() -> void:
 	# This is the earliest time we can connect to the SceneTree node_added signal in _enter_tree() to catch all the nodes
