@@ -11,7 +11,7 @@ func _process(_delta):
 	pass
 
 func _cutscene():
-	$AnimationPlayer.play("cutscene")
+	$AnimationPlayer.play("prologue_cutscene")
 
 func _switch_to_game():
 	SceneManager.goto_level_scene("intro/detective_workshop.tscn")
