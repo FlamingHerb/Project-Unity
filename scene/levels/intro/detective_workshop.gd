@@ -34,16 +34,18 @@ func _on_worktable_key_pressed():
 func _on_radio_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Radio")
+		AudioManager.play_sound("radio_tune")
 
 func _on_documents_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Pile of Documents")
+		AudioManager.play_sound("paper_rustle")
 
 
 func _on_bottles_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Bottles of Alcohol")
-
+		AudioManager.play_sound("bottle_clink")
 
 func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -54,6 +56,7 @@ func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 func _on_corkboard_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Corkboard")
+		AudioManager.play_sound("paper_tear")
 
 
 func _on_picture_frame_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
@@ -75,7 +78,6 @@ func _on_bedroom_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:i
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if Inventory.check_item("Bedroom Key"):
 			AudioManager.play_sound("opened_door")
-#			AudioManager.stop_sound("room")
 			SceneManager.goto_level_scene("intro/detective_bedroom.tscn")
 		else:
 			AudioManager.play_sound("locked_door")

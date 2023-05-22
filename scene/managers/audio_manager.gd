@@ -26,6 +26,10 @@ func _ready():
 	$SFXAudioQueue/OpenedDoor.stream = load("res://assets/audio/sfx/opened_door.mp3")
 	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/door_knock.mp3")
 	$SFXAudioQueue/DoorKey.stream = load("res://assets/audio/sfx/door_key.mp3")
+	$SFXAudioQueue/RadioTune.stream = load("res://assets/audio/sfx/radio_tune.mp3")
+	$SFXAudioQueue/PaperRustle.stream = load("res://assets/audio/sfx/paper_rustle.mp3")
+	$SFXAudioQueue/PaperTear.stream = load("res://assets/audio/sfx/paper_tear.mp3")
+	$SFXAudioQueue/BottleClink.stream = load("res://assets/audio/sfx/bottle_clink.mp3")
 	$SFXAudioQueue/PuzzleButton.stream = load("res://assets/audio/sfx/puzzle_button.mp3")
 	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/thunder_rain.mp3")
 
@@ -46,6 +50,14 @@ func play_sound(sound: String):
 			$SFXAudioQueue/LockedDoor.play()
 		"door_key":
 			$SFXAudioQueue/DoorKey.play()
+		"radio_tune":
+			$SFXAudioQueue/RadioTune.play()
+		"paper_rustle":
+			$SFXAudioQueue/PaperRustle.play()
+		"paper_tear":
+			$SFXAudioQueue/PaperTear.play()
+		"bottle_clink":
+			$SFXAudioQueue/BottleClink.play()
 		"room":
 			if not $AmbienceAudioQueue/Room.is_playing():
 				$AmbienceAudioQueue/Room.play()
@@ -62,9 +74,6 @@ func stop_sound(sound: String):
 			$AmbienceAudioQueue/Room.stop()
 		_:
 			print("Sound not found:", sound)
-
-func add_btn_sfx() -> void:
-	_enter_tree()
 
 func _enter_tree() -> void:
 	# This is the earliest time we can connect to the SceneTree node_added signal in _enter_tree() to catch all the nodes
