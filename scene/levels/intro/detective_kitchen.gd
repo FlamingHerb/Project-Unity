@@ -24,4 +24,5 @@ func _on_right_navigation_pressed():
 
 func _on_bathroom_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if GlobalDatabase.is_mouse_clicked(event):
+		AudioManager.play_sound("opened_door")
 		SceneManager.goto_level_scene("intro/detective_bathroom.tscn")

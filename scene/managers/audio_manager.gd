@@ -24,9 +24,14 @@ func _ready():
 	ui_hover.stream = load("res://assets/audio/sfx/ui_hover.mp3")
 	$MusicAudioQueue/MusicStream.stream = load("res://assets/audio/music/main_menu.mp3")
 	$SFXAudioQueue/OpenedDoor.stream = load("res://assets/audio/sfx/opened_door.mp3")
-	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/locked_door.mp3")
+	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/door_knock.mp3")
 	$SFXAudioQueue/DoorKey.stream = load("res://assets/audio/sfx/door_key.mp3")
-	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/room.wav")
+	$SFXAudioQueue/RadioTune.stream = load("res://assets/audio/sfx/radio_tune.mp3")
+	$SFXAudioQueue/PaperRustle.stream = load("res://assets/audio/sfx/paper_rustle.mp3")
+	$SFXAudioQueue/PaperTear.stream = load("res://assets/audio/sfx/paper_tear.mp3")
+	$SFXAudioQueue/BottleClink.stream = load("res://assets/audio/sfx/bottle_clink.mp3")
+	$SFXAudioQueue/PuzzleButton.stream = load("res://assets/audio/sfx/puzzle_button.mp3")
+	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/thunder_rain.mp3")
 
 func _process(_delta):
 	pass
@@ -45,8 +50,19 @@ func play_sound(sound: String):
 			$SFXAudioQueue/LockedDoor.play()
 		"door_key":
 			$SFXAudioQueue/DoorKey.play()
+		"radio_tune":
+			$SFXAudioQueue/RadioTune.play()
+		"paper_rustle":
+			$SFXAudioQueue/PaperRustle.play()
+		"paper_tear":
+			$SFXAudioQueue/PaperTear.play()
+		"bottle_clink":
+			$SFXAudioQueue/BottleClink.play()
 		"room":
-			$AmbienceAudioQueue/Room.play()
+			if not $AmbienceAudioQueue/Room.is_playing():
+				$AmbienceAudioQueue/Room.play()
+		"puzzle_button":
+			$SFXAudioQueue/PuzzleButton.play()
 		_:
 			print("Sound not found:", sound)
 

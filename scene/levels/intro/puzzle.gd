@@ -36,6 +36,7 @@ func _mouse_click_detection(event:InputEvent):
 func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if _mouse_click_detection(event):
 		if letter == [0, 2, 4, 1, 3, 0]:
+			AudioManager.play_sound("puzzle_button")
 			DialogueScreen.init_dialogue("prologue_dialogue", "PS0")
 			await DialogueScreen.dialogue_part_finished
 			await DialogueScreen.dialogue_part_finished
@@ -47,6 +48,7 @@ func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:
 			print("Yeah, kinda wrong buddy.")
 
 func add_num(index: int):
+	AudioManager.play_sound("puzzle_button")
 	match letter[index]:
 		letter_length:
 			letter[index] = 0
@@ -55,6 +57,7 @@ func add_num(index: int):
 	print("Add " + str(index) + ": " + str(letter[index]))
 
 func sub_num(index: int):
+	AudioManager.play_sound("puzzle_button")
 	match letter[index]:
 		0:
 			letter[index] = letter_length
