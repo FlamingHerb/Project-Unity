@@ -106,3 +106,7 @@ func set_flavor_location(flavor_loc):
 func set_node_location(node_loc):
 	current_location = node_loc
 	print("Node path set to: " + node_loc)
+
+## Detects for mouse clicks
+func is_mouse_clicked(event:InputEvent):
+	return event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT

@@ -14,12 +14,14 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _input(_event):
-	if Input.is_action_pressed("ui_accept"):
+func _input(event):
+	if Input.is_action_pressed("ui_accept") or GlobalDatabase.is_mouse_clicked(event):
 		if $AnimationPlayer.current_animation_position < 4.5:
 			$AnimationPlayer.seek(4.5, true)
-		if $AnimationPlayer.current_animation_position < 12 and $AnimationPlayer.current_animation_position > 4.5:
+		#elif $AnimationPlayer.current_animation_position < 12 and $AnimationPlayer.current_animation_position > 4.5
+		else:
 			$AnimationPlayer.seek(12, true)
+		
 
 func _switch():
 	SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")

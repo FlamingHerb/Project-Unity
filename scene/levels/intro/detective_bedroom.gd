@@ -29,7 +29,7 @@ func _process(_delta):
 	pass
 
 # func _on_duffel_bag_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-# 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+# 	if GlobalDatabase.is_mouse_clicked(event):
 # 		DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
 # 		var respon = await DialogueScreen.response_taken
 # 		if respon == 0:
@@ -38,7 +38,7 @@ func _process(_delta):
 # 			SceneManager.goto_level_scene("cutscene/middle.tscn")
 
 func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		if GlobalDatabase.check_switch("bag_taken"):
 			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")
 			return
@@ -54,12 +54,12 @@ func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 
 
 func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		SceneManager.goto_level_scene("intro/detective_workshop.tscn")
 
 
 func _on_drawer_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		#GlobalTimer.ready_time(10)
 		$Main.hide()
 		$DrawerCloseup.show()
@@ -92,7 +92,7 @@ func _on_pillow_return_button_pressed():
 	$PillowCloseup.hide()
 
 func _on_pillow_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		$PillowCloseup.show()
 		$Main.hide()
 

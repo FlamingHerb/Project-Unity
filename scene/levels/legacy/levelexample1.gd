@@ -13,5 +13,5 @@ func _process(_delta):
 
 
 func _on_door_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		SceneManager.goto_scene("res://scene/levels/junction.tscn")

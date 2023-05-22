@@ -20,7 +20,7 @@ func _process(_delta):
 func _on_key_interactable_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if GlobalDatabase.check_switch("door_knocking"):
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		$Main.hide()
 		$TableCloseup.show()
 
@@ -38,34 +38,34 @@ func _on_worktable_key_pressed():
 	$Main/Key.queue_free()
 
 func _on_radio_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Radio")
 
 func _on_documents_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Pile of Documents")
 
 
 func _on_bottles_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Bottles of Alcohol")
 
 
 func _on_blinds_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if GlobalDatabase.check_switch("door_knocking"):
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		$Main.hide()
 		$WindowCloseup.show()
 
 
 func _on_corkboard_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Corkboard")
 
 
 func _on_picture_frame_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Picture Frame")
 
 
@@ -75,12 +75,12 @@ func _on_window_return_button_pressed():
 
 
 func _on_blinds_closeup_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		DialogueScreen.init_dialogue("prologue_workroom_interact", "Blinds")
 
 
 func _on_bedroom_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		if Inventory.check_item("Bedroom Key"):
 			AudioManager.play_sound("opened_door")
 			AudioManager.stop_sound("room")

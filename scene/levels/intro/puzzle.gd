@@ -31,7 +31,7 @@ func _process(_delta):
 	pass
 
 func _mouse_click_detection(event:InputEvent):
-	return event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
+	return GlobalDatabase.is_mouse_clicked(event)
 
 func _on_answer_button_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if _mouse_click_detection(event):
