@@ -14,6 +14,7 @@ func _process(_delta):
 
 
 func _on_back_button_pressed():
+	$SaveList.deselect_all()
 	hide()
 
 ## Saves game
@@ -23,6 +24,10 @@ func _on_save_list_item_activated(index:int):
 	save_game.store_line(JSON.stringify(GlobalDatabase.save_data())) # Saves GlobalDatabase data
 	save_game.store_line(JSON.stringify(Inventory.save_data())) # Saves Inventory data
 	print("Save " + str(index) + " Successful!")
+
+	$SaveList.deselect_all()
+	hide()
+	
 
 func _on_save_list_item_selected(index:int):
 	if not FileAccess.file_exists("user://savegame_" + str(index) + ".save"):

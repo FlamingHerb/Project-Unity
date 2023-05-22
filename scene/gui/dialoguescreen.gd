@@ -291,7 +291,6 @@ func clear_bust(bust_position):
 			bust_center.texture = null
 			bust_right.texture = null
 
-
 ##===============================================
 ## Other related functions
 ##===============================================
@@ -304,7 +303,7 @@ func read_from_JSON(path):
 
 
 func _on_dialogue_box_gui_input(event:InputEvent):
-	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+	if (GlobalDatabase.is_mouse_clicked(event)):
 		dialogue_gui_input = true
 
 
