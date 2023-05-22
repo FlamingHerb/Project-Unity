@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmwq2cypsbkqt"]
+[gd_scene load_steps=12 format=3 uid="uid://cmwq2cypsbkqt"]
 
 [ext_resource type="Script" path="res://scene/levels/cutscene/prologue.gd" id="1_dp2rs"]
+[ext_resource type="Texture2D" uid="uid://dkv1wgb5wsrp2" path="res://assets/graphics/cgs/intro_1.png" id="2_xvygb"]
+[ext_resource type="Texture2D" uid="uid://bhtcp07ghpo8t" path="res://assets/graphics/cgs/intro_2.png" id="3_yao7t"]
+[ext_resource type="Texture2D" uid="uid://c4lja8s3qeqoj" path="res://assets/graphics/cgs/intro_3.png" id="4_jmeu8"]
+[ext_resource type="Texture2D" uid="uid://dlk2kj7wotqcw" path="res://assets/graphics/cgs/intro_4.png" id="5_uu5ru"]
+[ext_resource type="Texture2D" uid="uid://dggd1a5c4hwwv" path="res://assets/graphics/cgs/intro_5.png" id="6_s2nki"]
+[ext_resource type="Texture2D" uid="uid://b1lvt138m5ygc" path="res://assets/graphics/cgs/intro_6.png" id="7_li1nw"]
 
 [sub_resource type="Animation" id="Animation_subxq"]
 length = 0.001
@@ -23,10 +29,16 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_itig0"]
+resource_name = "prologue_cutscene"
+length = 10.0
+loop_mode = 1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bst1b"]
 _data = {
 "RESET": SubResource("Animation_subxq"),
-"cutscene": SubResource("Animation_p7fla")
+"cutscene": SubResource("Animation_p7fla"),
+"prologue_cutscene": SubResource("Animation_itig0")
 }
 
 [node name="Prologue" type="Node"]
@@ -44,6 +56,59 @@ color = Color(0, 0, 0, 1)
 offset_right = 1920.0
 offset_bottom = 1081.0
 color = Color(1, 1, 1, 0)
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xvygb")
+
+[node name="Image2" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yao7t")
+
+[node name="Image3" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jmeu8")
+
+[node name="Image4" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_uu5ru")
+
+[node name="Image5" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_s2nki")
+
+[node name="Image6" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_li1nw")
 
 [node name="BlackBars" type="Control" parent="."]
 layout_mode = 3

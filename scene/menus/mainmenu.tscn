@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://1r54o3uo04vm"]
 
-[ext_resource type="Texture2D" uid="uid://wi4qmpmkigos" path="res://assets/graphics/titlescreen.png" id="1_mgcf3"]
 [ext_resource type="Script" path="res://scene/menus/mainmenu.gd" id="1_rynt0"]
 [ext_resource type="Texture2D" uid="uid://8mehat7rt4he" path="res://assets/graphics/placeholder_titlescreen.jpg" id="2_0aybv"]
 [ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_fk8r1"]
 [ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/settings.tscn" id="3_pluqi"]
+[ext_resource type="Texture2D" uid="uid://cx11f87am5kt8" path="res://assets/graphics/logo.png" id="4_0rmox"]
 [ext_resource type="PackedScene" uid="uid://y50tqx50niub" path="res://scene/menus/loadgame.tscn" id="4_n6pvk"]
 [ext_resource type="Theme" uid="uid://bxbivfg8cdk47" path="res://scene/themes/mainmenu.tres" id="5_17jgo"]
 [ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/help.tscn" id="6_0sc3y"]
@@ -34,9 +34,14 @@ texture = ExtResource("3_fk8r1")
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 40.0
+offset_left = 2.0
+offset_top = -62.0
+offset_right = 1674.0
+offset_bottom = 1096.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mgcf3")
+texture = ExtResource("4_0rmox")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0

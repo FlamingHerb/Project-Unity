@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsiiboljtiwx4"
-path="res://.godot/imported/Private-Eye-Logo1.png-608bc86773f6654e7d5ed264fee6f5b8.ctex"
+uid="uid://mywobtyjw6es"
+path="res://.godot/imported/PRO_Peephole.png-8581d11218d0f41b5e12f3aed202fe04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/Private-Eye-Logo1.png"
-dest_files=["res://.godot/imported/Private-Eye-Logo1.png-608bc86773f6654e7d5ed264fee6f5b8.ctex"]
+source_file="res://assets/graphics/background/PRO_Peephole.png"
+dest_files=["res://.godot/imported/PRO_Peephole.png-8581d11218d0f41b5e12f3aed202fe04.ctex"]
 
 [params]
 

@@ -18,6 +18,7 @@ script = ExtResource("1_gjoyt")
 
 [node name="BlackBackdrop" type="TextureRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -864.0
 offset_right = 1056.0
 offset_bottom = 1080.0

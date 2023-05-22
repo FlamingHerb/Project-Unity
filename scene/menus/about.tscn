@@ -15,6 +15,7 @@ script = ExtResource("1_aw5ll")
 
 [node name="BlackBackdrop" type="TextureRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -886.334
 offset_right = 1033.67
 offset_bottom = 1080.0
