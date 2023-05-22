@@ -60,7 +60,7 @@ stream = ExtResource("11_8kfhc")
 [node name="PaperTear" type="AudioStreamPlayer" parent="SFXAudioQueue"]
 stream = ExtResource("12_cyw0k")
 
-[node name="RadioTune" type="AudioStreamPlayer2D" parent="SFXAudioQueue"]
+[node name="RadioTune" type="AudioStreamPlayer" parent="SFXAudioQueue"]
 stream = ExtResource("13_300dv")
 
 [node name="AmbienceAudioQueue" parent="." instance=ExtResource("2_nl2rp")]
