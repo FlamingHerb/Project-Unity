@@ -19,7 +19,10 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 			if Inventory.check_item("Gun") and Inventory.check_item("Magazine"):
 				DialogueScreen.init_dialogue("prologue_front_interact", "Confront Invader")
 				var response_taken = await DialogueScreen.response_taken
-				if response_taken:
+				if !response_taken:
+					GlobalTimer.stop_time()
+					GamePauseUI.toggle_ui(false)
+					DialogueScreen.toggle_ui(false)
 					GlobalDatabase.toggle_switch("ending_attacked", true)
 					SceneManager.goto_level_scene("cutscene/finale.tscn")
 				return
@@ -50,7 +53,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 
 			# Finale begins
 			GlobalDatabase.toggle_switch("intruder", true)
-			GlobalTimer.ready_time(10)
+			GlobalTimer.ready_time(15)
 		else:
 			DialogueScreen.init_dialogue("prologue_front_interact", "No Reason")
 			return

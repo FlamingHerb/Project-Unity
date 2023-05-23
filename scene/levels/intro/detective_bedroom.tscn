@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=19 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
 [ext_resource type="Texture2D" uid="uid://mxcdl1mo72cy" path="res://assets/graphics/background/PRO_NewBedroom.png" id="2_5tufu"]
@@ -22,6 +22,21 @@ script/source = "extends TextureRect
 func _ready():
 	pass # Replace with function body.
 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_ptfv0"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"intruder\"):
+		show()
+		return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -131,6 +146,15 @@ position = Vector2(-1210, 76)
 position = Vector2(1297, 282)
 polygon = PackedVector2Array(219, 394, 225, 482, 287, 395, 439, 298)
 
+[node name="UnderBed" type="Area2D" parent="Main"]
+visible = false
+position = Vector2(-432, 250)
+script = SubResource("GDScript_ptfv0")
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/UnderBed"]
+position = Vector2(1297, 282)
+polygon = PackedVector2Array(199, 443, 199, 540, 406, 329, 394, 251)
+
 [node name="DuffelBag" type="TextureButton" parent="Main"]
 visible = false
 offset_left = 720.0
@@ -210,6 +234,7 @@ text = "Return"
 [connection signal="input_event" from="Main/Drawer" to="." method="_on_drawer_input_event"]
 [connection signal="input_event" from="Main/Door" to="." method="_on_door_input_event"]
 [connection signal="input_event" from="Main/Pillow" to="." method="_on_pillow_input_event"]
+[connection signal="input_event" from="Main/UnderBed" to="." method="_on_under_bed_input_event"]
 [connection signal="pressed" from="Main/DuffelBag" to="." method="_on_duffel_bag_pressed"]
 [connection signal="pressed" from="DrawerCloseup/Gun" to="." method="_on_gun_pressed"]
 [connection signal="pressed" from="DrawerCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]

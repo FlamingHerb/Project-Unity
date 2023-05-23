@@ -51,6 +51,7 @@ func _input(_event):
 ##===============================================
 
 func times_up():
+	GlobalTimer.stop_time()
 	GamePauseUI.toggle_ui(false)
 	DialogueScreen.toggle_ui(false)
 	GlobalDatabase.toggle_switch("ending_nothing", true)
