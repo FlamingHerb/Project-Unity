@@ -42,7 +42,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 
 			# Finale begins
 			GlobalDatabase.toggle_switch("intruder", true)
-			GlobalTimer.ready_time(30)
+			GlobalTimer.ready_time(10)
 		else:
 			DialogueScreen.init_dialogue("prologue_front_interact", "No Reason")
 			return
