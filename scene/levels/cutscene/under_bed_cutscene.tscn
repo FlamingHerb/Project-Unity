@@ -1,6 +1,12 @@
-[gd_scene format=3 uid="uid://xqhbstbd0m4r"]
+[gd_scene load_steps=5 format=3 uid="uid://xqhbstbd0m4r"]
+
+[ext_resource type="Script" path="res://scene/levels/cutscene/under_bed_cutscene.gd" id="1_0t0re"]
+[ext_resource type="Texture2D" uid="uid://b3yn2tvxrhhfv" path="res://assets/graphics/background/DARK_underbed.png" id="2_6rf7e"]
+[ext_resource type="Texture2D" uid="uid://choacv5vd2siy" path="res://assets/graphics/background/DARK_underbed_foot.png" id="3_bodq0"]
+[ext_resource type="Texture2D" uid="uid://cgirbw0mbc3uo" path="res://assets/graphics/background/DARK_underbed_jumpscare.png" id="4_rakpg"]
 
 [node name="UnderBedCutscene" type="Node"]
+script = ExtResource("1_0t0re")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -15,3 +21,29 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "under bed"
+
+[node name="Base" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6rf7e")
+
+[node name="Foot" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bodq0")
+
+[node name="Jumpscare" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rakpg")

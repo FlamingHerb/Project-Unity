@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://c15k54a4t2esc"]
+[gd_scene load_steps=4 format=3 uid="uid://c15k54a4t2esc"]
+
+[ext_resource type="Script" path="res://scene/levels/cutscene/inside_closet.gd" id="1_ajd00"]
+[ext_resource type="Texture2D" uid="uid://dgb65ycvnyonf" path="res://assets/graphics/background/PRO_closet_closeup.png" id="2_3iex6"]
+[ext_resource type="Texture2D" uid="uid://bbov4f22j6qau" path="res://assets/graphics/background/DARK_the_face.png" id="3_73tje"]
 
 [node name="InsideCloset" type="Node"]
+script = ExtResource("1_ajd00")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -15,3 +20,33 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "inside closet"
+
+[node name="Base" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3iex6")
+
+[node name="Face" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_right = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_73tje")
+
+[node name="Left" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Right" type="ColorRect" parent="."]
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)

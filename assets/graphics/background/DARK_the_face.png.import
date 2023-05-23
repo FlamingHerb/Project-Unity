@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clga6nlwq6x10"
-path="res://.godot/imported/openroom(withoutkey).jpg-24e1ac67831d4c1270b9fb4e9eb61607.ctex"
+uid="uid://bbov4f22j6qau"
+path="res://.godot/imported/DARK_the_face.png-c97af56f91fc7f369cbe721aebe0d2f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/openroom(withoutkey).jpg"
-dest_files=["res://.godot/imported/openroom(withoutkey).jpg-24e1ac67831d4c1270b9fb4e9eb61607.ctex"]
+source_file="res://assets/graphics/background/DARK_the_face.png"
+dest_files=["res://.godot/imported/DARK_the_face.png-c97af56f91fc7f369cbe721aebe0d2f7.ctex"]
 
 [params]
 

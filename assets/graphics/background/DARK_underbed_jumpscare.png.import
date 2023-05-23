@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deurn74t2qrfh"
-path="res://.godot/imported/hallway.jpg-f63eb3b54d395d35d7b7741047262a00.ctex"
+uid="uid://cgirbw0mbc3uo"
+path="res://.godot/imported/DARK_underbed_jumpscare.png-2c218ded72edfa98f0aaf9f09e26906a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/hallway.jpg"
-dest_files=["res://.godot/imported/hallway.jpg-f63eb3b54d395d35d7b7741047262a00.ctex"]
+source_file="res://assets/graphics/background/DARK_underbed_jumpscare.png"
+dest_files=["res://.godot/imported/DARK_underbed_jumpscare.png-2c218ded72edfa98f0aaf9f09e26906a.ctex"]
 
 [params]
 

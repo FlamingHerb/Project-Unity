@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datwldsfo5i5t"
-path="res://.godot/imported/closedroom.jpg-659c0c23e0d0461d51c73b3a56b32dd1.ctex"
+uid="uid://choacv5vd2siy"
+path="res://.godot/imported/DARK_underbed_foot.png-69e321f86b09078a073fbeb0cc9947b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/closedroom.jpg"
-dest_files=["res://.godot/imported/closedroom.jpg-659c0c23e0d0461d51c73b3a56b32dd1.ctex"]
+source_file="res://assets/graphics/background/DARK_underbed_foot.png"
+dest_files=["res://.godot/imported/DARK_underbed_foot.png-69e321f86b09078a073fbeb0cc9947b7.ctex"]
 
 [params]
 

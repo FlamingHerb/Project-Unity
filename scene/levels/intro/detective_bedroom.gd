@@ -95,6 +95,7 @@ func _on_duffel_bag_pressed():
 	DialogueScreen.init_dialogue("prologue_bedroom_interact", "Duffle Bag")
 	var respon = await DialogueScreen.response_taken
 	if !respon:
+		AudioManager.stop_sound("room")
 		GamePauseUI.toggle_ui(false)
 		DialogueScreen.toggle_ui(false)
 		GlobalDatabase.toggle_switch("finale_sequence", true)
