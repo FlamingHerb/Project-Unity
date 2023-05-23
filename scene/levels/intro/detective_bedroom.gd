@@ -39,15 +39,29 @@ func _process(_delta):
 
 func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if GlobalDatabase.is_mouse_clicked(event):
+
+		# If the intruder comes, allow player to hide inside the closet.
+		if GlobalDatabase.check_switch("intruder"):
+			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Hiding - Closet")
+			var response_taken = await DialogueScreen.response_taken
+			if !response_taken:
+				GlobalTimer.stop_time()
+				GamePauseUI.toggle_ui(false)
+				DialogueScreen.toggle_ui(false)
+				SceneManager.goto_level_scene("cutscene/inside_closet.tscn")
+			return
+
 		if GlobalDatabase.check_switch("bag_taken"):
 			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")
 			return
+
 		if GlobalDatabase.check_switch("puzzle_solved"):
 			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet - Puzzle Solved")
 			await DialogueScreen.dialogue_all_finished
 			GlobalDatabase.toggle_switch("bag_taken", true)
 			$Main/DuffelBag.show()
 			return
+
 		else:
 			DialogueScreen.init_dialogue("prologue_bedroom_interact", "Closet")
 			return
@@ -112,3 +126,4 @@ func _on_under_bed_input_event(_viewport:Node, event:InputEvent, _shape_idx:int)
 			GamePauseUI.toggle_ui(false)
 			DialogueScreen.toggle_ui(false)
 			SceneManager.goto_level_scene("cutscene/under_bed_cutscene.tscn")
+		return
