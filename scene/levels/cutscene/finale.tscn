@@ -1,21 +1,111 @@
-[gd_scene load_steps=5 format=3 uid="uid://rv8d6lcvey84"]
+[gd_scene load_steps=7 format=3 uid="uid://rv8d6lcvey84"]
 
 [ext_resource type="Script" path="res://scene/levels/cutscene/finale.gd" id="1_utcet"]
+[ext_resource type="Texture2D" uid="uid://b2uvuvra77yti" path="res://assets/graphics/background/DARK_hallway_dead_intruder.png" id="2_bctnn"]
+[ext_resource type="AudioStream" uid="uid://b7ihoxe8kj1wn" path="res://assets/audio/sfx/finale_gun_fight.wav" id="3_c80s3"]
 
 [sub_resource type="Animation" id="Animation_subxq"]
 length = 0.001
-
-[sub_resource type="Animation" id="Animation_p7fla"]
-resource_name = "cutscene"
-length = 6.0
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("Fought:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fought:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fought:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p7fla"]
+resource_name = "cutscene"
+length = 30.0
+loop_mode = 2
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/GunFight")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_c80s3")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fought:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7, 10, 24.8, 29),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fought:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 12.6, 12.8, 15.7, 29),
+"transitions": PackedFloat32Array(1, 0.03983, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -108), Vector2(0, -108), Vector2(192, 111)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fought:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(15.7, 29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(30),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -29,7 +119,7 @@ _data = {
 "cutscene": SubResource("Animation_p7fla")
 }
 
-[node name="Finale" type="Node"]
+[node name="FinaleFight" type="Node"]
 script = ExtResource("1_utcet")
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
@@ -39,6 +129,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Fought" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bctnn")
 
 [node name="BlackBars" type="Control" parent="."]
 layout_mode = 3
@@ -71,3 +174,7 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_bst1b")
 }
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="GunFight" type="AudioStreamPlayer" parent="Audio"]

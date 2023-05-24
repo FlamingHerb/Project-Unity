@@ -14,10 +14,12 @@ func _cutscene():
 	$AnimationPlayer.play("cutscene")
 
 func _switch_to_game():
-	SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
-	GamePauseUI.toggle_ui(false)
-	DialogueScreen.toggle_ui(false)
+	#SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
+	# GamePauseUI.toggle_ui(false)
+	# DialogueScreen.toggle_ui(false)
 
-	Inventory.reset()
-	GlobalDatabase.reset_switches()
-	GamePauseUI.clear_textlog()
+	# Inventory.reset()
+	# GlobalDatabase.reset_switches()
+	# GamePauseUI.clear_textlog()
+
+	SceneManager.goto_level_scene("cutscene/news.tscn")
