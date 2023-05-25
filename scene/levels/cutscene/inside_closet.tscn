@@ -22,7 +22,6 @@ grow_vertical = 2
 text = "inside closet"
 
 [node name="Base" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,6 +30,7 @@ grow_vertical = 2
 texture = ExtResource("2_3iex6")
 
 [node name="Face" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,12 +41,45 @@ grow_vertical = 2
 texture = ExtResource("3_73tje")
 
 [node name="Left" type="ColorRect" parent="."]
+visible = false
 offset_right = 960.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="Right" type="ColorRect" parent="."]
+visible = false
 offset_left = 960.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="BlackBars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackBarTop" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0208333
+offset_right = 1880.0
+offset_bottom = 111.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BlackBarBottom" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0208333
+offset_top = 970.0
+offset_right = 1880.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
