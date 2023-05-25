@@ -73,8 +73,30 @@ grow_vertical = 2
 text = "Back"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(528, 544)
 scale = Vector2(0.419315, 0.467248)
 texture = SubResource("CompressedTexture2D_qs15q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -128.0
+offset_right = 357.0
+offset_bottom = 147.0
+text = "The game uses a simple point-and-click navigation and interaction of interests. 
+
+Navigation: Freely move around with indicated arrows in the area or 	interact with doors.
+
+Objects of Interest: Some objects are interactable and provide substantial dialogue.
+
+Inventory: Always check your inventory for details of the object you picked up.
+
+Text Log: Check the history of dialogue by accessing the Text Log Button."
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
