@@ -5,9 +5,11 @@ extends Node
 func _ready():
 	if GlobalDatabase.check_switch("door_knocking"):
 		$Main/Background.hide()
-	
+	else:
+		AudioManager.play_sound("room")
+		
 	GlobalDatabase.set_flavor_location("Workshop")
-	AudioManager.play_sound("room")
+	
 	if GlobalDatabase.check_switch("workroom_dialogue") == false:
 		DialogueScreen.init_dialogue("prologue_dialogue", "Introduction")
 		GlobalDatabase.toggle_switch("workroom_dialogue", true)

@@ -71,7 +71,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_fgswv"]
 resource_name = "didntdoanything"
-length = 67.0
+length = 68.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -150,7 +150,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_wqeov"]
 resource_name = "nanlaban"
-length = 67.0
+length = 68.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -300,3 +300,5 @@ libraries = {
 [node name="Audio" type="Node" parent="."]
 
 [node name="NewsReporter" type="AudioStreamPlayer" parent="Audio"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
