@@ -10,6 +10,10 @@ func _ready():
 func _process(_delta):
 	pass
 
+func _input(event):
+	if Input.is_action_pressed("ui_accept") or GlobalDatabase.is_mouse_clicked(event):
+		if $AnimationPlayer.current_animation_position < 49.5:
+			$AnimationPlayer.seek(49.5, true)
 
 func _cutscene():
 	$AnimationPlayer.play("cutscene")
