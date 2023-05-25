@@ -44,7 +44,7 @@
     "Corkboard":  {
         "type": "basic",
         "speaker": "none",
-        "text": "I should remove some of these. The cases are already unsolved.",
+        "text": "I should remove some of these. The cases are already solved.",
         "next_id": "end"
     },
     "Picture Frame":  {

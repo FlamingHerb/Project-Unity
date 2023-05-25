@@ -74,6 +74,7 @@ func _on_box_return_button_pressed():
 func _on_gun_pressed():
 	DialogueScreen.init_dialogue("prologue_bedroom_interact", "Gun")
 	Inventory.add_item("Gun")
+	AudioManager.play_sound("gun_cock")
 	$DrawerCloseup/Gun.queue_free()
 
 
@@ -101,4 +102,5 @@ func _on_pillow_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 func _on_magazine_pressed():
 	DialogueScreen.init_dialogue("prologue_bedroom_interact", "Magazine")
 	Inventory.add_item("Magazine")
+	AudioManager.play_sound("book_flip")
 	$PillowCloseup/Magazine.queue_free()

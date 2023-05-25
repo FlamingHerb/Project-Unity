@@ -23,6 +23,7 @@ func _ready():
 	ui_click.stream = load("res://assets/audio/sfx/ui_click.mp3")
 	ui_hover.stream = load("res://assets/audio/sfx/ui_hover.mp3")
 	$MusicAudioQueue/MusicStream.stream = load("res://assets/audio/music/main_menu.mp3")
+	$SFXAudioQueue/Thunder.stream = load("res://assets/audio/sfx/thunder.mp3")
 	$SFXAudioQueue/OpenedDoor.stream = load("res://assets/audio/sfx/opened_door.mp3")
 	$SFXAudioQueue/LockedDoor.stream = load("res://assets/audio/sfx/door_knock.mp3")
 	$SFXAudioQueue/DoorKey.stream = load("res://assets/audio/sfx/door_key.mp3")
@@ -30,6 +31,8 @@ func _ready():
 	$SFXAudioQueue/PaperRustle.stream = load("res://assets/audio/sfx/paper_rustle.mp3")
 	$SFXAudioQueue/PaperTear.stream = load("res://assets/audio/sfx/paper_tear.mp3")
 	$SFXAudioQueue/BottleClink.stream = load("res://assets/audio/sfx/bottle_clink.mp3")
+	$SFXAudioQueue/GunCock.stream = load("res://assets/audio/sfx/gun_cock.mp3")
+	$SFXAudioQueue/GunCock.stream = load("res://assets/audio/sfx/magazine_reload.mp3")
 	$SFXAudioQueue/PuzzleButton.stream = load("res://assets/audio/sfx/puzzle_button.mp3")
 	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/thunder_rain.mp3")
 
@@ -44,6 +47,8 @@ func play_sound(sound: String):
 			ui_hover.play()
 		"main_menu":
 			$MusicAudioQueue/MusicStream.play()
+		"thunder":
+			$SFXAudioQueue/Thunder.play()
 		"opened_door":
 			$SFXAudioQueue/OpenedDoor.play()
 		"locked_door":
@@ -58,6 +63,10 @@ func play_sound(sound: String):
 			$SFXAudioQueue/PaperTear.play()
 		"bottle_clink":
 			$SFXAudioQueue/BottleClink.play()
+		"gun_cock":
+			$SFXAudioQueue/GunCock.play()
+		"magazine_reload":
+			$SFXAudioQueue/MagazineReload.play()
 		"room":
 			if not $AmbienceAudioQueue/Room.is_playing():
 				$AmbienceAudioQueue/Room.play()
@@ -72,6 +81,18 @@ func stop_sound(sound: String):
 			$MusicAudioQueue/MusicStream.stop()
 		"room":
 			$AmbienceAudioQueue/Room.stop()
+		"bottle_clink":
+			$SFXAudioQueue/BottleClink.stop()
+		"paper_tear":
+			$SFXAudioQueue/PaperTear.stop()
+		"paper_rustle":
+			$SFXAudioQueue/PaperRustle.stop()
+		"radio_tune":
+			$SFXAudioQueue/RadioTune.stop()
+		"gun_cock":
+			$SFXAudioQueue/GunCock.stop()
+		"magazine_reload":
+			$SFXAudioQueue/MagazineReload.stop()
 		_:
 			print("Sound not found:", sound)
 

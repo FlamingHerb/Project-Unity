@@ -8,6 +8,7 @@ func _ready():
 	# 	return
 	
 	$AnimationPlayer.play("splash")
+	AudioManager.play_sound("thunder")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
