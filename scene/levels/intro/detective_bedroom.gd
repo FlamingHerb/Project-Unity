@@ -102,5 +102,5 @@ func _on_pillow_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 func _on_magazine_pressed():
 	DialogueScreen.init_dialogue("prologue_bedroom_interact", "Magazine")
 	Inventory.add_item("Magazine")
-	AudioManager.play_sound("book_flip")
+	AudioManager.play_sound("magazine_reload")
 	$PillowCloseup/Magazine.queue_free()

@@ -13,6 +13,7 @@ func _process(_delta):
 
 func _cutscene():
 	$AnimationPlayer.play("cutscene")
+	AudioManager.play_sound("door_knock")
 
 func _switch():
 	SceneManager.goto_level_scene("intro/detective_bedroom.tscn")

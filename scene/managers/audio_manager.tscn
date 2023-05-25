@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://do25dprvxeobf"]
+[gd_scene load_steps=20 format=3 uid="uid://do25dprvxeobf"]
 
 [ext_resource type="Script" path="res://scene/managers/audio_manager.gd" id="1_ehdqm"]
 [ext_resource type="PackedScene" uid="uid://dtoh476onbsr6" path="res://scene/audio/audio_queue.tscn" id="2_nl2rp"]
@@ -13,10 +13,12 @@
 [ext_resource type="AudioStream" uid="uid://dk0vy66han1f1" path="res://assets/audio/ambience/room.wav" id="9_w4iyq"]
 [ext_resource type="AudioStream" uid="uid://ochorba7joa5" path="res://assets/audio/sfx/bottle_clink.mp3" id="10_tfcaq"]
 [ext_resource type="AudioStream" uid="uid://bhghdbtss3r57" path="res://assets/audio/sfx/paper_rustle.mp3" id="11_8kfhc"]
+[ext_resource type="AudioStream" uid="uid://dwtrjp1vy6adh" path="res://assets/audio/sfx/door_bang.mp3" id="11_17f65"]
 [ext_resource type="AudioStream" uid="uid://7f3biarj8x5v" path="res://assets/audio/sfx/paper_tear.mp3" id="12_cyw0k"]
 [ext_resource type="AudioStream" uid="uid://ba22a1wn7faa2" path="res://assets/audio/sfx/radio_tune.mp3" id="13_300dv"]
 [ext_resource type="AudioStream" uid="uid://cnnle2cn7mv1a" path="res://assets/audio/sfx/gun_cock.mp3" id="14_3e3b7"]
 [ext_resource type="AudioStream" uid="uid://dpricvy4wjkd7" path="res://assets/audio/sfx/magazine_reload.mp3" id="16_ma6fu"]
+[ext_resource type="AudioStream" uid="uid://bnxts61ynfj2w" path="res://assets/audio/sfx/door_knock.mp3" id="17_1s7ed"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ehdqm")
@@ -53,6 +55,14 @@ bus = &"SFX"
 
 [node name="DoorKey" type="AudioStreamPlayer" parent="SFXAudioQueue"]
 stream = ExtResource("8_fjwim")
+bus = &"SFX"
+
+[node name="DoorKnock" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("17_1s7ed")
+bus = &"SFX"
+
+[node name="DoorBang" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("11_17f65")
 bus = &"SFX"
 
 [node name="PuzzleButton" type="AudioStreamPlayer" parent="SFXAudioQueue"]

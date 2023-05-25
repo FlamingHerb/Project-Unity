@@ -12,6 +12,7 @@ func _process(_delta):
 
 func _cutscene():
 	$AnimationPlayer.play("cutscene")
+	
 
 func _switch_to_game():
 	SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
