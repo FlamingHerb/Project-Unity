@@ -48,6 +48,7 @@ func _on_closet_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 				GlobalTimer.stop_time()
 				GamePauseUI.toggle_ui(false)
 				DialogueScreen.toggle_ui(false)
+				GlobalDatabase.toggle_switch("ending_nothing", true)
 				SceneManager.goto_level_scene("cutscene/inside_closet.tscn")
 			return
 
@@ -126,5 +127,6 @@ func _on_under_bed_input_event(_viewport:Node, event:InputEvent, _shape_idx:int)
 			GlobalTimer.stop_time()
 			GamePauseUI.toggle_ui(false)
 			DialogueScreen.toggle_ui(false)
+			GlobalDatabase.toggle_switch("ending_nothing", true)
 			SceneManager.goto_level_scene("cutscene/under_bed_cutscene.tscn")
 		return

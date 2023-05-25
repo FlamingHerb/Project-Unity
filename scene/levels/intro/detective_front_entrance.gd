@@ -44,7 +44,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI2")
 			await DialogueScreen.dialogue_all_finished
 
-			$FrontDoorLook.hide()
+			$FrontDoorLookCutscene.hide()
 
 			# Door being knocked
 
