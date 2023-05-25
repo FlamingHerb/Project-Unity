@@ -6,6 +6,9 @@ func _ready():
 	pass # Replace with function body.
 
 
+func _enter_tree():
+	get_tree().node_added.connect(AudioManager._on_node_added)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

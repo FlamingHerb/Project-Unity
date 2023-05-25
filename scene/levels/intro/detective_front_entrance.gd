@@ -14,7 +14,7 @@ func _process(_delta):
 
 
 func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if GlobalDatabase.is_mouse_clicked(event):
 		if GlobalDatabase.check_switch("intruder"):
 			DialogueScreen.init_dialogue("prologue_front_interact", "Intruder")
 			return

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsiiboljtiwx4"
-path="res://.godot/imported/Private-Eye-Logo1.png-608bc86773f6654e7d5ed264fee6f5b8.ctex"
+uid="uid://ch36t2sgowqmf"
+path="res://.godot/imported/PRO_Hallway2.jpg-bbec1e14de61b07e138a7d4a6be4e873.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/Private-Eye-Logo1.png"
-dest_files=["res://.godot/imported/Private-Eye-Logo1.png-608bc86773f6654e7d5ed264fee6f5b8.ctex"]
+source_file="res://assets/graphics/background/PRO_Hallway2.jpg"
+dest_files=["res://.godot/imported/PRO_Hallway2.jpg-bbec1e14de61b07e138a7d4a6be4e873.ctex"]
 
 [params]
 
