@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnnyjajar4860"]
+
+[ext_resource type="Script" path="res://scene/levels/cutscene/credits.gd" id="1_eur3e"]
+
+[node name="Credits" type="Node"]
+script = ExtResource("1_eur3e")
+
+[node name="Blackbackground" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.5
+offset_top = -47.5
+offset_right = 379.5
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]This marks the end of the game. Press any key to go back.[/center]"

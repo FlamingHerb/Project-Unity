@@ -24,7 +24,9 @@ var switches = {
 	"bag_taken" = false,
 	"finale_sequence" = false,
 	"door_knocking" = false,
-	"intruder" = false
+	"intruder" = false,
+	"ending_attacked" = false,
+	"ending_nothing" = false,
 }
 var location
 var current_location
@@ -49,10 +51,11 @@ func _input(_event):
 ##===============================================
 
 func times_up():
+	GlobalTimer.stop_time()
 	GamePauseUI.toggle_ui(false)
 	DialogueScreen.toggle_ui(false)
-	GlobalDatabase.toggle_switch("finale_sequence", true)
-	SceneManager.goto_level_scene("cutscene/finale.tscn")
+	GlobalDatabase.toggle_switch("ending_nothing", true)
+	SceneManager.goto_level_scene("cutscene/didnt_fight_finale.tscn")
 
 func _debug():
 	print("Switches:")

@@ -22,6 +22,19 @@
         "speaker": "Detective",
         "text": "I have to do something!",
         "next_id": "end"
-    }
+    },
+    "Confront Invader":  {
+		"type": "response",
+		"responses": {
+			"0": {
+				"text": "Confront invader.",
+				"next_id": "end"
+			},
+			"1": {
+				"text": "Don't.",
+				"next_id": "end"
+			}
+		}
+	}
 }
 
