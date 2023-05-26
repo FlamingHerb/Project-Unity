@@ -16,17 +16,29 @@ func _process(_delta):
 func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 	if GlobalDatabase.is_mouse_clicked(event):
 		if GlobalDatabase.check_switch("intruder"):
-			DialogueScreen.init_dialogue("prologue_front_interact", "Intruder")
-			return
+			if Inventory.check_item("Gun") and Inventory.check_item("Magazine"):
+				DialogueScreen.init_dialogue("prologue_front_interact", "Confront Invader")
+				var response_taken = await DialogueScreen.response_taken
+				if !response_taken:
+					GlobalTimer.stop_time()
+					GamePauseUI.toggle_ui(false)
+					DialogueScreen.toggle_ui(false)
+					GlobalDatabase.toggle_switch("ending_attacked", true)
+					SceneManager.goto_level_scene("cutscene/finale.tscn")
+				return
+			else:
+				DialogueScreen.init_dialogue("prologue_front_interact", "Intruder")
+				return
 		
 		# TODO: Cutscene
 		if GlobalDatabase.check_switch("door_knocking"):
 			DialogueScreen.init_dialogue("prologue_dialogue", "Door Intruder")
 			AudioManager.play_sound("door_knock")
 			await DialogueScreen.dialogue_all_finished
-			$FrontDoorLook.show()
+			$FrontDoorLookCutscene.show()
 
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI1")
+			AudioManager.play_sound("door_knock")
 			await DialogueScreen.dialogue_all_finished
 
 			# Jumpscare, door banging.
@@ -35,16 +47,17 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 			AudioManager.play_sound("door_bang")
 			await DialogueScreen.dialogue_all_finished
 
-			$FrontDoorLook.hide()
+			$FrontDoorLookCutscene.hide()
 
 			# Door being knocked
 
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI3")
+			AudioManager.play_sound("door_knock")
 			await DialogueScreen.dialogue_all_finished
 
 			# Finale begins
 			GlobalDatabase.toggle_switch("intruder", true)
-			GlobalTimer.ready_time(30)
+			GlobalTimer.ready_time(15)
 		else:
 			DialogueScreen.init_dialogue("prologue_front_interact", "No Reason")
 			return

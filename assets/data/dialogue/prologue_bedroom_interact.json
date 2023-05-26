@@ -36,6 +36,45 @@
 			}
 		}
 	},
+	"Hiding - Closet":  {
+		"type": "response",
+		"responses": {
+			"0": {
+				"text": "Hide inside closet.",
+				"next_id": "end"
+			},
+			"1": {
+				"text": "Don't.",
+				"next_id": "end"
+			}
+		}
+	},
+	"Hiding - Under Bed":  {
+		"type": "response",
+		"responses": {
+			"0": {
+				"text": "Hide under the bed.",
+				"next_id": "end"
+			},
+			"1": {
+				"text": "Don't.",
+				"next_id": "end"
+			}
+		}
+	},
+	"Hiding - Inside CR":  {
+		"type": "response",
+		"responses": {
+			"0": {
+				"text": "Hide inside the bathroom.",
+				"next_id": "end"
+			},
+			"1": {
+				"text": "Don't.",
+				"next_id": "end"
+			}
+		}
+	},
 	"Stay A While": {
 		"type": "basic",
 		"speaker": "Detective",

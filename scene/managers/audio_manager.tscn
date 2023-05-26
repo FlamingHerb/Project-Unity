@@ -18,7 +18,10 @@
 [ext_resource type="AudioStream" uid="uid://ba22a1wn7faa2" path="res://assets/audio/sfx/radio_tune.mp3" id="13_300dv"]
 [ext_resource type="AudioStream" uid="uid://cnnle2cn7mv1a" path="res://assets/audio/sfx/gun_cock.mp3" id="14_3e3b7"]
 [ext_resource type="AudioStream" uid="uid://dpricvy4wjkd7" path="res://assets/audio/sfx/magazine_reload.mp3" id="16_ma6fu"]
+[ext_resource type="AudioStream" uid="uid://j8qnwni2jy26" path="res://assets/audio/sfx/door_bang.mp3" id="16_5siyi"]
 [ext_resource type="AudioStream" uid="uid://bnxts61ynfj2w" path="res://assets/audio/sfx/door_knock.mp3" id="17_1s7ed"]
+[ext_resource type="AudioStream" uid="uid://bjyym4cqcxrgm" path="res://assets/audio/sfx/thunder.mp3" id="18_ys6mp"]
+[ext_resource type="AudioStream" uid="uid://t2c0orbo8jk5" path="res://assets/audio/sfx/bag_zip.mp3" id="19_282r1"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ehdqm")
@@ -91,6 +94,22 @@ bus = &"SFX"
 
 [node name="MagazineReload" type="AudioStreamPlayer" parent="SFXAudioQueue"]
 stream = ExtResource("16_ma6fu")
+bus = &"SFX"
+
+[node name="DoorBang" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("16_5siyi")
+bus = &"SFX"
+
+[node name="DoorKnock" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("17_0ceyu")
+bus = &"SFX"
+
+[node name="Thunder" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("18_ys6mp")
+bus = &"SFX"
+
+[node name="BagZip" type="AudioStreamPlayer" parent="SFXAudioQueue"]
+stream = ExtResource("19_282r1")
 bus = &"SFX"
 
 [node name="AmbienceAudioQueue" parent="." instance=ExtResource("2_nl2rp")]

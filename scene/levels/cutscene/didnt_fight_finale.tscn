@@ -1,0 +1,299 @@
+[gd_scene load_steps=12 format=3 uid="uid://ja4r200ofit2"]
+
+[ext_resource type="AudioStream" uid="uid://b6ud6t7n4kxnb" path="res://assets/audio/sfx/finale_2_door_slam.mp3" id="1_g3mt2"]
+[ext_resource type="Script" path="res://scene/levels/cutscene/didnt_fight_finale.gd" id="1_y856v"]
+[ext_resource type="AudioStream" uid="uid://uplbxp3b55eo" path="res://assets/audio/sfx/finale_2_gun_reload.mp3" id="2_osu21"]
+[ext_resource type="AudioStream" uid="uid://bg6di0jpcnig1" path="res://assets/audio/sfx/finale_2_gun_shot.mp3" id="3_eee4e"]
+[ext_resource type="Texture2D" uid="uid://0lf1ygcssucu" path="res://assets/graphics/cgs/9.png" id="3_r62vf"]
+[ext_resource type="AudioStream" uid="uid://b7ihoxe8kj1wn" path="res://assets/audio/sfx/finale_gun_fight.wav" id="4_tjlvx"]
+[ext_resource type="Texture2D" uid="uid://bq78mn56tre3l" path="res://assets/graphics/cgs/10.png" id="5_ccvjt"]
+[ext_resource type="Texture2D" uid="uid://cq58gcb7wsjud" path="res://assets/graphics/cgs/7.png" id="7_h0e6w"]
+
+[sub_resource type="Animation" id="Animation_ihsnu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunPoint:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GunFired:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WelpHesDead:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WelpHesDead:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7dsgc"]
+resource_name = "didntfight"
+length = 21.9
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/DoorSlam")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.95704,
+"start_offset": 0.0,
+"stream": ExtResource("1_g3mt2")
+}],
+"times": PackedFloat32Array(-0.1)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/GunReload")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.438899,
+"start_offset": 0.0,
+"stream": ExtResource("2_osu21")
+}],
+"times": PackedFloat32Array(1.2)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GunPoint:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/GunShot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_eee4e")
+}],
+"times": PackedFloat32Array(2.7)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GunFired:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.8, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio/GunShot2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_eee4e")
+}],
+"times": PackedFloat32Array(3)
+}
+tracks/5/use_blend = true
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio/GunShot3")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_eee4e")
+}],
+"times": PackedFloat32Array(3.3)
+}
+tracks/6/use_blend = true
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Audio/LastBreath")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 12.6237,
+"stream": ExtResource("4_tjlvx")
+}],
+"times": PackedFloat32Array(4.6)
+}
+tracks/7/use_blend = true
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WelpHesDead:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WelpHesDead:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.8, 8.7, 20.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(21.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_switch_to_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xiso"]
+_data = {
+"RESET": SubResource("Animation_ihsnu"),
+"didntfight": SubResource("Animation_7dsgc")
+}
+
+[node name="DidntFightFinale" type="Node"]
+script = ExtResource("1_y856v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3xiso")
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GunPoint" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_r62vf")
+
+[node name="GunFired" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_ccvjt")
+
+[node name="WelpHesDead" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_h0e6w")
+
+[node name="BlackBars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackBarTop" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0208333
+offset_right = 1880.0
+offset_bottom = 111.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BlackBarBottom" type="ColorRect" parent="BlackBars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0208333
+offset_top = 970.0
+offset_right = 1880.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="DoorSlam" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="GunReload" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="GunShot" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="GunShot2" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="GunShot3" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="LastBreath" type="AudioStreamPlayer" parent="Audio"]

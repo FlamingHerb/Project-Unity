@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1r54o3uo04vm"]
+[gd_scene load_steps=11 format=3 uid="uid://1r54o3uo04vm"]
 
 [ext_resource type="Script" path="res://scene/menus/mainmenu.gd" id="1_rynt0"]
 [ext_resource type="Texture2D" uid="uid://8mehat7rt4he" path="res://assets/graphics/placeholder_titlescreen.jpg" id="2_0aybv"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/help.tscn" id="6_0sc3y"]
 [ext_resource type="PackedScene" uid="uid://biratu1kw11v1" path="res://scene/menus/about.tscn" id="7_exvcy"]
 
+[sub_resource type="Theme" id="Theme_pd0a0"]
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_pd0a0")
 script = ExtResource("1_rynt0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -45,12 +48,12 @@ stretch_mode = 5
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 138.0
-offset_top = 450.0
-offset_right = 690.0
-offset_bottom = 1019.0
+offset_left = 220.0
+offset_top = 420.0
+offset_right = 623.0
+offset_bottom = 1046.0
 theme = ExtResource("5_17jgo")
-theme_override_constants/v_separation = 0
+theme_override_constants/v_separation = 22
 
 [node name="NewGame" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 0)
