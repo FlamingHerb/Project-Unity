@@ -37,11 +37,13 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 			$FrontDoorLookCutscene.show()
 
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI1")
+			AudioManager.play_sound("door_knock")
 			await DialogueScreen.dialogue_all_finished
 
 			# Jumpscare, door banging.
 
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI2")
+			AudioManager.play_sound("door_bang")
 			await DialogueScreen.dialogue_all_finished
 
 			$FrontDoorLookCutscene.hide()
@@ -49,6 +51,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 			# Door being knocked
 
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI3")
+			AudioManager.play_sound("door_knock")
 			await DialogueScreen.dialogue_all_finished
 
 			# Finale begins
