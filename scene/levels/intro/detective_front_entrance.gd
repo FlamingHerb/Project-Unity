@@ -34,7 +34,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 		if GlobalDatabase.check_switch("door_knocking"):
 			DialogueScreen.init_dialogue("prologue_dialogue", "Door Intruder")
 			await DialogueScreen.dialogue_all_finished
-			$FrontDoorLook.show()
+			$FrontDoorLookCutscene.show()
 
 			DialogueScreen.init_dialogue("prologue_dialogue", "DI1")
 			await DialogueScreen.dialogue_all_finished
