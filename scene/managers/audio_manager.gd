@@ -35,7 +35,7 @@ func _ready():
 	$SFXAudioQueue/BottleClink.stream = load("res://assets/audio/sfx/bottle_clink.mp3")
 	$SFXAudioQueue/GunCock.stream = load("res://assets/audio/sfx/gun_cock.mp3")
 	$SFXAudioQueue/MagazineReload.stream = load("res://assets/audio/sfx/magazine_reload.mp3")
-  $SFXAudioQueue/BagZip.stream = load("res://assets/audio/sfx/bag_zip.mp3")
+	$SFXAudioQueue/BagZip.stream = load("res://assets/audio/sfx/bag_zip.mp3")
 	$SFXAudioQueue/PuzzleButton.stream = load("res://assets/audio/sfx/puzzle_button.mp3")
 	$AmbienceAudioQueue/Room.stream = load("res://assets/audio/ambience/thunder_rain.mp3")
 

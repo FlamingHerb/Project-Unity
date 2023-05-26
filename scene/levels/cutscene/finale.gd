@@ -17,7 +17,6 @@ func _input(event):
 
 func _cutscene():
 	$AnimationPlayer.play("cutscene")
-	
 
 func _switch_to_game():
 	#SceneManager.goto_scene("res://scene/menus/mainmenu.tscn")
@@ -28,4 +27,4 @@ func _switch_to_game():
 	# GlobalDatabase.reset_switches()
 	# GamePauseUI.clear_textlog()
 
-  SceneManager.goto_level_scene("cutscene/news.tscn")
+	SceneManager.goto_level_scene("cutscene/news.tscn")
