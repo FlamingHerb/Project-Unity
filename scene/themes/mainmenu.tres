@@ -30,7 +30,7 @@ shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqxs5"]
 bg_color = Color(0.305882, 0.0509804, 0, 1)
-border_width_bottom = 15
+border_width_bottom = 5
 border_color = Color(0.175137, 0.0169751, 2.40654e-08, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
