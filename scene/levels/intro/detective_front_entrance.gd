@@ -33,6 +33,7 @@ func _on_door_input_event(_viewport:Node, event:InputEvent, _shape_idx:int):
 		# TODO: Cutscene
 		if GlobalDatabase.check_switch("door_knocking"):
 			DialogueScreen.init_dialogue("prologue_dialogue", "Door Intruder")
+			AudioManager.play_sound("door_knock")
 			await DialogueScreen.dialogue_all_finished
 			$FrontDoorLookCutscene.show()
 
