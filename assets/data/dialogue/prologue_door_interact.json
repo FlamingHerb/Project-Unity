@@ -1,0 +1,14 @@
+{
+    "000":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "How'd you end up here?",
+        "next_id": "end"
+    },
+    "Door Inspection":  {
+        "type": "basic",
+        "speaker": "none",
+        "text": "A certainly interesting puzzle... why did the Major send me this?",
+        "next_id": "end"
+    }
+}

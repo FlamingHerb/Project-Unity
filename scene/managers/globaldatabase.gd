@@ -18,9 +18,15 @@ var item_database
 var switches = {
 	"workroom_dialogue" = false,
 	"bedroom_dialogue" = false,
+	"bedroom_dialogue_2" = false,
 	"woke_up" = false,
-	"finale_sequence" = false,
 	"puzzle_solved" = false,
+	"bag_taken" = false,
+	"finale_sequence" = false,
+	"door_knocking" = false,
+	"intruder" = false,
+	"ending_attacked" = false,
+	"ending_nothing" = false,
 }
 var location
 var current_location
@@ -32,12 +38,30 @@ var save_screenshot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalTimer.connect("global_timer_timeout", times_up)
 	item_database = read_from_JSON("res://assets/data/item_database.json")
 	print(item_database)
 
+func _input(_event):
+	# Debug only
+	if Input.is_key_pressed(KEY_F7):
+		_debug()
 ##===============================================
 ## Switch-related functions
 ##===============================================
+
+func times_up():
+	GlobalTimer.stop_time()
+	GamePauseUI.toggle_ui(false)
+	DialogueScreen.toggle_ui(false)
+	GlobalDatabase.toggle_switch("ending_nothing", true)
+	SceneManager.goto_level_scene("cutscene/didnt_fight_finale.tscn")
+
+func _debug():
+	print("Switches:")
+	for switch in switches.keys():
+		print(switch + ":" + str(switches[switch]))
+	return
 
 ## Takes the switch's name and toggles it to the specified boolean value.
 func toggle_switch(switch_name: String, boolean_value: bool):
@@ -85,3 +109,7 @@ func set_flavor_location(flavor_loc):
 func set_node_location(node_loc):
 	current_location = node_loc
 	print("Node path set to: " + node_loc)
+
+## Detects for mouse clicks
+func is_mouse_clicked(event:InputEvent):
+	return event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT

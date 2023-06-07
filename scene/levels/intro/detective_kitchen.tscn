@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dago2iyb2f3sq"]
+[gd_scene load_steps=6 format=3 uid="uid://dago2iyb2f3sq"]
 
 [ext_resource type="Texture2D" uid="uid://0687vyyxktng" path="res://assets/graphics/background/PRO_kitchen.png" id="1_lmti1"]
 [ext_resource type="Script" path="res://scene/levels/intro/detective_kitchen.gd" id="1_vn6pb"]
+[ext_resource type="Texture2D" uid="uid://cb4c2kyrywkkd" path="res://assets/graphics/background/DARK_kitchen2.png" id="2_umyqt"]
 [ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="3_qocs4"]
 [ext_resource type="Texture2D" uid="uid://cfjkp7qehte3d" path="res://assets/graphics/navigation_left.png" id="4_it6gn"]
 
@@ -10,7 +11,12 @@ script = ExtResource("1_vn6pb")
 
 [node name="Main" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Main"]
+[node name="BackgroundDark" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_umyqt")
+
+[node name="Background" type="TextureRect" parent="Main"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_lmti1")

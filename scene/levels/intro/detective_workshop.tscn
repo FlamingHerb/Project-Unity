@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://curknihdfnhn5"]
+[gd_scene load_steps=28 format=3 uid="uid://curknihdfnhn5"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_workshop.gd" id="1_qgogg"]
+[ext_resource type="Texture2D" uid="uid://bq2n3y4bmaasq" path="res://assets/graphics/background/DARK_workroom.png" id="2_pmaev"]
 [ext_resource type="Texture2D" uid="uid://cbjllk4stou8k" path="res://assets/graphics/background/PRO_workroom_keymissing.png" id="2_u6v4h"]
 [ext_resource type="Texture2D" uid="uid://b0a4bakr1xbox" path="res://assets/graphics/bg_items/PRO_workroom_item_key_back.png" id="2_vpmgt"]
+[ext_resource type="Texture2D" uid="uid://l5fj5oosdkay" path="res://assets/graphics/background/DARK_workroom2.png" id="3_168f8"]
 [ext_resource type="Texture2D" uid="uid://cwmup8nw7fyhs" path="res://assets/graphics/bg_items/PRO_workroom_item_key.png" id="3_a8you"]
 [ext_resource type="Texture2D" uid="uid://cwc7chy3gp15r" path="res://assets/graphics/navigation_right.png" id="5_elc4c"]
 [ext_resource type="Texture2D" uid="uid://ct0ypvd0qvdnf" path="res://assets/graphics/background/PRO_worktable.png" id="5_hys4o"]
@@ -13,10 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://cju143yslixl4" path="res://assets/graphics/bg_items/PRO_workroom_box.png" id="7_ti5px"]
 [ext_resource type="Texture2D" uid="uid://22hvaodqb8id" path="res://assets/graphics/bg_items/PRO_workroom_box_open.png" id="7_tv7lj"]
 [ext_resource type="BitMap" uid="uid://c1sw06q2xqx21" path="res://assets/graphics/bg_items/PRO_workroom_box_open_bitmask.png" id="8_kopa5"]
+[ext_resource type="Texture2D" uid="uid://dvnsodr6fd61b" path="res://assets/graphics/bg_items/PRO_Letter.png" id="11_o7ykw"]
+[ext_resource type="BitMap" uid="uid://dmyyy0agas2xy" path="res://assets/graphics/bg_items/PRO_Letter_bitmask.png" id="12_2csye"]
 [ext_resource type="Texture2D" uid="uid://refjj53ny22f" path="res://assets/graphics/background/PRO_window_closeup.png" id="12_pwe2f"]
 [ext_resource type="Script" path="res://scene/levels/intro/puzzle.gd" id="15_bjkf0"]
 [ext_resource type="Texture2D" uid="uid://cfo2r72w1kxky" path="res://assets/graphics/background/PRO_box_closeup.png" id="15_x444l"]
 [ext_resource type="FontFile" uid="uid://ccltikahp4ms2" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="17_0i7su"]
+[ext_resource type="Texture2D" uid="uid://dxj6e1jc8o6j3" path="res://assets/graphics/background/PRO_Letter_Closeup.png" id="23_fbe7b"]
 
 [sub_resource type="GDScript" id="GDScript_dlhvd"]
 script/source = "extends TextureRect
@@ -39,8 +44,12 @@ script/source = "extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		hide()
+		return
 	if GlobalDatabase.check_switch(\"puzzle_solved\"):
 		hide()
+		return
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,8 +63,28 @@ script/source = "extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		hide()
+		return
 	if GlobalDatabase.check_switch(\"puzzle_solved\"):
 		show()
+		return
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_b6xqn"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		hide()
+		return
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -84,6 +113,16 @@ func _process(_delta):
 script = ExtResource("1_qgogg")
 
 [node name="Main" type="Node2D" parent="."]
+
+[node name="BackgroundDarkLit" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_pmaev")
+
+[node name="BackgroundDark" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_168f8")
 
 [node name="Background" type="TextureRect" parent="Main"]
 offset_right = 1920.0
@@ -120,6 +159,14 @@ offset_bottom = 922.0
 texture_normal = ExtResource("7_tv7lj")
 texture_click_mask = ExtResource("8_kopa5")
 script = SubResource("GDScript_no8ek")
+
+[node name="Letter" type="TextureButton" parent="Main"]
+offset_top = 729.0
+offset_right = 300.0
+offset_bottom = 1079.0
+texture_normal = ExtResource("11_o7ykw")
+texture_click_mask = ExtResource("12_2csye")
+script = SubResource("GDScript_b6xqn")
 
 [node name="BedroomDoor" type="Area2D" parent="Main"]
 position = Vector2(652, -153)
@@ -449,8 +496,31 @@ vertical_alignment = 1
 uppercase = true
 visible_characters = 1
 
+[node name="LetterCloseup" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="LetterCloseup"]
+offset_right = 1920.0
+offset_bottom = 1079.0
+color = Color(0, 0, 0, 1)
+
+[node name="Closeup" type="TextureRect" parent="LetterCloseup"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("23_fbe7b")
+
+[node name="LetterReturnBox" type="Button" parent="LetterCloseup"]
+offset_left = 87.0
+offset_top = 943.0
+offset_right = 200.0
+offset_bottom = 996.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
 [connection signal="pressed" from="Main/MysteryBox" to="." method="_on_mystery_box_pressed"]
 [connection signal="pressed" from="Main/MysteryBoxOpened" to="." method="_on_mystery_box_opened_pressed"]
+[connection signal="pressed" from="Main/Letter" to="." method="_on_letter_pressed"]
 [connection signal="input_event" from="Main/BedroomDoor" to="." method="_on_bedroom_door_input_event"]
 [connection signal="input_event" from="Main/KeyInteractable" to="." method="_on_key_interactable_input_event"]
 [connection signal="input_event" from="Main/Documents" to="." method="_on_documents_input_event"]
@@ -480,3 +550,4 @@ visible_characters = 1
 [connection signal="input_event" from="BoxCloseup/BottomButton5" to="BoxCloseup" method="_on_bottom_button_5_input_event"]
 [connection signal="input_event" from="BoxCloseup/BottomButton6" to="BoxCloseup" method="_on_bottom_button_6_input_event"]
 [connection signal="input_event" from="BoxCloseup/AnswerButton" to="BoxCloseup" method="_on_answer_button_input_event"]
+[connection signal="pressed" from="LetterCloseup/LetterReturnBox" to="." method="_on_letter_return_box_pressed"]

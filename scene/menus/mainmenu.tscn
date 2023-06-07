@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://1r54o3uo04vm"]
+[gd_scene load_steps=11 format=3 uid="uid://1r54o3uo04vm"]
 
-[ext_resource type="Texture2D" uid="uid://wi4qmpmkigos" path="res://assets/graphics/titlescreen.png" id="1_mgcf3"]
 [ext_resource type="Script" path="res://scene/menus/mainmenu.gd" id="1_rynt0"]
 [ext_resource type="Texture2D" uid="uid://8mehat7rt4he" path="res://assets/graphics/placeholder_titlescreen.jpg" id="2_0aybv"]
 [ext_resource type="Texture2D" uid="uid://c6btc2rmfyn1t" path="res://assets/graphics/black_backdrop.png" id="3_fk8r1"]
 [ext_resource type="PackedScene" uid="uid://ormgbvgat7ix" path="res://scene/menus/settings.tscn" id="3_pluqi"]
+[ext_resource type="Texture2D" uid="uid://cx11f87am5kt8" path="res://assets/graphics/logo.png" id="4_0rmox"]
 [ext_resource type="PackedScene" uid="uid://y50tqx50niub" path="res://scene/menus/loadgame.tscn" id="4_n6pvk"]
 [ext_resource type="Theme" uid="uid://bxbivfg8cdk47" path="res://scene/themes/mainmenu.tres" id="5_17jgo"]
 [ext_resource type="PackedScene" uid="uid://1xaxrqk7a7rg" path="res://scene/menus/help.tscn" id="6_0sc3y"]
 [ext_resource type="PackedScene" uid="uid://biratu1kw11v1" path="res://scene/menus/about.tscn" id="7_exvcy"]
+
+[sub_resource type="Theme" id="Theme_pd0a0"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_pd0a0")
 script = ExtResource("1_rynt0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -34,18 +37,23 @@ texture = ExtResource("3_fk8r1")
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 40.0
+offset_left = 2.0
+offset_top = -62.0
+offset_right = 1674.0
+offset_bottom = 1096.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mgcf3")
+texture = ExtResource("4_0rmox")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 138.0
-offset_top = 488.0
-offset_right = 690.0
-offset_bottom = 956.0
+offset_left = 220.0
+offset_top = 420.0
+offset_right = 623.0
+offset_bottom = 1046.0
 theme = ExtResource("5_17jgo")
-theme_override_constants/v_separation = 0
+theme_override_constants/v_separation = 22
 
 [node name="NewGame" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -72,7 +80,6 @@ theme_override_font_sizes/font_size = 49
 text = "Settings"
 
 [node name="Help" type="Button" parent="GridContainer"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -81,7 +88,6 @@ theme_override_font_sizes/font_size = 49
 text = "Help"
 
 [node name="About" type="Button" parent="GridContainer"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -102,7 +108,6 @@ visible = false
 layout_mode = 1
 
 [node name="Settings" parent="." instance=ExtResource("3_pluqi")]
-visible = false
 layout_mode = 1
 
 [node name="Help" parent="." instance=ExtResource("6_0sc3y")]
@@ -112,6 +117,8 @@ layout_mode = 1
 [node name="About" parent="." instance=ExtResource("7_exvcy")]
 visible = false
 layout_mode = 1
+offset_left = 876.0
+offset_right = -12.0
 
 [connection signal="pressed" from="GridContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="GridContainer/LoadGame" to="." method="_on_load_game_pressed"]

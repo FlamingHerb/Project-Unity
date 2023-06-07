@@ -1,14 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://doscc68ks0f2y"]
+[gd_scene load_steps=19 format=3 uid="uid://doscc68ks0f2y"]
 
 [ext_resource type="Script" path="res://scene/levels/intro/detective_bedroom.gd" id="1_jci3d"]
 [ext_resource type="Texture2D" uid="uid://mxcdl1mo72cy" path="res://assets/graphics/background/PRO_NewBedroom.png" id="2_5tufu"]
+[ext_resource type="Texture2D" uid="uid://bmmj45wlkracp" path="res://assets/graphics/background/DARK_bedroom.png" id="2_hs8ia"]
 [ext_resource type="Texture2D" uid="uid://dfix8i81sqo4u" path="res://assets/graphics/background/PRO_drawer_closeupempty.png" id="3_cckxn"]
 [ext_resource type="Texture2D" uid="uid://riw1hp5yc6hl" path="res://assets/graphics/bg_items/PRO_bedroom2_bags.png" id="3_smy63"]
 [ext_resource type="BitMap" uid="uid://dc8hhl14sw2je" path="res://assets/graphics/bg_items/PRO_bedroom2_bags_bitmask.png" id="4_4hptp"]
-[ext_resource type="Texture2D" uid="uid://bikfwuncd7on1" path="res://assets/graphics/background/PRO_drawer_closeup.png" id="4_olenb"]
 [ext_resource type="Texture2D" uid="uid://cygbkfrnvi1g8" path="res://assets/graphics/bg_items/PRO_drawer_gun.png" id="5_ajhxr"]
 [ext_resource type="BitMap" uid="uid://hj2jwgxhsrju" path="res://assets/graphics/bg_items/PRO_drawer_gun_bitmap.png" id="6_ock0q"]
+[ext_resource type="Texture2D" uid="uid://hul3enous5uy" path="res://assets/graphics/background/DARK_gun_closeup_missing.png" id="6_she6y"]
 [ext_resource type="Texture2D" uid="uid://mm7huj1gl36f" path="res://assets/graphics/background/PRO_Magazine_Closeup.png" id="9_v6dm5"]
+[ext_resource type="Texture2D" uid="uid://d30wsvv1u8428" path="res://assets/graphics/background/DARK_magazine_closeup_missing.png" id="10_6mmos"]
+[ext_resource type="Texture2D" uid="uid://b0jqk2hwn2snx" path="res://assets/graphics/bg_items/PRO_Magazine.png" id="12_nxljt"]
+[ext_resource type="BitMap" uid="uid://cmpic70bg60hd" path="res://assets/graphics/bg_items/PRO_Magazine_bitmask.png" id="13_pfqrn"]
+
+[sub_resource type="GDScript" id="GDScript_5xnck"]
+script/source = "extends TextureRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_ptfv0"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"intruder\"):
+		show()
+		return
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_0yg54"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		hide()
+		return
+	if GlobalDatabase.check_switch(\"bag_taken\"):
+		show()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
 
 [sub_resource type="GDScript" id="GDScript_vlvps"]
 script/source = "extends TextureButton
@@ -16,7 +67,28 @@ script/source = "extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		queue_free()
+		return
 	if Inventory.check_item(\"Gun\"):
+		queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_ekcxy"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if GlobalDatabase.check_switch(\"finale_sequence\"):
+		queue_free()
+		return
+	if Inventory.check_item(\"Magazine\"):
 		queue_free()
 
 
@@ -36,10 +108,17 @@ offset_right = 1124.0
 offset_bottom = 480.0
 color = Color(0, 0, 0, 1)
 
+[node name="BackgroundDark" type="TextureRect" parent="Main"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_hs8ia")
+metadata/_edit_lock_ = true
+
 [node name="Background" type="TextureRect" parent="Main"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_5tufu")
+script = SubResource("GDScript_5xnck")
 metadata/_edit_lock_ = true
 
 [node name="Closet" type="Area2D" parent="Main"]
@@ -60,6 +139,22 @@ polygon = PackedVector2Array(78, 513, 87, 604, 318, 499, 312, 411)
 position = Vector2(1458, -272)
 polygon = PackedVector2Array(97, 271, 60, 1068, 461, 1116, 461, 271)
 
+[node name="Pillow" type="Area2D" parent="Main"]
+position = Vector2(-1210, 76)
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/Pillow"]
+position = Vector2(1297, 282)
+polygon = PackedVector2Array(219, 394, 225, 482, 287, 395, 439, 298)
+
+[node name="UnderBed" type="Area2D" parent="Main"]
+visible = false
+position = Vector2(-432, 250)
+script = SubResource("GDScript_ptfv0")
+
+[node name="Interactable" type="CollisionPolygon2D" parent="Main/UnderBed"]
+position = Vector2(1297, 282)
+polygon = PackedVector2Array(199, 443, 199, 540, 406, 329, 394, 251)
+
 [node name="DuffelBag" type="TextureButton" parent="Main"]
 visible = false
 offset_left = 720.0
@@ -68,21 +163,22 @@ offset_right = 1053.0
 offset_bottom = 880.0
 texture_normal = ExtResource("3_smy63")
 texture_click_mask = ExtResource("4_4hptp")
+script = SubResource("GDScript_0yg54")
 
 [node name="DrawerCloseup" type="Node2D" parent="."]
 visible = false
+
+[node name="BackgroundDark" type="TextureRect" parent="DrawerCloseup"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_she6y")
+metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="DrawerCloseup"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_cckxn")
 metadata/_edit_lock_ = true
-
-[node name="Background2" type="TextureRect" parent="DrawerCloseup"]
-visible = false
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("4_olenb")
 
 [node name="Gun" type="TextureButton" parent="DrawerCloseup"]
 offset_left = 150.0
@@ -105,14 +201,42 @@ text = "Return"
 [node name="PillowCloseup" type="Node2D" parent="."]
 visible = false
 
+[node name="BackgroundDark" type="TextureRect" parent="PillowCloseup"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("10_6mmos")
+metadata/_edit_lock_ = true
+
 [node name="Background" type="TextureRect" parent="PillowCloseup"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_v6dm5")
 
+[node name="Magazine" type="TextureButton" parent="PillowCloseup"]
+offset_left = 221.0
+offset_top = 158.0
+offset_right = 879.0
+offset_bottom = 502.0
+texture_normal = ExtResource("12_nxljt")
+texture_click_mask = ExtResource("13_pfqrn")
+script = SubResource("GDScript_ekcxy")
+
+[node name="PillowReturnButton" type="Button" parent="PillowCloseup"]
+offset_left = 87.0
+offset_top = 943.0
+offset_right = 200.0
+offset_bottom = 996.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
 [connection signal="input_event" from="Main/Closet" to="." method="_on_closet_input_event"]
 [connection signal="input_event" from="Main/Drawer" to="." method="_on_drawer_input_event"]
 [connection signal="input_event" from="Main/Door" to="." method="_on_door_input_event"]
+[connection signal="input_event" from="Main/Pillow" to="." method="_on_pillow_input_event"]
+[connection signal="input_event" from="Main/UnderBed" to="." method="_on_under_bed_input_event"]
 [connection signal="pressed" from="Main/DuffelBag" to="." method="_on_duffel_bag_pressed"]
 [connection signal="pressed" from="DrawerCloseup/Gun" to="." method="_on_gun_pressed"]
 [connection signal="pressed" from="DrawerCloseup/BoxReturnButton" to="." method="_on_box_return_button_pressed"]
+[connection signal="pressed" from="PillowCloseup/Magazine" to="." method="_on_magazine_pressed"]
+[connection signal="pressed" from="PillowCloseup/PillowReturnButton" to="." method="_on_pillow_return_button_pressed"]

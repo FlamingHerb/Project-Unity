@@ -2,10 +2,34 @@
 
 [ext_resource type="Script" path="res://scene/managers/global_timer.gd" id="1_d1dyg"]
 
-[node name="GlobalTimer" type="Node"]
+[node name="GlobalTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_d1dyg")
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+[node name="TimeLayer" type="CanvasLayer" parent="."]
+visible = false
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Timer" type="Timer" parent="TimeLayer"]
+process_mode = 1
+
+[node name="TimerText" type="Label" parent="TimeLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -128.0
+offset_right = -63.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "00:00"
+
+[connection signal="timeout" from="TimeLayer/Timer" to="." method="_on_timer_timeout"]

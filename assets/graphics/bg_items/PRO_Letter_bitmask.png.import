@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dmyyy0agas2xy"
+path="res://.godot/imported/PRO_Letter_bitmask.png-dc63f6563b33922ddd0504e70b1e8ff0.res"
+
+[deps]
+
+source_file="res://assets/graphics/bg_items/PRO_Letter_bitmask.png"
+dest_files=["res://.godot/imported/PRO_Letter_bitmask.png-dc63f6563b33922ddd0504e70b1e8ff0.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
