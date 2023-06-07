@@ -21,7 +21,7 @@ This is a course requirements for CS191/192 Software Engineering Courses of the 
 
 ## :arrow_down: Download
 
-[A debugging demo is available in Netlify by pressing this convenient link to it.](https://cs192-project-unity.netlify.app/)
+[A debugging demo is available in Netlify by pressing this convenient link to it.](https://cs-192-private-eye.netlify.app/)
 
 ## :scroll: License
 
